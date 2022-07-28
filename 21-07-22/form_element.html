@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X_UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scal=1.0">
+    <title>Form element</title>
+</head>
+
+<body>
+    <h3>With help of &lt;fieldset&gt;</h3>
+    <fieldset>
+        <legend>Personal Info by &lt;legend&gt;</legend>
+        <form action="" taget="_blank">
+            <h3>input field with autofocus attribute</h3>
+            <label>Name:</label>
+            <input type="text" id="name" name="name" autofocus><br /><br/>
+
+            <h3 class="">Simple select tag with option tag</h3>
+            <label>Village</label>
+            <!-- simple without any attribute -->
+            <select id="village" name="village">
+                <option>Kothasana</option>
+                <option>Satlasana</option>
+                <option>Bhalusana</option>
+            </select>
+
+            <h3>Select tag with attribute size="2"</h3>
+            <label>Village</label>
+            <!-- with multiple and size attribute number of entry visible -->
+            <select id="village" name="village" size="2" multiple>
+                <option>Kothasana</option>
+                <option>Satlasana</option>
+                <option>Bhalusana</option>
+            </select>
+
+            <h3>Select tag with attribute multiple</h3>
+            <label>Village</label>
+            <!-- without size ttribute -->
+            <select id="village" name="village" multiple>
+                <option>Kothasana</option>
+                <option>Satlasana</option>
+                <option>Bhalusana</option>
+            </select>
+
+            <h3>Select tag with size="2" and attribute multiple</h3>
+            <label>Village</label>
+            <!-- with  by default selected but you can change  -->
+            <select id="village" name="village" size="2" multiple>
+                <option selected>Kothasana</option>
+                <option>Satlasana</option>
+                <option>Bhalusana</option>
+            </select>
+
+            <h3>input tag with attribute list="state" and datalist tag with id is same as list attribute value</h3>
+            <!-- datalist -->
+            <input name="state" list="state">
+            <datalist id="state">
+                <!-- id should be list attribut's value-->
+                <option value="Gujarat">
+                <option>Delhi</option>
+                <option>Goa</option>
+                <option value="kerala"></option>
+            </datalist>
+            <br />
+
+
+
+        </form>
+    </fieldset>
+    <!-- output tag -->
+    <h3>Output tag which shows the results of two input action</h3>
+    <form action="" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0
+        <input type="range" id="a" name="a" value="50">
+        100 +
+        <input type="number" id="b" name="b" value="50">
+        =
+        <output name="x" for="a b"></output>
+        <br><br>
+        <input type="submit">
+    </form>
+    <br/><br/>
+
+    <h3>output tag with input action</h3>
+    <form action="" oninput="x.value=parseInt(a.value)">
+        0<input type="range" id="a" name="a" value="40">100
+        =<output name="x" for="a"></output>
+    </form>
+</body>
+
+</html>

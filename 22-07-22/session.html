@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session hits</title>
+</head>
+<body>
+
+
+<p>Refresh the window or tab to increase number of hits</p>
+    <script type="text/javascript">
+        if(sessionStorage.hits){
+            sessionStorage.hits= Number(sessionStorage.hits)+1;
+        }
+        else{
+            sessionStorage.hits=1;
+        }
+        document.write("Total hits: "+ sessionStorage.hits);
+    </script>
+</body>
+    
+</html>

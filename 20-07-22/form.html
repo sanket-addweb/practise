@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body {
+            /* background:url(bg_1.jpg) no-repeat center; */
+            /* background:url(bg_1.jpg) center; */
+            width: 100%;
+            height: 100%;
+            /* z-index:-1; */
+            /* repeat: no-repeat; */
+        }
+
+        .container::before {
+            content: "";
+            background: url('/home/sanket/Desktop/Add-web-training/20-07-22/bg image.jpeg') no-repeat center center/cover;
+            position: absolute;
+            width: 100%;
+            height: 650px;
+            z-index: -1;
+            opacity: 0.7;
+            top: 0px;
+            left: 0px;
+        }
+
+        .container {
+            /* background:url(bg\ image.jpeg) no-repeat center; */
+            /* border:2px solid green; */
+            /* background-color: aquamarine; */
+            border-radius: 4px;
+            margin: 20px;
+            padding: 10px;
+            display: flex;
+            /* width:80%; */
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input,
+        textarea {
+            color: black;
+            margin: 10px;
+            padding: 4px;
+            border-radius: 4px;
+            font-size:16px;
+            
+        }
+
+        input[type="text"] {
+            display: block;
+            width: 100%;
+            border: 2px solid black;
+            /* border-radius:4px; */
+            box-sizing: border-box;
+        }
+
+        #address {
+            display: block;
+            width: 100%;
+            border: 2px solid black;
+            /* border-radius:4px; */
+            box-sizing: border-box;
+        }
+
+        div>.xyz {
+            margin: 4px;
+        }
+
+        #form-group {
+            /* color:blue; */
+            margin: 10px;
+            padding: 14px;
+            /* border-radius:7px; */
+            /* border: 6px solid #9090b6; */
+            width: 45%;
+            /* background-color: #add3c6; */
+            font-size:23px;
+            /* font-family: 'Baloo 2', cursive; */
+        }
+
+        .btn {
+            background-color: brown;
+            border-radius: 10px;
+            width: 20%;
+            padding: 2px 10px;
+            margin: 20px 36px;
+            cursor: pointer;
+            font-size:18px;
+        }
+        h1{
+            text-align:center;
+            margin:16px;
+            padding:12px;
+            font-family: 'Baloo 2', cursive;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Our Form Sample</h1>
+    <div class="container">
+        <form id="form-group" action="table and list.html" method="get" autocomplete="on">
+            <label>First Name:</label>
+            <input type="text" name="fname" id="name" required autofocus></input>
+            <!-- <br /> -->
+            <label>Last Name:</label>
+            <input type="text" name="lname" id="lname" required></input>
+            <!-- <br /> -->
+            <div class="xyz">
+                <label>Gender:</label>
+                Male<input type="radio" id="male" name="Gender2">
+                <!--Input tag is empty tag it not require to close it, But it is okay to Close-->
+                Female<input type="radio" id="Female" name="Gender2">
+                Other<input type="radio" id="other" name="Gender2">
+                <br />
+                <label>Hobies</label>
+                <input type="checkbox" value="Reading">Reading
+                <input type="checkbox" value="">Playing
+                <br />
+            </div>
+            <label>Address:</label>
+            <textarea id="address" name="address" height="20px" width="60px"></textarea>
+            <!-- <br /> -->
+            <label>Date Of birth</label>
+            <input type="date" name="dt">
+            <br />
+            <label>Car:</label>
+            <select>
+                <option value="Select now">Select Now</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Swift">Swift</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+            <br />
+            <input type="submit" class="btn" value="Submit" name="submit">
+            <input type="reset" class="btn" value="reset" name="reset">
+            <input type="button" class="btn" value="Click here" name="button">
+            <!-- <input type="image" id="img" src="/home/sanket/pictures/bg image2.jpg"> -->
+            <!-- <input type="image" class="btn" name="img2" src="/bg image.jpeg" height="30px" width="30px"> -->
+
+
+        </form>
+    </div>
+</body>
+
+</html>

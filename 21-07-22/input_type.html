@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form attribute</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Information</legend>
+        choose your color:<input type="color">
+        <br/>
+        your birth date:<input type="date"><br/><br/>
+
+        For voter id card<br/>
+        you should be grater than 18 <br/>
+        Enter your Birthdate:<input type="date" max="2004-07-21"><br/><br/>
+
+        age should not more than 23 years<br/>
+        Enter date after 1999-07-21<input type="date" min="1999-07-21"><br/><br/>
+
+        <!-- datetime-local -->
+        birthdate with time<input type="datetime-local"><br/><br/>
+
+        choose file for reference
+        <input type="file" name="file-upload"><br/><br/>
+        Enter your phone<input type="tel" id="phone" name="phone" placeholder="231-1223-123" maxlength="12" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}"><br/><br/>
+
+
+        <!-- type="hidden" -->
+        Your Id is hidden
+        <input type="hidden" id="cust" name="cust_id" value="2212"><br/><br/>
+
+        <!-- type="month" -->
+        choose Month<input type="month"><br/><br/>
+
+        <!-- type="number" -->
+        choose rank between 1 to 5 <input type="number" min="0" max="5"><br/><br/>
+
+        <!-- value attribute is define initial value and required attribute -->
+        <label>First name</label>
+        <input type="text" name="fname" id="fname" value="John" required><br/><br/>
+
+        <label>First name</label>
+        <input type="text" name="fname" id="fname" value="John" readonly><br/><br/>
+
+        <label>Last name</label>
+        <input type="text" name="fname" id="lname" value="John" disabled><br/><br/>
+
+        <!-- The input maxlength attribute specifies the maximum number of characters allowed in an input field -->
+        <label>Pin code</label>
+        <input type="text" name="fname" id="pin" maxlength="6" pattern="[0-9]{6}"><br/><br/>
+
+        <label>Point in Game</label>
+        <input type="number" name="point" id="point" step="6" min="0"><br/><br/>
+
+        <!-- The autofocus attribute specifies that the input field should automatically get focus when the page loads. means curser is on first input field-->
+        <label>First name</label>
+        <input type="text" name="fname" id="fname" value="John" required><br/>
+
+        <label>Last name</label>
+        <input type="text" name="lname" id="lname" value="peter" autofocus><br/><br/>
+
+
+        
+
+
+
+    </fieldset>
+    
+    
+</body>
+</html>

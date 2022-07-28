@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS layout</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .header {
+            height:100px;
+            width:1518px;
+            background-color:aqua;
+        }
+        .header_logo{
+            height:70px;
+            width:185px;
+            background-color: blue;
+            float:left;
+            /* margin:5px; */
+            /* margin:5px 5px 5px 5px;*//*margin:Top Right Bottom Left; trbl */
+            margin:5px 5px;/* margin:top and bottom left and right*/
+            padding:5px;
+        }
+        .header_title{
+            height:70px;
+            width:1285px;
+            background-color: rgb(144, 144, 182);
+            float:left;
+            margin:5px;
+            padding:5px;
+        }
+        #nav{
+            height:40px;
+            width:1508px;
+            background-color:blueviolet;
+            margin:5px;
+            padding:5px;
+
+        }
+        .slider{
+            height:200px;
+            width:1518px;
+            background-color:rgb(3, 67, 67);
+            margin:5px;
+        }
+        .slider1{
+            height:170px;
+            width:735px;
+            background-color:rgb(120, 165, 165);
+            float:left;
+            margin:5px;
+            padding:5px;
+        }
+        .slider2{
+            height:170px;
+            width:735px;
+            background-color:rgb(142, 189, 117);
+            float:left;
+            margin:5px;
+            padding:5px;
+        }
+        .content{
+            height:250px;
+            width:1518px;
+            background-color:rgb(67, 33, 3);
+            margin:5px;
+        }
+        .content1{
+            height:230px;
+            width:485px;
+            background-color:rgb(102, 88, 146);
+            float:left;
+            margin:5px;
+            padding:5px;
+        }
+        .content2{
+            height:230px;
+            width:485px;
+            background-color:rgb(67, 166, 80);
+            float:left; 
+            margin:5px;
+            padding:5px;
+        }
+        .content3{
+            height:230px;
+            width:485px;
+            background-color:rgb(196, 85, 170);
+            float:left;
+            margin:5px;
+            padding:5px;
+        }
+        .footer{
+            height:150px;
+            width:1508px;
+            background-color:rgb(111, 80, 53);
+            margin:5px;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header_logo">
+            Logo arives here
+        </div>
+        <div class="header_title">
+            Header title
+        </div>
+    </div>
+    <div id="nav">
+        Navigation bar
+    </div>
+    <div class="slider">
+        <div class="slider1">
+            Slider text1
+        </div>
+        <div class="slider2">
+            Slider text2
+        </div>
+    </div>
+    <div class="content">
+        <div class="content1">
+            Content1
+        </div>
+        <div class="content2">
+            Content2
+        </div>
+        <div class="content3">
+            Content3
+        </div>
+    </div>
+    <div class="footer">
+        Footer
+    </div>
+    
+</body>
+</html>

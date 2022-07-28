@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <!-- <p>The name in Local storage is:</p>
+    <p id="demo1"></p> -->
+
+    <!-- <p>Refresh the page to Increase the number of hits </p> -->
+
+    <form id="form1" name="form1">
+        Username<input type="text" id="uname"><br/>
+        <input type="submit" value="Submit Now" onclick="showUname()">
+    </form>
+
+    <script>
+
+       //set item
+       
+       function showName(){
+           let a=document.getElementById("uname");
+           localStorage.setItem("username","a");
+           //retrive item
+           let b= a.innerHTMl=localStorage.getItem("username");
+            alert("The Username is "+b+" which is stored in Localstorage");
+       }
+
+
+        
+
+        // //set item
+        // localStorage.setItem("username", "Yogesh");
+        // //retrive item
+        // document.getElementById("demo").innerHTMl = localStorage.getItem("username");
+
+        // if(localStorage.hits){
+        //     localStorage.hits=Number(localStorage.hits)+1;
+        // }
+        // else{
+        //     localStorage.hits=1;
+        // }
+        // document.write("The Number of hits in Localstorage is"+ localStorage.hits);
+
+    </script>
+</body>
+
+</html>

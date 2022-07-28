@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js basic</title>
+</head>
+
+<body>
+    <form action="" id="form" name="form1" target="_blank">
+        First value:<input type="text" name="" id="text1"><br />
+        Second value:<input type="text" id="text2"><br />
+        <input type="button" id="btn" value="Click here" formtarget="_blank" onclick="show()">
+        <br/>
+        <b id="result"></b>
+    </form>
+    <p id="demo">with help of document.getElementById("").innerHTml</p>
+    <p id="demo2">withhelp of document.write()</p>
+    <input type="button" value="click here" onclick="document.write(4+6)"></input>
+
+    <script type="text/javascript">
+        function show() {
+            var a =parseInt(document.getElementById("text1").value);
+            var b =parseInt(document.getElementById("text2").value);
+            // var b = document.form1.text2.value;
+            var c=a+b;
+            var d=a-b;
+            //how to print 3 method
+            // document.write(c);
+            // alert(c);
+            // console.log("The value of first input is");
+            // document.getElementById("result").innerHTML=c;
+            document.getElementById("result").innerHTML=c+"    "+d;
+        }
+        document.getElementById("demo").innerHTML="Sanket";
+        document.write(3+2);
+    </script>
+</body>
+
+</html>

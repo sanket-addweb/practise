@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Simple Form Without CSS</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h3>Form tag sample with action and method attribute </h3>
+        <!-- <form id="form-group" action="table and list.html" method="get" novalidate> -->
+            <form id="form-group" action="table and list.html" method="get">
+            <label>First Name:</label>
+            <input type="text" name="fname" id="name" placeholder="Enter your Firstname" required></input>
+            <br />
+            <label>Last Name:</label>
+            <input type="text" name="lname" id="lname" placeholder="Enter your Lastname" required></input>
+            <br />
+            <label>Gender:</label>
+            Male: <input type="radio" id="male" name="Gender2">
+            <!--Input tag is empty tag it not require to close it, But it is okay to Close-->
+            Female:<input type="radio" id="Female" name="Gender2">
+            Other:<input type="radio" id="other" name="Gender2">
+            <br />
+            <label>Hobies</label>
+            <input type="checkbox" value="Reading">Reading
+            <input type="checkbox" value="">Playing
+            <br />
+            <label>Address:</label>
+            <textarea id="address" name="address" height="20px" width="60px"></textarea>
+            <br />
+            <label>Date Of birth</label>
+            <input type="date" name="dt">
+            <br />
+            <label>Car:</label>
+            <select>
+                <option value="Select now">Select Now</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Swift">Swift</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+            <br />
+            <input type="submit" class="btn" value="Submit" name="submit">
+            <h3>Input with type="submit" and formaction attribute</h3>
+            <input type="submit" class="btn" value="Submit" name="submit" formaction="form.html">
+            <h3>Input with type="reset"</h3>
+            <input type="reset" class="btn" value="reset" name="reset">
+            <h3>Input with type="button"</h3>
+            <input type="button" class="btn" value="Click here" name="button">
+            <h3>Input with type="image" and source path is given</h3>
+            <!-- <input type="image" id="img" src="/home/sanket/pictures/bg image2.jpg"> -->
+            <input type="image" class="btn" name="img2" src="/bg image.jpeg" height="30px" width="30px">
+        </form>
+
+        <h3>Range tag</h3>
+        <form>
+        <label for="vol">Volume (between 0 and 50):</label>
+        <input type="range" id="vol" name="vol" min="0" max="50">
+        <input type="submit">
+        
+        <h3>submit using formmethod nad formaction attribute</h3>
+        <input type="submit" id="btn" name="submit_now" formmethod="post" value="submit using post"><br/><br/>
+        <input type="submit" id="btn" name="submit_now" formaction="tut_1.html" formtarget="_blank" value="submit to new tab using _blank">
+        </form>
+    </div>
+    <h3>embed tag with source form.html</h3>
+    <embed src="/form.html" width="700" height="700">
+</body>
+
+</html>

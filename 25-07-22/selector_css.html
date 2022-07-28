@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+</head>
+<style>
+    div.container {
+        width: 100%;
+        height: 400px;
+        background-color: rgb(105, 169, 110);
+        border: 2px solid black;
+        border-radius: 4px;
+    }
+
+    /* element selector */
+    p {
+        font-size: 18px;
+    }
+
+    /* class selector */
+    .para {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* id selector */
+    /* #fourth{
+        color:rgb(171, 232, 18);
+    } */
+    /* grouping selector */
+    h1,
+    p {
+        padding: 12px;
+    }
+
+    h1 {
+        border: 2px solid red;
+    }
+
+    /* Universal selector */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* descendant selector */
+    /* div p{
+        color:red;
+    } */
+
+    /* child selector */
+    /* selecet element wich are direct child of div */
+    /* div>p {
+        color: red;
+    } */
+
+    /* adjacent sibling selector */
+    /* select element which are immeadeate after div*/
+    div+p{
+        color:red;
+    }
+    
+
+    /* general sibling selector */
+    div~p{
+        color:blueviolet;
+    }
+    div~p{
+        color:yellow;
+    }
+</style>
+
+<body>
+    <h1>Welcome to CSS selectors</h1>
+
+    <div class="container">
+        <p id="first" class="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia deserunt,
+            reprehenderit repellat delectus voluptatem perferendis fugiat omnis eum recusandae, voluptatibus debitis
+            maiores quas exercitationem quo earum dolores quibusdam suscipit error tempora ut molestiae repudiandae
+            nostrum harum. Provident excepturi impedit sit mollitia ab, amet saepe dolorum. Laboriosam excepturi ipsum
+            architecto possimus?</p>
+        <section>
+            <p class="para" id="second">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis impedit
+                aliquid blanditiis odio earum? Corporis iure cum ab officia in.</p>
+        </section>
+    </div>
+    <p class="para" id="seventh">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dicta tempora, animi earum
+        aliquid totam eos repudiandae, repellat in excepturi ipsa. Nihil error soluta impedit quas sit adipisci,
+        voluptatum aliquid, animi odit cupiditate tenetur praesentium.</p>
+    <div class="container">
+        <p class="para" id="third">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur deserunt ut
+            sunt, quo consequatur expedita ad deleniti magni ducimus impedit, minima sequi accusantium maiores atque
+            delectus quam tenetur ullam in voluptate voluptates aliquam nobis tempora fugit? Possimus doloribus optio
+            cum.</p>
+
+        <p class="para" id="fourth">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur deserunt ut
+            sunt, quo consequatur expedita ad deleniti magni ducimus impedit, minima sequi accusantium maiores atque
+            delectus quam tenetur ullam in voluptate voluptates aliquam nobis tempora fugit? Possimus doloribus optio
+            cum.</p>
+        <section>
+            <p class="para" id="fifth">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur deserunt ut
+                sunt, quo consequatur expedita ad deleniti magni ducimus impedit, minima sequi accusantium maiores atque
+                delectus quam tenetur ullam in voluptate voluptates aliquam nobis tempora fugit? Possimus doloribus
+                option Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque tempora accusantium, eaque ratione
+                temporibus sed, at soluta error quia labore nemo corrupti doloremque, distinctio voluptas vitae magni
+                nesciunt blanditiis itaque?</p>
+        </section>
+
+        <p class="para" id="sixth">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur deserunt ut
+            sunt, quo consequatur expedita ad deleniti magni ducimus impedit, minima sequi accusantium maiores atque
+            delectus quam tenetur ullam in voluptate voluptates aliquam nobis tempora fugit? Possimus doloribus optio
+            cum.</p>
+    </div>
+    <p class="para" id="eightth">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel id consectetur aut quia. Magnam consequuntur
+        officiis atque natus nulla fugit fuga explicabo iste aut obcaecati veritatis, reprehenderit dicta iusto?
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quidem nobis fugiat delectus, nulla animi voluptatem velit nam mollitia recusandae commodi veritatis officia incidunt temporibus deleniti ratione hic magni? Et incidunt cupiditate praesentium id aspernatur?</p>
+
+</body>
+
+</html>
