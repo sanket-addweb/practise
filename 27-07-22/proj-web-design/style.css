@@ -5,7 +5,7 @@
 
 .main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(1.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(/home/sanket/Desktop/Sanket-Add-web/27-07-22/proj-web-design/1.jpg);
     background-position: center;
     background-size: cover;
     height: 100vh;
