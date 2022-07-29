@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-container{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            font-size: 22px;
+            padding:20px;
+        }
+        form input{
+            padding:10px;
+            margin:10px;
+        }
+        form button{
+            background-color: #666;
+            font-size: 20px;
+            border-radius: 10px;;
+        }
+    </style>
+
+    <script>
+
+        function data(){
+            var uid=document.getElementById("username").value;
+            var pw=document.getElementById("password").value;
+            
+        alert("xsdwcddscdscds" + uid +" "+pw);
+        var user=localStorage.setItem("uid",uid);
+        var pass=localStorage.setItem("pw",pw);
+
+        var user1=sessionStorage.setItem("uid",uid);
+        var pass1=sessionStorage.setItem("uid",pw);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <form action="" id="form">
+            <h1>Store Login data to localstorage and session storage</h1>
+            <h2>Login Here</h2>
+            Username:<input type="text" name="username" id="username" required autofocus><br/>
+            Password: <input type="password" name="password" id="password" required><br/>
+            <button type="submit" class="btn" onclick="data()">Sumbit</button>
+        </form>
+        <p id="retrive"></p>
+    </div>
+</body>
+
+</html>

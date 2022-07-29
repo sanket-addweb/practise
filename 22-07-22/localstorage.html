@@ -18,17 +18,17 @@
         Username<input type="text" id="uname"><br/>
         <input type="submit" value="Submit Now" onclick="showUname()">
     </form>
+    <p id="b"></p>
 
     <script>
-
-       //set item
-       
        function showName(){
+        //set item
            let a=document.getElementById("uname");
            localStorage.setItem("username","a");
            //retrive item
-           let b= a.innerHTMl=localStorage.getItem("username");
-            alert("The Username is "+b+" which is stored in Localstorage");
+           //let b= a.innerHTMl=localStorage.getItem("username");
+           document.getElementById("b").innerHTML=localStorage.getItem("username");
+            // alert("The Username is "+b+" which is stored in Localstorage");
        }
 
 
