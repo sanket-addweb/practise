@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bafb2eb661.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="/home/sanket/Desktop/Sanket-Add-web/29-07-22/portfolio-web/images/logo.png" alt="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>UI/UX Designer</p>
+                <h1>Hi, I'm <span>kevin Jen</span><br/> from India</h1>
+            </div>
+        </div>
+    </div>
+<!-- ---------about----------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/home/sanket/Desktop/Sanket-Add-web/29-07-22/portfolio-web/images/user.png" alt="user">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nostrum eveniet eos est cumque aut, blanditiis sequi earum veniam, voluptatum ad magnam deserunt quos vel inventore impedit alias sapiente nemo nihil quisquam? Voluptate deleniti adipisci quas aspernatur consequatur reiciendis eum. Lorem ipsum dolor sit, amet ab excepturi commodi deleniti eum</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI?UX</span><br/>Designing web/app interfaces</li>
+                            <li><span>Web Development</span><br/>Designing web/app interfaces</li>
+                            <li><span>App Development</span><br/>Designing web/app interfaces</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2021-Current</span><br/>Assistant Manager</li>
+                            <li><span>2019-2021</span><br/>Senior developer</li>
+                            <li><span>2017-2019</span><br/>Junior developer</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021</span><br/>BE in computer science</li>
+                            <li><span>2017</span><br/>HSC</li>
+                            <li><span>2015</span><br/>SSC</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- --------services------ -->
