@@ -1,0 +1,28 @@
+h1{
+    text-align:center;
+    margin: 20px;
+    margin-top: 30px;
+    color:green;
+}
+.row{
+    width: 300px;
+    margin: 20px auto;
+    background-color: rgb(12, 12, 12);
+    border: 2px solid blue;
+}
+.sd1{
+    height: 100px;
+    position: relative;
+}
+.sd1:before{
+    position:absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    /* top:0px; */
+    top:100px;
+    left: 0px;
+    background-color: black;
+    transform: skewY(20deg);
+    z-index: -1;
+}
