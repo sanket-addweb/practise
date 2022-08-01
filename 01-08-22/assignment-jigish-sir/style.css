@@ -27,34 +27,6 @@ body{
     transform-origin: top left;
     z-index: -1;
 }
-/* .header::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 664px;
-    background-color: white;
-    transform: skewY(22deg);
-    height: 183%;
-    width: 100%;
-    /* border: 10px solid red; */
-   /* border-top: 10px solid aqua;
-} */
-/* .header .for-transform{
-    height:670px;
-    background-color: #013640;
-}
-.header .for-transform:before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 664px;
-    background-color: white;
-    transform: skewY(158deg);
-    height: 183%;
-    width: 100%;
-    /* border: 10px solid red; */
-  /*  border-top: 10px solid aqua;
-} */
 .navbar{
     width: 100%;
     height: 91px;
@@ -139,7 +111,6 @@ body{
     font-size: 100px;
     color: white;
     border-bottom: 2px solid white;
-    /* text-decoration: underline; */
     padding-top: 12px;
     margin-top: 6px;
     position: relative;
@@ -198,15 +169,6 @@ body{
     /* margin-top: -25px; */
 }
 .salted-main .salted-1{
-    /* width: 100%;
-    height: 400px;
-    position:relative;
-    background-color: black;
-    top: 0px;
-    left: 0px;
-    transform: skewY(175deg);
-    transform-origin: top right; */
-
     width: 100%;
     height: 650px;
     position: absolute;
@@ -215,22 +177,7 @@ body{
     left: 0px;
     transform: skewY(175deg);
     transform-origin: top right;
-
 }
-/* .philosophy:before{
-
-    position: absolute;
-    content: '';
-    left: 0;
-    /* top: 465px; */
-   /* top: 380px;
-    background-color: white;
-    transform: skewY(170deg);
-    height: 170%;
-    width: 100%;
-    /* border: 10px solid red; */
-  /*  border-bottom: 10px solid aqua;
-} */
 .philosophy h2{
     font-size: 40px;
     /* border-bottom: 2px solid #40c8c8; */
@@ -290,9 +237,6 @@ body{
     display: flex;
     margin-top: -200px;
     position: relative;
-    /* left:0px; */
-    /* top: 0px; */
-    /* z-index: -3; */
 }
 .salted-main-4 .salted-8{
     width: 100%;
@@ -308,12 +252,6 @@ body{
     margin-top: -153px;
 }
 .salted-main-4 .salted-4{
-    /* width: 100%;
-    height:800px;
-    background-color: black;
-    position: absolute;
-    left: 0;
-    top: 0; */
     z-index: -1;
     width: 100%;
     height: 700px;
@@ -336,20 +274,6 @@ body{
     height: 350px;
     margin: 12px;
 }
-/* .yoga-class-divide:before{
-
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 1035px;
-    background-color: rgb(255, 255, 255);
-    transform: skewY(170deg);
-    height: 25%;
-    width: 100%;
-    /* border: 10px solid red; */
-  /*      border-top: 10px solid aqua;
-    z-index: -3;
-} */
 .yoga-class-divide .container-1{
     margin-top: 190px;
 }
@@ -422,9 +346,6 @@ body{
     align-items: center;
     flex-direction: column;
     margin-top: 60px;
-    /* position: relative; */
-    /* top: -103px; */
-    /* z-index: -2;*//*keep z-index greater than -3 becuse we set .yoga-class-divided:before and .yoga-class-divided is -3 */
 }
 .yoga-beginners h2{
     font-size:50px;
@@ -489,13 +410,6 @@ body{
     /* background-color: cyan; */
 }
 .salted-main-2 .salted-2{
-    /* width: 100%;
-    height: 650px;
-    background-color: black;
-    position: relative;
-    left:0px;
-    top:0px; */
-
     transform: skewY(175deg);
     width: 100%;
     height: 590px;
@@ -672,12 +586,6 @@ body{
     border-top: 25px solid #40c8c8;
 }
 .salted-main-3 .salted-3{
-    /* width: 100%;
-    height:300px;
-    background-color: black;
-    position: absolute;
-    top: 0px;
-    left: 0px; */
 
     transform-origin: top left;
     transform: skewY(5deg);
@@ -739,19 +647,6 @@ body{
     align-items: center;
     position: relative;
 }
-/* .yoga-therapy:before{
-
-    position: relative;
-    content: '';
-    left: 0;
-    top: 0px;
-    background-color: rgb(255, 255, 255);
-    transform: skewY(170deg);
-    height: 2%;
-    width: 100%;
-    /* border: 10px solid red; */
-   /* border-bottom: 10px solid aqua;
-} */
 .yoga-therapy:before{
     content:" ";
     background: url("/home/sanket/Desktop/Sanket-Add-web/29-07-22/assignment-jigish-sir/image/yoga-bg-last.jpeg") no-repeat center center/cover;
