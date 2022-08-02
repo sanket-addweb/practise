@@ -55,7 +55,7 @@ body{
 .navbar ul li span{
     margin: 0px 50px 0px 50px;
 }
-.navbar .three-dots{
+.navbar .dropdown .three-dots{
     display: inline-block;
     font-size: 35px;
     padding:8px;
@@ -63,6 +63,21 @@ body{
     /* color:teal; */
     color:#40c8c8;
     margin-left: 170px;
+}
+.dropdown{
+    display: inline-block;
+    position: relative;
+}
+.dropdown .dropdown-content{
+    right: 12px;
+    display: none;
+    position: absolute;
+    top: 43px;
+    left: 36px;
+    text-align: right
+}
+.dropdown:hover .dropdown-content{
+    display: block;
 }
 .navbar ul li a:hover{
     color: #ff004f;
