@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>convert into second</title>
+</head>
+<body>
+    <form action="">
+        <h1>conver Hours, Minutes and second into total second</h1>
+        Enter Hours<input type="text" id="hours">
+        Enter Minutes<input type="text" id="minutes">
+        Enter Seconds<input type="text" id="seconds">
+        
+        <button onclick="totalSecond()">Find total second</button>
+        <p id="print"></p>
+    </form>
+    <script>
+        function totalSecond(){
+           var h=document.getElementById("hours").value;
+           var m=document.getElementById("minutes").value;
+           var s=document.getElementById("seconds").value;
+        
+           var total;
+           total=h*3600+ m*60 + s;
+        //    document.getElementById("print").innerHTML="The Total Seconds is "+ total;
+        document.write("The Total Seconds is "+ total);
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowercase uppercase digit</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter character you want to know it is in Uppercase or Lowercase or digit</h1>
+        <input type="text" id="character" autofocus maxlength="1">
+        
+        
+        <button onclick="check()">click here to know</button>
+    </form>
+    <script>
+        function check(){
+            var ch=document.getElementById("character").value;
+            var index=0;
+            var i=ch.charCodeAt(index);
+            document.write("ASCII value of "+ch+" is "+ i +"<br/>");
+            if(i>=65 &&i<=90){
+                document.write(ch+" is in Uppercase Character");
+            }
+            else if(i>=97 && i<=122){
+                document.write(ch+" is in Lowercase Character"); 
+            }
+            else if(i>=48 && i<=57){
+                document.write(ch+" is digit");
+            }
+            else{
+                document.write(ch+" is special Character");
+            }
+        }
+    </script>
+</body>
+</html>

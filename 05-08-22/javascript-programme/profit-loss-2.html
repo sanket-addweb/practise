@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and loss</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter cost amount and selling amount to know profit or loss </h1>
+        Enter a cost price<input type="number" class="cost">
+        Enter a selling price<input type="number" class="selling">
+                
+        <button onclick="calculate()">Find prifit or loss</button>
+    </form>
+    <script>
+        function calculate(){
+            document.write("Welcome to profit loss");
+            var cost=parseFloat(document.getElementById("cost").value);
+            var selling=parseFloat(document.getElementById("selling").value);
+            // document.write(cost);
+            document.write(cost+" "+selling+"<br/>");
+            var profit, loss;
+            profit=parseFloat(selling-cost);
+            loss=parseFloat(cost-selling);
+            document.write(profit+" <br/>");
+            document.write(loss);
+            if(cost>selling){
+                document.write("Loss is "+ loss);
+            }
+            else if(selling>cost){
+                document.write("Profit is "+ profit);
+            }
+            else{
+                document.write("<br/>Nither profit Nor Loss, because selling price and cost price is same")
+            }
+        }
+    </script>
+</body>
+</html>

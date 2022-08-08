@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hours minutes second</title>
+</head>
+<body>
+    <form action="">
+        <h1>convert total second into Hours, Minutes and seconds</h1>
+        Enter Total second<input type="text" id="seconds">
+        
+        
+        <button onclick="calculate()">Find now</button>
+
+        <p id="print"></p>
+        <p id="print-2"></p>
+        <p id="print-3"></p>
+
+    </form>
+    <script>
+        function calculate(){
+            var s=document.getElementById("seconds").value;
+            var hrs, mint, sec;
+            var remainSec1, remainSec2;
+            hrs=parseInt(s/3600);
+            remainSec1=s%3600;
+            mint=parseInt(remainSec1/60);
+            remainSec2=remainSec1%60;
+            sec=remainSec2;
+            document.write("The Time in formate hrs:min:sec is "+hrs+":"+mint+":"+sec);
+            // document.getElementById("print").innerHTML="The total number of hours is "+ hrs;
+            // document.getElementById("print-2").innerHTML="The total number of hours is "+ mint;
+            // document.getElementById("print-3").innerHTML="The total number of hours is "+ sec;
+
+        }
+    </script>
+</body>
+</html>

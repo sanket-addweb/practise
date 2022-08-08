@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loss & profit</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to know it is palidrome or not</h1>
+        Enter a number:<input type="text" id="number">
+        
+        
+        <button onclick="calculate()">click here to know</button>
+    </form>
+    <script>
+        function calculate(){
+            var num=parseInt(document.getElementById("number").value);
+            var r,old,arm;
+            arm=0;
+            old=num;
+            while(num>0){
+                r=num%10;
+                arm=arm+r*r*r;
+                // num=num/10;
+                num=parseInt(num/10);
+            }
+            num=old;
+            if(arm==num){
+                document.write("The Enter number "+num+" is palidrome");
+            }
+            else{
+                document.write("The Enter number "+num+" is not palidrome");
+            }
+
+        }
+    </script>
+</body>
+</html>

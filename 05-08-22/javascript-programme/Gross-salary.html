@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gross salaray</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter basic salary and Know Gross salary</h1>
+        <h2>Here two allowance included with basic salaray, DA and HRA</h2>
+        <h2>HRA=20% of it's basic salary and DA= 40% of its basic salary</h2>
+        Enter Basic salary<input type="text" id="basic-salary" autofocus>
+        
+        
+        <button onclick="calculateGross()">Find Gross salary</button>
+    </form>
+    <script>
+        function calculateGross(){
+            var basic=parseInt(document.getElementById("basic-salary").value);
+            var gross;
+            gross=basic+0.4*basic+0.2*basic;
+            document.write("The Gross salary is "+gross);
+        }
+    </script>
+</body>
+</html>

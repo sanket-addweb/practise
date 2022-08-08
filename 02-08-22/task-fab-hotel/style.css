@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+}
+.logo{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: relative;
+}
+.logo h1{
+    position: absolute;
+    left: 100px;
+    font-size: 60px;
+    /* color: blue; */
+}
+.logo h1 a{
+    text-decoration: none;
+    color:#6f6fdc;
+}
+.logo h1 span{
+    font-weight: normal;
+}
+.logo #btn{
+    position: absolute;
+    right: 100px;
+    background-color:yellow ;
+    border-radius: 4px;
+}
+.logo #btn a{
+    text-decoration: none;
+    font-size: 20px;
+    color: blue;
+    padding: 4px 20px;
+}
+/* ----------------navbar--------------------- */
+.navbar{
+    width: 100%;
+    height: 80px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-color: rgba(30, 37, 74, 0.95);
+    /* position: relative; */
+}
+nav{
+    /* width: 100%; */
+    height: 80px;
+    position: sticky;
+    top: 0px;
+}
+.flex-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+.navbar ul .inline-list{
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    padding: 4px;
+    list-style: none;
+    margin-right: 85px;
+}
+.navbar ul .inline-list #search{
+    /* position: absolute;
+    right: 100px; */
+}
+.navbar ul .inline-list .text-deco{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.nav-dropdown-1{
+    display: none;
+    position: relative;
+    /* top:10px; */
+    /* left: 100px; */
+}
+.nav-dropdown-1 .dropdown-list-1{
+    position: absolute;
+    display: none;
+    height: 310px;
+    width: 279%;
+    background-color: #e1dddddb;
+}
+.nav-dropdown-1:hover .dropdown-list-1{
+    display: block;
+}
+.dropdown-list-1 li a:hover{
+    background-color: grey;
+}
+.dropdown-list-same li a{
+    padding: 4px 12px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+
+}
+.dropdown-list-same li{
+    margin: 12px;
+    list-style: none;
+}
+.nav-dropdown-2{
+    display: none;
+    position: absolute;
+    /* top:10px;
+    left: 100px; */
+}
+.nav-dropdown-2 .dropdown-list-2{
+    width: 501%;
+    position: absolute;
+    display: none;
+    background-color: #e1dddddb;
+}
+.nav-dropdown-2:hover .dropdown-list-2{
+    display: block;
+}
+.dropdown-list-2 li a:hover{
+    background-color: grey;
+}
+.nav-dropdown-3{
+    display: none;
+    position: absolute;
+    /* top:10px;
+    left: 100px; */
+}
+.nav-dropdown-3 .dropdown-list-3{
+    width: 190%;
+    position: absolute;
+    display: none;
+    background-color: #e1dddddb;
+}
+.nav-dropdown-3:hover .dropdown-list-3{
+    display: block;
+}
+.dropdown-list-3 li a:hover{
+    background-color: grey;
+}
+/*------------Title and Top image------------ */
+.title{
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.title:before{
+    background: url("/home/sanket/Desktop/Sanket-Add-web/02-08-22/task-fab-hotel/bg-main.jpg")no-repeat center center/cover;
+    content: " ";
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 0.8;
+}
+.title .container-1{
+    width: 25%;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    right: 85px;
+    top: 30px;
+}
+.title .container-1 a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    background-color: #fddb1c;
+    margin-top: 18px;
+    padding: 4px 20px; 
+    margin-right: 10px;
+}
+.title .title-start{
+    width: 50%;
+    height: 250px;
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    color: white;
+}
+.title .title-start p{
+    /* margin-top: 10px; */
+    padding: 4px;
+}
+.title .title-start h1{
+    /* margin-top:10px; */
+    padding: 4px;
+}
+.title .title-start img{
+    margin-top: 8px;
+    padding: 4px;
+    border-radius: 28px;
+}
+.title .title-start figure span a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top: -10px;
+}
+
+.container-main{
+    width: 100%;
+    height: 9435px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    position: relative;
+}
+.container-main .Blog-desc{
+    height: 9350px;
+    width: 60%;
+    margin-top: 12px;
+    padding:10px;
+
+}
+.container-main .aside{
+    width: 15%;
+    height: 6000px;
+    padding: 12px;
+}
+.container-main .bread-crumb{
+    width: 100%;
+    height: 50px;
+    margin-top: 12px;
+}
+.bread-crumb a{
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 20px;
+    text-decoration: none;
+    color: blue;
+}
+.bread-crumb span{
+    font-size: 20px;
+}
+.container-main .container-2{
+    width: 100%;
+    height: 300px;
+    margin-left: 6px;
+    line-height: 23px;
+    font-size: 17px;
+}
+.container-main .container-2 p{
+    padding-top: 10px;
+    text-align: justify;
+}
+.container-main .container-2 p a{
+    text-decoration: none;
+}
+.container-main .title-desc{
+    margin-top: 65px;
+    margin-left: 6px;
+}
+.container-main .title-desc p{
+    margin-top: 12px;
+    font-size: 17px;
+}
+.container-main .hotel-decs{
+    margin-left: 6px;
+    margin-top: 12px;
+    width: 100%;
+    height: 6700px;
+    text-align: justify;
+}
+
+.container-main .hotel-decs h2{
+    font-size: 25px;
+    padding-top: 35px;
+}
+.container-main .hotel-decs figure .hotel-desc-p{
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 23px;
+}
+.container-main .hotel-decs figure img{
+    margin-top: 10px;
+}
+.container-main .hotel-decs figure figcaption{
+    text-align: center;
+}
+.container-main .hotel-decs figure ul{
+    margin-top: 20px;
+
+}
+.container-main .hotel-decs figure ul li{
+    list-style: none;
+    margin-top: 8px;
+}
+.container-main .hotel-decs figure a{
+    text-decoration: none;
+}
+.budget-hotel{
+    margin-top: 30px;
+}
+.budget-hotel h2{
+    margin-top: 8px;
+    font-size: 30px;
+}
+.budget-hotel p{
+    margin-top: 8px;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 21px;
+}

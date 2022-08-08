@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter Number You Want To Know Wether It Is Prime Or Not </h1>
+        Enter Number:<input type="text" id="prime">
+        
+        
+        <button onclick="primeNum()">Find combination of notes</button>
+    </form>
+    <script>
+        function primeNum(){
+            var primeNum=parseInt(document.getElementById("prime").value);
+            
+            var i, primeFlase=0 ,primeTrue;
+            for(i=2;i<=primeNum/2;i++){
+                if(primeNum%i==0){
+                    primeFlase=1;
+                    break;
+                }
+                // else{
+                //     primeTrue;
+                //     break;
+                // }
+            }
+            if(primeFlase==1){
+                document.write(primeNum+" is not prime number");
+            }
+            else{
+                document.write(primeNum+" is a prime number");
+            }
+
+        }
+    </script>
+</body>
+</html>

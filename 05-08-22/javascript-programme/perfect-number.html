@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfect Number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter Number to Know wether it is perfect or not</h1>
+        Enter a Number: <input type="text" id="number">
+
+        <button onclick="check()">click here to check</button>
+        
+    </form>
+    <script>
+        function check(){
+            var num=parseInt(document.getElementById("number").value);
+            var sum=0, i,res;
+
+            // In Perfect Number sum of it's avayavi is equal to that perfect number
+            // 6,28,496,8128,33550336 is perfect number
+
+            for (i=1;i<num;i++){
+                res=num%i;
+                if(res==0){
+                    sum=sum+i;
+                }
+            }
+            if(sum==num){
+                document.write(num+" is Perfect Number");
+            }
+            else{
+                document.write(num+" is Not Perfect Number");
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max number from given n number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter n number 0f number and find maximum out of them</h1>
+        Enter how many number: <input type="text" id="number">
+
+        <button onclick="showInput()">Press to see input field</button>
+    </form>
+    <form action="" id="input-form">
+
+    </form>
+
+    <script>
+        function showInput(){
+            var num=parseInt(document.getElementById("number").value);
+            var i;
+            for(i=0;i<=num;i++){
+                document.getElementById("input-form").innerHTML="Enter "+i+" number:<input><br/><button>find Max number</button>";
+
+            }
+        }
+    </script>
+</body>
+</html>

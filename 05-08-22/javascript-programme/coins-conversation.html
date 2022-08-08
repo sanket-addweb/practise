@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coins Conversation</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter Quantity of coins 50, 25, 20, 10, 5, 2, 1 paisa and Know how many rupees in that set of coins</h1>
+        Enter number of 50 paisa coins<input type="number" id="paisa-coins-50"/><br/>
+        Enter number of 25 paisa coins<input type="number" id="25-paisa-coins"/><br/>
+        Enter number of 20 paisa coins<input type="number" id="20-paisa-coins"><br/>
+        Enter number of 10 paisa coins<input type="number" id="10-paisa-coins"><br/>
+        Enter number of 5 paisa coins<input type="number" id="5-paisa-coins"><br/>
+        Enter number of 2 paisa coins<input type="number" id="2-paisa-coins"><br/>
+        Enter number of 1 paisa coins<input type="number" id="1-paisa-coins">
+        
+        
+        <button onclick="calculate()">Find ruppes</button>
+        <!-- <button onclick="calculate2()">Find perticular set of notes</button> -->
+    </form>
+    <script>
+        function calculate(){
+            document.write("Hey guys");
+            var  numFifty, numTwentyFive, numTwenty, numTen,  numFive,  numTwo, numOne;
+            numFifty=document.getElementById("paisa-coins-50").value;//geting value of number of coins from input field
+            numTwentyFive=document.getElementById("25-paisa-coins").value;
+            numTwenty=document.getElementById("20-paisa-coins").value;
+            numTen=document.getElementById("10-paisa-coins").value;
+            numFive=document.getElementById("5-paisa-coins").value;
+            numTwo=document.getElementById("2-paisa-coins").value;
+            numOne=document.getElementById("1-paisa-coins").value;
+            
+            var fifty,twentyFive, twenty, ten ,five, two, One;
+            fifty=numFifty*50;//rupees make by number of 50 coins like that other also
+            twentyFive=numTwentyFive*25;
+            twenty=numTwenty*20;
+            ten=numTen*10;
+            five=numFive*5;
+            two=numTwo*2;
+            One=numOne*1;
+            var totalPaisa, totalRupees;
+            totalPaisa=fifty+twentyFive+twenty+ten+five+two+one;
+            totalRupees=totalPaisa/100;
+            document.write("The total rupees is"+ totalRupees);
+            
+        }
+    </script>
+</body>
+</html>

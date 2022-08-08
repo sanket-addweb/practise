@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Without return value</title>
+</head>
+<body>
+    <input type="text" id="first-name" placeholder="Enter your First name">
+    <input type="text" id="last-name" placeholder="Enter your Last name">
+    <button onclick="myFunction()">Click here</button>
+    <p id="demo"></p>
+    <p id="demo-2"></p>
+
+    <script>
+        function myFunction(){
+            var name=document.getElementById("first-name").value;
+            var last=document.getElementById("last-name").value;
+            // alert("Your first name is "+ name +" and your last name is "+ last);
+            var print;
+            // document.write(name+"  "+last)
+            document.getElementById("demo").innerHTML="Your first name is "+name+" and your last name is "+last;
+            // document.getElementById("demo-2").innerHTML="name";
+        }
+    </script>
+</body>
+</html>

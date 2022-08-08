@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum number's digits</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to sum their degits  </h1>
+        Enter number<input type="text" id="number">
+        
+        
+        <button onclick="sum()">Find sum of digits</button>
+    </form>
+    <script>
+        function sum(){
+            var num=parseInt(document.getElementById("number").value);
+            var res,sum=0;
+            var old=num;
+            while(num>0){
+                r=num%10;
+                sum=sum+r;
+                num=parseInt(num/10);
+            }
+            num=old;
+            document.write("The sum of digits of "+num+" is"+sum);
+        }
+    </script>
+</body>
+</html>

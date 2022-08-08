@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number of digit in number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to know how mamy digit in that number </h1>
+        <input type="text" id="number">
+        
+        
+        <button onclick="calculateNum()">Find number of digits</button>
+    </form>
+    <script>
+        function calculateNum(){
+            var num=parseInt(document.getElementById("number").value);
+            var r, rev=0;
+            var old=num;
+            var sum=0;
+            while(num>0){
+                r=num%10;
+                // rev=rev*10+r;
+                num=parseInt(num/10);
+                sum=sum+1;
+            }
+            num=old;
+            document.write("The number of digit in "+num+" is "+sum);
+        }
+    </script>
+</body>
+</html>

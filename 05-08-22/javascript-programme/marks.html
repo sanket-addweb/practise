@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks of students</title>
+</head>
+<body>
+    <form action="" target="_blank">
+        <h1>Enter a marks of student and know their total marks, percentage, and Grade </h1>
+        <h5>Enter Three subject of marks</h5>
+        Maths: <input type="text" id="maths">
+        Physics: <input type="text" id="physics">
+        chemistry: <input type="text" id="chem">
+        
+        <button onclick="calculate()">Find Profit or loss</button>
+    </form>
+    <script>
+        function calculate(){
+            var mathsMarks=parseInt(document.getElementById("maths").value);
+            // document.write(mathsMarks);
+            var physicsMarks=parseInt(document.getElementById("physics").value);
+            var chemMarks=parseInt(document.getElementById("chem").value);
+
+            var total, Per, grade;
+            total=mathsMarks+physicsMarks+chemMarks;
+            per= total*100/300;
+            document.write("Your total marks is: "+total);
+            document.write("<br/>Youre Precentage is: "+per);
+
+            if(per>=80){
+                document.write("<br/>Grade A beacuse Percentage 80+");
+            }
+            else if(per>=65 && per<80){
+                document.write("<br/>Grade B beacuse Percentage between 65 to 80");
+            }
+            else if(per>=50 && per<65){
+                document.write("<br/>Grade c beacuse Percentage 50 to 65");
+            }
+            else if(per>=35 && per<50){
+                document.write("<br/>Grade D beacuse Percentage 35 to 50");
+            }
+            else{
+                document.write("<br/> Sorry, Your are Fail in Exam beacuse your percentage less than 35");
+            }
+        }
+    
+            
+        
+    </script>
+</body>
+</html>

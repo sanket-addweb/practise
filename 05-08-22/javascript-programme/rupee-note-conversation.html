@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupee note conversation</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter Total rupees and Know this rupee contain how many notes of 100, 50, 20, 10, 5, and 2</h1>
+        Enter Total Ruppes<input type="text" id="total-rupee">
+        
+        
+        <button onclick="calculate()">Find combination of notes</button>
+        <button onclick="calculate2()">Find perticular set of notes</button>
+    </form>
+
+        <p id="print"></p>
+        <p id="print-2"></p>
+        <p id="print-3"></p>
+        <p id="print-4"></p>
+        <p id="print-5"></p>
+        <p id="print-6"></p>
+        <script>
+            function calculate(){
+                var rupees=document.getElementById("total-rupee").value;
+                var hundred, fifty, twenty, ten, five, two;
+                var remainRupee;
+                hundred=parseInt(rupees/100);
+                remainRupee=rupees%100;
+                fifty=parseInt(remainRupee/50);
+                remainRupee=remainRupee%50;
+                twenty=parseInt(remainRupee/20);
+                remainRupee=remainRupee%20;
+                ten=parseInt(remainRupee/10);
+                remainRupee=remainRupee%10;
+                five=parseInt(remainRupee/5);
+                remainRupee=remainRupee%5;
+                two=parseInt(remainRupee/2);
+                document.write(rupees+" is contain following number of notes<br/> 100 number notes: "+ hundred +"<br/>50 number notes:"+fifty +"<br/>20 number notes:"+twenty+"<br/>10 number notes:"+ten+"<br/>5 number notes:"+five+"<br/>2 number notes:"+two)
+            }
+            function calculate2(){
+                var rupees=document.getElementById("total-rupee").value;
+                var hundred, fifty, twenty, ten, five, two;
+                var remainRupee;
+                hundred=rupees/100;
+                fifty=rupees/50;
+                twenty=rupees/20;
+                ten=rupees/10;
+                five=rupees/5;                
+                two=rupees/2;
+                document.write(rupees+" is contain following number of notes<br/> 100 number notes: "+ hundred +"<br/>50 number notes:"+fifty +"<br/>20 number notes:"+twenty+"<br/>10 number notes:"+ten+"<br/>5 number notes:"+five+"<br/>2 number notes:"+two)
+            }
+        </script>
+</body>
+</html>
