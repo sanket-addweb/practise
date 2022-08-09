@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even odd number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number Unit and Find out billing Amount</h1>
+        Enter number of Unit: <input type="text" id="unit" autofocus>
+        <button onclick="calculate()">Find Bill Amount</button>
+    </form>
+    <script>
+        function calculate(){
+            var unit=parseInt(document.getElementById("unit").value);
+            var fix=100, amount;
+            if(unit<=50){
+                amount=fix;
+                document.write("billing Amount is "+amount);
+            }
+            else if(unit>50 && unit<=100){
+                amount=fix+1*(unit-50);
+                document.write("billing Amount is "+amount);
+            }
+            else if(unit>100 && unit<=200){
+                amount=fix+1.5*(unit-50);
+                document.write("billing Amount is "+amount);
+            }
+            else if(unit>200 && unit<=300){
+                amount=fix+2*(unit-50);
+                document.write("billing Amount is "+amount);
+            }
+            else{
+                amount=fix+2.5*(unit-50);
+                document.write("biling Amount is "+amount);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

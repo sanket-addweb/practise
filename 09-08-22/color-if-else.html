@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colour code</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter color code you want to see color name</h1>
+        <h2>'G'-Green Color
+            'B'-black Color
+            'W'-White Color
+            </h2>
+        Enter color code: <input type="text" id="color" autofocus maxlength="1">
+        <button onclick="show()">click here to see</button>
+    </form>
+    <script>
+        function show(){
+            var col=document.getElementById("color").value;
+
+            if(col=="G" || col=="g"){
+                document.write("The Enter code "+col+" is for green color");
+            }
+            else if(col=="B" || col=="b"){
+                document.write("The Enter code "+col+" is for black color");
+            }
+            else if(col=="W" ||col=="w"){
+                document.write("The Enter code "+col+" is for white color");
+            }
+            else{
+                document.write("please Enter valid input");
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pattern-2</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number of row for star pattern</h1>
+        Enter numbr of row: <input type="text" id="row">
+        <button onclick="showPattern()">click here to see</button>
+    </form>
+    <script>
+        // var num=prompt("Enter Number of row:",3);
+        // var ch,i,j;
+        // ch="";
+        // for(i=0;i<num;i++){
+        //     for(j=0;j<i;j++){
+        //         ch=ch.fromCharCode(j+65);
+        //         document.write(ch);
+        //     }
+        // }
+        function showPattern(){
+            var row=parseInt(document.getElementById("row").value);
+            var i,j,ch=" ", ascii,char;
+            var index=0;
+            document.write('welcome to pattern');
+            for (i=1;i<=row;i++){
+                for(j=1;j<=i;j++){
+                    // ascii=ch.charCodeAt(0);
+                    // document.write(ascii);
+                    // ch=ch.fromCharCode(ascii);
+                    ch=ch.fromCharCode(j+65);
+                    // console.log(ch);
+                    document.write(ch);
+                }
+                ch=ch.charCodeAt(65+i);
+                document.write("<br/>");
+            }
+
+        }
+
+    </script>
+</body>
+</html>

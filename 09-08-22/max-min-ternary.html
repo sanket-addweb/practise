@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximun & minimum number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter three number and find Maximun and minimum</h1>
+        Enter number-1: <input type="text" id="number-1">
+        Enter number-2: <input type="text" id="number-2">
+        Enter number-3: <input type="text" id="number-3">
+        <button onclick="show()">click here to know</button>
+    </form>
+    <script>
+        function show(){
+            var num1=parseInt(document.getElementById("number-1").value);
+            var num2=parseInt(document.getElementById("number-2").value);
+            var num3=parseInt(document.getElementById("number-3").value);
+            var max=(num1>num2)?
+                    (num1>num3? "1st number is max "+num1:"3rd number max "+num3):
+                    (num2>num3? "2nd number is max "+num2:"3rd number max "+num3);
+                    // (num1>num4 ?"1st number is max "+num1:"4th number max "+num4);
+            document.write("The largest number is "+max);
+
+        }
+    </script>
+
+</body>
+</html>

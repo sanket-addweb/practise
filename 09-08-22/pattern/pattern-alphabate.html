@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern for alphabate</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number of row to print pattern</h1>
+        Enter number of row: <input type="text" id="row">
+        <button onclick="showPattern()">click here to see</button>
+    </form>
+    <script>
+        function showPattern(){
+            var row=parseInt(document.getElementById("row").value);
+            var i,j,k,ascii=65;
+            var charPrint;
+
+            // document.write('welcome to pattern');
+            var rowModi=Math.floor(row/2);
+            for (i=0;i<=rowModi;i++){
+                for(j=rowModi-i;j>0;j--){
+                    // document.write("&nbsp;");
+                    document.write("~");
+                }
+                for(k=0;k<=i;k++){
+                    charPrint=document.write(String.fromCharCode(ascii));
+                    ascii++;
+                }
+                // ascii=65;
+                document.write("<br/>");
+            }
+            var l,m,n;
+            for(l=0;l<rowModi;l++){
+                // for(n=0;n<=rowModi;n++){
+                    
+                // }
+                // for(m=0;m<=rowModi-l;m++){
+                //     charPrint=document.write(String.fromCharCode(ascii));
+                //     ascii++;
+                // }
+                for(m=0;m<=rowModi+1;m++){
+                    charPrint=document.write(String.fromCharCode(ascii));
+                    ascii++;
+                }
+                document.write("<br/>");
+
+            }
+
+        }
+    </script>
+</body>
+</html>

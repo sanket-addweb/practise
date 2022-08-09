@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h2>Enter number <br/>
+        1- for Addition<br/>
+        2- for Substraction<br/>
+        3- for Multiplication<br/>
+        4- for Division
+    </h2>
+        Enter number 1 to 4: <input type="text" id="num-type" autofocus maxlength="2">
+        <input type="text" id="number-1">
+        <input type="text" id="number-2">
+        <button onclick="show()">click here to see</button>
+    </form>
+    <script>
+        function show(){
+            var type=parseInt(document.getElementById("num-type").value);
+            var a=parseInt(document.getElementById("number-1").value); 
+            var b=parseInt(document.getElementById("number-2").value); 
+            // var a=12, b=10;
+            var sum,sub,div,multi;
+
+            switch(type){
+                case 1: {
+                    sum=a+b;
+                    document.write("Now Addition Operation is performed and sum is "+sum);
+                }
+                break;
+                case 2: {
+                    sub=a-b;
+                    document.write("Now Substraction Operation is performed and sum is "+sub);
+                }
+                break;
+                case 3: {
+                    multi=a*b;
+                    document.write("Now Multiplication Operation is performed and sum is "+multi);
+                }
+                break;
+                case 4: {
+                    div=a+b;
+                    document.write("Now division Operation is performed and division is "+div);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

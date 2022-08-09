@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perimeter and area of triangle</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter a sides of triangle, you want to find it's perimeter and area</h1>
+        Enter a side-1: <input type="text" id="side-1">
+        Enter a side-2: <input type="text" id="side-2">
+        Enter a side-3: <input type="text" id="side-3">
+        <button onclick="calculate()">Find perimeter & area</button>
+    </form>
+    <script>
+        function calculate(){
+            var a=parseInt(document.getElementById("side-1").value);
+            var b=parseInt(document.getElementById("side-2").value);
+            var c=parseInt(document.getElementById("side-3").value);
+            
+            var p,area,s;
+            p=a+b+c;
+            s=p/2;//semi perimeter
+            area=parseInt(Math.pow(s*(s-a)*(s-b)*(s-c),1/2));
+            document.write("Perimeter is "+p+" And The area is "+area);
+        }
+    </script>
+</body>
+</html>

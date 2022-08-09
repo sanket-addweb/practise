@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days and Months</title>
+</head>
+
+<body>
+    <form action="">
+        <h1>Enter number of days and Convert into Months and Days</h1>
+        Enter Number of days: <input type="text" id="days">
+        <button onclick="calculate()">Find Month and Days</button>
+    </form>
+    <script type="text/javascript">
+        var numDays=prompt("Enter Number of Days",124);
+        var month, remainDays, days;
+        month = parseInt(numDays / 30);
+        remainDays = parseInt(numDays % 30);
+        days = remainDays;
+        document.write("The Month is " + month + " and  remain days is " + days);
+        // function calculate() {
+        //     document.write("hello");
+        //     // var numDays=prompt("Enter Number of Days",124);
+        //     var numDays = parseInt(document.getElementById("days").value);
+        //     var month, remainDays, days;
+        //     month = parseInt(numDays/30);
+        //     document.write(month);
+        //     remainDays = parseInt(numDays % 30);
+        //     days = remainDays;
+        //     document.write("The Month is " + month + " and  remain days is " + days);
+        // }
+    </script>
+</body>
+
+</html>

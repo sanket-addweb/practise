@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots of quadratic equation</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter coefficient of quadrantic equation and find thier root, please Enter coefficent such that it equation root are posible to find, i.e delta b<sup>2</sup>-4ac should not negative</h1>
+        Enter coefficient of x<sup>2</sup>:<input type="text" id="a">
+        Enter coefficient of x:<input type="text" id="b">
+        Enter constant:<input type="text" id="c">
+
+        <button onclick="calculate()">Find volume & surface area</button>
+    </form>
+
+    <script type="text/javascript">
+        function calculate(){
+            var a=parseInt(document.getElementById("a").value); 
+            var b=parseInt(document.getElementById("b").value); 
+            var c=parseInt(document.getElementById("c").value); 
+
+            // document.write(a+b+c);
+            var d=Math.pow(b,2)-4*a*c;
+            document.write(d+"<br/>");
+            var root1=parseInt(-b+Math.pow(d,1/2))/(2*a);
+            var root2=parseInt(-b-Math.pow(d,1/2))/(2*a);
+            document.write("The root of Quardratic equation is "+root1 +" or "+root2);
+        }
+    </script>
+</body>
+</html>

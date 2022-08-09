@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume and surface area of sphere</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter radius of sphere and know its volume and surface area</h1>
+        Enter radius of sphere:<input type="text" id="radius">
+        <button onclick="calculate()">Find volume & surface area</button>
+    </form>
+
+    <script type="text/javascript">
+        function calculate(){
+            var r=parseInt(document.getElementById("radius").value);
+            var surfaceArea, volume;
+            // document.write(4*3.14*r*r);
+            var pi=Math.PI;
+            var r2=Math.pow(r,2);
+            surfaceArea=parseInt(4*pi*r2);
+            // surfaceArea=parseInt(4*math.PI*math.pow(r,2));
+            volume=parseInt(4*Math.PI*Math.pow(r,3)/3);
+            document.write("suraface area of sphere is "+ surfaceArea +"<br/>Volume of sphere is "+volume);
+        }
+
+    </script>
+</body>
+</html>

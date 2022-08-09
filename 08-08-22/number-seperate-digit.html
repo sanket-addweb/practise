@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit saperate from number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter A number you want to seperate its digit</h1>
+        Enter number: <input type="text" id="number">
+        <button onclick="show()">Click here to see</button>
+    </form>
+    <script>
+        function show(){
+            var num=parseInt(document.getElementById("number").value);
+            var i,r,old;
+            old=num;
+            for (i=1;num>0;i++){
+                r=num%10;
+                document.write(i+" digit is "+r+"<br/>");
+                num=parseInt(num/10);
+            }
+        }
+    </script>
+</body>
+</html>

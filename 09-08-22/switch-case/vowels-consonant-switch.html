@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <form action="">
+        <h2>Enter character you want to Know wether it is vowels or consonant</h2>
+    </h2>
+        Enter character: <input type="text" id="character" autofocus maxlength="1">
+        <button onclick="show()">click here to see</button>
+    </form>
+
+    <script>
+        function show(){
+            var char=document.getElementById("character").value;
+            switch(char){
+                case "a": document.write("enter character "+char+" is vowels");
+                break;
+                case "e": document.write("enter character "+char+" is vowels");
+                break;
+                case "i": document.write("enter character "+char+" is vowels");
+                break;
+                case "o": document.write("enter character "+char+" is vowels");
+                break;
+                case "u": document.write("enter character "+char+" is vowels");
+                break;
+                case "A": document.write("enter character "+char+" is vowels");
+                break;
+                case "E": document.write("enter character "+char+" is vowels");
+                break;
+                case "I": document.write("enter character "+char+" is vowels");
+                break;
+                case "O": document.write("enter character "+char+" is vowels");
+                break;
+                case "U": document.write("enter character "+char+" is vowels");
+                break;
+                default : document.write("enter character "+char+" is consonant");
+            }
+        }
+    </script>
+</body>
+</html>

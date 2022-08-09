@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pattern demo</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number of row for star pattern</h1>
+        Enter numbr of row: <input type="text" id="row">
+        <button onclick="showPattern()">click here to see</button>
+    </form>
+    <script>
+        let n = 5; // you can take input from prompt or change the value
+        let string = "";
+        // External loop
+        for (let i = 1; i <= n; i++) {
+          // printing characters
+          for (let j = 0; j < i; j++) {
+            string += String.fromCharCode((i - 1) + 65);
+          }
+          string += "\n";
+        }
+        console.log(string);
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>celsius-farenheit conversion</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter a farenheit value of temperature and convert into celsius</h1>
+        Enter farenheit value:<input type="text" id="farenheit">
+        <button onclick="calculate()">Find celsius</button>
+    </form>
+    <script>
+        function calculate(){
+            var f=parseInt(document.getElementById("farenheit").value);
+            var c;
+            c=parseInt(5*(f-32)/9);
+            document.write("The value of celsius is "+c);
+        }
+    </script>
+
+</body>
+</html>

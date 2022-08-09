@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of circle</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter perimeter of circle and know its area</h1>
+        Enter parimeter of circle:<input type="text" id="peri">
+        <button onclick="calculate()">Find area</button>
+    </form>
+
+    <script type="text/javascript">
+        function calculate(){
+            document.write("wlecome");
+            // var perimeter=parseInt(document.getElementById("peri").value);
+            var pMeter=parseInt(document.getElementById("peri").value);
+            var r=parseInt(pMeter/(2*Math.PI));
+            var area=parseInt(Math.PI*Math.pow(r,2));
+            document.write("Area of Circle is "+ area);
+        }
+    </script>
+</body>
+</html>

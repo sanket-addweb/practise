@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vowel and consonant</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number character you want to know wether it is vowel or consonant</h1>
+        Enter character: <input type="text" id="character" maxlength="1" autofocus>
+        <button onclick="calculate()">click here to see</button>
+    </form>
+    <script>
+        function calculate(){
+            var ch=document.getElementById("character").value;
+            var ascii;
+            ascii=ch.charCodeAt(0);
+            // document.write(ascii);
+            if(ascii==65 || ascii==69 || ascii==79 || ascii==85 || ascii==73 || ascii==85 || ascii==97 || ascii==101 || ascii==105 || ascii==111 || ascii==117){
+                document.write("The Enter Character "+ch+" is vowel");
+            }
+            else{
+                document.write("The Enter Character "+ch+" is consonant"); 
+            }
+        }
+    </script>
+</body>
+</html>

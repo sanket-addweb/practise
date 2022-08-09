@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple And Compound Interest</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter Principle amount and Rate of Interest and Number of Years and Find Out simple and compound interest </h1>
+        Enter Principle amount: <input type="text" id="Principle">
+        Enter Rate of interest: <input type="text" id="rate">
+        Enter number of Years: <input type="text" id="years">
+        <button onclick="findInterest()">Find Simple Interest</button>
+    </form>
+    <script>
+        function findInterest(){
+            var p=parseInt(document.getElementById("Principle").value);
+            var r=parseInt(document.getElementById("rate").value);
+            var n=parseInt(document.getElementById("years").value);
+
+            var si, ci1,ci;
+            si=p*n*r/100;
+            // var Math.pow(1-100/r);
+            ci1=p*Math.pow((1+r/100),n);
+            ci=ci1-p;
+            document.write("Simple Ineterest is "+si+" And Compound Interest is "+ci);
+
+
+        }
+    </script>
+</body>
+</html>
