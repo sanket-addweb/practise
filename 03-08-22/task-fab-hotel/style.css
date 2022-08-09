@@ -493,13 +493,14 @@ nav{
     height: 290px;
     width: 90%;
     padding-top: 8px;
+    padding-left: 16px;
 }
  .aside-3 form div{
     width: 90%;
     margin-top: 18px;
     margin-left: 8px;
-    background-color: #4c567f;
-    border-radius: 2px solid #4c567f;
+    /* background-color: #4c567f; */
+    /* border-radius: 2px solid #4c567f; */
 }
 .aside-3 .main-check{
     display: flex;
@@ -518,7 +519,7 @@ nav{
 .aside .aside-3 form input{
     display: block;
     outline: none;
-    width: 99%;
+    width: 91%;
 }
 .aside .aside-3 form .right-date{
     display:inline;
@@ -529,4 +530,69 @@ nav{
     padding: 4px 20px;
     background-color: #fddb1c;
     cursor: pointer;
+}
+.comment-self, .comment, .reply-form{
+    width: 60%;
+    position: relative;
+    left: 120px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 12px;
+}
+.comment-self a img{
+    border-radius: 28px;
+}
+.comment-self span{
+    position: relative;
+    top: -14px;
+    padding-left:10px ;
+}
+.comment-self p{
+    padding-top: 10px;
+    padding-bottom: 4px;
+    line-height: 21px;
+}
+.comment{
+    height: 350px;
+    /* background-color: aliceblue; */
+}
+
+.comment h3{
+    padding-top: 4px;
+    padding-bottom:8px ;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.comment .comment-1, .comment .comment-2 {
+    height: 170px;
+    display: flex;
+    align-items: center;
+}
+.comment .desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    padding-left: 14px;
+}
+.comment img{
+    position: relative;
+    top: -53px;
+    border-radius: 25px;
+}
+.comment .desc .top-move{
+    margin-top: -54px;
+    /* padding-left: 12px; */
+}
+.comment .desc small{
+    margin-top: -14px;
+    margin-bottom: 25px;
+}
+.comment .desc p{
+    line-height: 22px;
+    text-align: justify;
+}
+.comment .comment-1 input, .comment .comment-2 input {
+    padding: 4px 20px;
+    font-size: 17px;
+    margin-left: 20PX;
 }
