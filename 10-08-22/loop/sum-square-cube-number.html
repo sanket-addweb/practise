@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum, square, cube of odd and even number</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to prints it table</h1>
+        Enter Number:<input type="text" id="number">
+        <button onclick="print()">Print Now</button>
+    </form>
+    <script>
+        function print(){
+            var num=parseInt(document.getElementById("number").value);
+            var i,cube,square;
+            squareSum=0,cubeSum=0;
+            var sum=0;
+            for(i=0;i<=num;i++){
+                sum=sum+i;
+                if(i%2==0){
+                    square=i*i;
+                    squareSum=squareSum+square;
+                }
+                else{
+                    cube=Math.pow(i,3);
+                    cubeSum=cubeSum+cube;
+                }
+            }
+            document.write("The sum of square of even number is "+squareSum+"<br/>");
+            document.write("The sum of cube of odd number is "+cubeSum);
+
+        }
+    </script>
+</body>
+</html>

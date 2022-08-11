@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object creation by constructor</title>
+</head>
+
+<body>
+    <script>
+        var myObj = { // object "myobj" with three properties: x, y, z
+            x: 100, // primitive value
+            y: { a: 12 }, // object "y" with property a
+            z: function () // function abc -> (method)
+            {
+                document.write('Method myObj.z');
+            }
+        };
+        document.write(myObj.x+"<br/>");
+        document.write(myObj.y+"<br/>");
+        document.write(myObj.y.a+"<br/>");
+        // myObj.z();
+        
+        console.log(myObj.x); // 100
+        console.log(myObj.y); // [object Object]
+        console.log(myObj.y.a); // 12
+        myObj.z(); // 'Method myObj.z'
+
+    </script>
+</body>
+
+</html>

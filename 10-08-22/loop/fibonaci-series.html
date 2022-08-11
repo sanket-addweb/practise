@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonaci series</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to print fibonaci series</h1>
+        Enter Number:<input type="text" id="number">
+        <button onclick="print()">Print Now</button>
+    </form>
+    <script>
+        function print(){
+            var num=parseInt(document.getElementById("number").value);
+            var i,num1=0,num2=1,num3;
+            document.write(num1+", "+num2+", ");
+            for(i=2;i<=num;i++){
+                // document.write("welcome");
+                num3=num2+num1;
+                document.write(num3+", ");
+                num1=num2;
+                num2=num3;
+
+            }
+
+        }
+    </script>
+</body>
+</html>

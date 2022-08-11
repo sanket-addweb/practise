@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee allowances sum</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number of employees in company and find how many rupees paid by company for allowances</h1>
+        Enter Number:<input type="text" id="number">
+        <button onclick="print()">Print Now</button>
+    </form>
+    <script>
+        function print(){
+            var num=parseInt(document.getElementById("number").value);
+            var i;
+            var allow1=200, allow2=500,allow3=900;
+            var sum1=allow1+allow2+allow3;
+            var sum=0;
+            for(i=0;i<num;i++){
+                sum=sum+sum1;
+            }
+            document.write("The company paid total for allowances is "+sum)
+
+        }
+    </script>
+</body>
+</html>

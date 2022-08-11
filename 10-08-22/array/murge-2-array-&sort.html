@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>murge and sort array</title>
+</head>
+
+<body>
+    <script>
+        //make a function for sorting
+        function insertingSort(arr, len) {
+            var i, j;
+            // var len= arr.length ;
+            for (i = 1; i < len; i++) {
+                key = arr[i];
+                j = i - 1;
+                while (j >= 0 && arr[j] > key) {
+                    arr[j + 1] = arr[j];// jo index-0 valo element moto hoy to interchange karo value
+                    j = j - 1;
+                }
+                arr[j + 1] = key;// nahi to index-0 par element key(index having 1) ne lavi do
+            }
+        }
+
+        var arr2=[44,64,7];
+        var arr1 = [19, 13, 9, 12, 4, 2];
+        var arr=arr1.concat(arr2);
+        
+        var len = arr.length;
+        insertingSort(arr, len);
+
+        //printing of sorted array
+        let k;
+        for (k = 0; k < len; k++) {
+            document.write(arr[k] + ", ");
+        }
+
+    </script>
+
+</body>
+
+</html>

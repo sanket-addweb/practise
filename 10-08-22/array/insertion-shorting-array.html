@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion sorting of array</title>
+</head>
+
+<body>
+    <!-- <form action="">
+        <h2>Enter elementof array and then Print</h2>
+        <h3>You can print number as well as string</h3>
+        Enter Element-1: <input type="text" id="el-1"><br/><br/>
+        Enter Element-2: <input type="text" id="el-2"><br/><br/>
+        Enter Element-3: <input type="text" id="el-3"><br/><br/>
+        Enter Element-4: <input type="text" id="el-4"><br/><br/>
+        Enter Element-5: <input type="text" id="el-5"><br/><br/>
+        Enter Element-6: <input type="text" id="el-6">
+
+        <button onclick=printNow()>click to Print </button>
+    </form> -->
+    <script>
+        // function printNow(){
+        //     var arr=new Array();
+        //     arr[0]=document.getElementById("el-1").value;
+        //     arr[1]=document.getElementById("el-2").value;
+        //     arr[2]=document.getElementById("el-3").value;
+        //     arr[3]=document.getElementById("el-4").value;
+        //     arr[4]=document.getElementById("el-5").value;
+        //     arr[5]=document.getElementById("el-6").value;
+
+        //     var i;
+        //     for(i=0;i<arr.length;i++){
+        //         document.write(arr[i]+", ");
+        //     }
+        //     document.write("<br/>");  
+        // }
+
+        //sorting by inserting sort
+        function insertingSort(arr,len) {
+            var i, j;
+            // var len= arr.length ;
+            for (i = 1; i < len; i++) {
+                key = arr[i];
+                j = i - 1;
+                while (j >= 0 && arr[j] > key) {
+                    arr[j + 1] = arr[j];// jo index-0 valo element moto hoy to interchange karo value
+                    j = j - 1;
+                }
+                arr[j + 1] = key;// nahi to index-0 par element key(index having 1) ne lavi do
+            }
+        }
+
+        var arr=[19,13,9,12,4,2];
+        var len=arr.length;
+        insertingSort(arr,len);
+
+        //printing of sorted array
+        let k;
+        for(k=0;k<len;k++){
+            document.write(arr[k]+", ");
+        }
+    </script>
+</body>
+
+</html>

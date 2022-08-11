@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print 1 to n</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter number you want to prints factorial of it</h1>
+        Enter Number:<input type="text" id="number">
+        <button onclick="print()">Print Now</button>
+    </form>
+    <script>
+        function print(){
+            var num=parseInt(document.getElementById("number").value);
+            var i,multi=1;
+            for(i=1;i<=num;i++){
+                multi=parseInt(multi*i);
+            }
+            document.write("factorial of "+num+" is "+multi);
+
+        }
+    </script>
+</body>
+</html>

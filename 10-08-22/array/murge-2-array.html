@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murge array</title>
+</head>
+<body>
+    <script>
+        var arr2 = [44, 64, 7];
+        var arr1 = [19, 13, 9, 12, 4, 2];
+        var arrMurge=arr1.concat(arr2);
+        // lenArr1 = arr1.length;
+        // lenArr2 = arr2.length;
+
+        // var i, j, k = lenArr1;
+        // var arrMurge;
+
+        // for (i = 0; i < lenArr1 + lenArr2; i++) {
+        //     if (i < lenArr1) {
+        //         arrMurge[i] = arr1[i];
+        //     }
+        //     else {
+        //         for (j = 0; j < lenArr2; j++) {
+        //             arrMurge[i] = arr2[j];
+        //         }
+        //     }
+        // }
+        var len = arrMurge.length;
+
+        let l;
+        for (l = 0; l < len; l++) {
+            document.write(arrMurge[l] + ", ");
+        }
+
+    </script>
+</body>
+</html>

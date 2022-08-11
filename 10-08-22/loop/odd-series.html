@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd series</title>
+</head>
+<body>
+    <form action="">
+        <h1>Enter last number of series to prints odd number series </h1>
+        Enter Number:<input type="text" id="number">
+        <button onclick="print()">Print Now</button>
+    </form>
+    <script>
+        function print(){
+            var num=parseInt(document.getElementById("number").value);
+            var i,odd;
+            for(i=1;i<=num;i+=2){
+                document.write(i+", ");
+                // i=i+2;
+
+            }
+
+        }
+    </script>
+</body>
+</html>
