@@ -842,9 +842,9 @@
                 <img src="/home/sanket/Desktop/Sanket-Add-web/22-07-22/task-fab-hotel/profile-.jpg" height="40"
                     width="40">
                 <div class="desc">
-                <span class="top-move">NAINA MEHRA</span><br />
-                <small>APRIL 30,2019 AT 3:21</small>
-                <p>Rajastani Food is best</p>
+                    <span class="top-move">NAINA MEHRA</span><br />
+                    <small>APRIL 30,2019 AT 3:21</small>
+                    <p>Rajastani Food is best</p>
                 </div>
                 <input type="submit" href="#" value="Reply"></input>
             </div>
@@ -855,65 +855,93 @@
             <P>Your email address will not be published. Required fields are
                 marked *</P>
             <form id="form1" action="" method="get" target="">
-                <textarea name="comment" id="comment" cols="50" rows="10" placeholder="Comment*"></textarea><br />
-                <input type="text" name="name" id="" placeholder="Name">
-                <input type="email" name="email" id="" placeholder="Email"><br />
-                <input type="checkbox" name="" id="">Save my name, email, and
-                website in this browser for the next time
-                Icomment.
-                <br />
-                Captcha 54+ <input type="text" maxlength="2">=58
-                <br />
-                <input type="submit" value="Post">
+                <textarea name="comment" id="comment" cols="50" rows="10" placeholder="Comment*" required
+                    autofocus></textarea>
+                <div class="name-email">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="check">
+                    <input type="checkbox" name="" id="check">&nbsp;Save my name, email, and
+                    website in this browser for the next time
+                    Icomment.
+                </div>
+                <div class="captcha">
+                    <span id="captcha-left">Captcha 54&nbsp;+</span> <input type="text" maxlength="2"><span
+                        id="captcha-right"> =&nbsp;58</span>
+                    <input type="submit" value="Post" id="btn-20">
+                </div>
             </form>
         </div>
 
         <footer>
-            <h4>Discover Hotels and Places Nearby</h4>
-            <a href="#">Top Places to visit in India</a><span>--</span>
-            <a href="#">Hotels near Airport</a><span>--</span>
-            <a href="#">Hotels near Railway station</a><span>--</span>
-            <a href="#">Budget Hotels</a><span>--</span>
-            <a href="#">Couple Friendly Hotels</a>
-            <table>
-                <tr>
-                    <td> <small><a href="#">Places to visit in
-                                Mumbai</a></small> </td>
-                    <td> <small><a href="#">Places to visit in
-                                Delhi</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Bangalore</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Chennai</a></small></td>
-                </tr>
-                <tr>
-                    <td> <small><a href="#">Places to visit in
-                                Pune</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Hyderabad</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Gurgaon</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Goa</a></small></td>
-                </tr>
-                <tr>
-                    <td> <small><a href="#">Places to visit in
-                                Kolkta</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Jaipur</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Ahmedabad</a></small></td>
-                    <td> <small><a href="#">Places to visit in
-                                Agra</a></small></td>
-                </tr>
-                <tr>
-                    <td> <small><a href="#">Fab-hotels:Hotel booking
-                                App</a></small></td>
-                </tr>
-            </table>
+            <div class="footer-1st">
+                <h4>Discover Hotels and Places Nearby</h4>
+                <nav>
+                    <ul>
+                        <li><a href="#">Top Places to visit in India</a></li>
+                        <li><a href="#">Hotels near Airport</a></li>
+                        <li><a href="#">Hotels near Railway station</a></li>
+                        <li><a href="#">Budget Hotels</a></li>
+                        <li><a href="#">Couple Friendly Hotels</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-link">
+                    <div class="link-list">
+                        <ul>
+                            <li><a href="#">Places to visit in
+                                    Mumbai</a></li>
+                            <li><a href="#">Places to visit in
+                                    Delhi</a></li>
+                            <li><a href="#">Places to visit in
+                                    Bangalore</a></li>
+                            <li><a href="#">Fab-hotels:Hotel booking
+                                    App</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-list">
+                        <ul>
+                            <li><a href="#">Places to visit in
+                                    Chennai</a></li>
+                            <li><a href="#">Places to visit in
+                                    Pune</a></li>
+                            <li><a href="#">Places to visit in
+                                    Hyderabad</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-list">
+                        <ul>
+                            <li><a href="#">Places to visit in
+                                    Gurgaon</a></li>
+                            <li><a href="#">Places to visit in
+                                    Goa</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="link-list">
+                        <ul>
+                            <li><a href="#">Places to visit in
+                                    Kolkta</a></li>
+                            <li><a href="#">Places to visit in
+                                    Ahmedabad</a></li>
+                            <li><a href="#">Places to visit in
+                                    Jaipur</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <hr>
-            <small>&copy; 2020 Casa2 Stays Pvt. Ltd. All rights
-                reserved.</small>
+            <div class="footer-last">
+                <div class="copyright">
+                    <small>&copy; 2020 Casa2 Stays Pvt. Ltd. All rights reserved.</small>
+                </div>
+                <div class="footer-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
 
         </footer>
     </body>
