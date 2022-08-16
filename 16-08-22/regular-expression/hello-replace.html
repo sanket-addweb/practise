@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regular expression-1</title>
+</head>
+<body>
+    <script>
+
+
+        //performing replacement
+        const string = 'Hello hello hello';
+        const result1=string.replace(/hello/,"world");
+        // var result1=string.replace("hello","world");
+        document.write(result1);//Hello world hello
+
+
+        //performing global replacement
+        document.write("<br/>");
+        const string1="hello Hello hello";
+        const result2=string1.replace(/hello/g,'world');
+        document.write(result2);//world Hellow world
+
+        //performing case-intesive global replacement
+        document.write("<br/>");
+        const result3=string1.replace(/Hello/i,"world");
+        document.write(result3);//world Hello hello
+
+        // performing global case-insensitive replacement
+        document.write("<br/>");
+        const result4=string1.replace(/hello/ig,"world");
+        document.write(result4);//world world world
+
+        
+        
+    </script>
+    </body>
+</html>

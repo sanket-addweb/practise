@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regular expression-2</title>
+</head>
+
+<body>
+    <script>
+
+        // \s for aek whitespace 6odi hase to okay batavse
+        // \g apply globaly or string ma badhe j apply kari do
+        // \i apply without caseintesive
+        // \d digit hoy to return okay karse
+        // \D no digit hoy to return okay karse
+
+        //searching method
+        let string = "Let me know";
+        // document.write(string.search("know"));
+        let pattern = /know/;
+        //search if pattern i.e,know is exist in which index of srting variable
+        let result1 = string.search(pattern);
+        document.write(result1);//7
+
+        //split method for convert string to array
+        let result2 = /[\s,]+/;
+        let arrString = string.split(result2);
+        document.write(arrString);//let,me,know
+        
+        // searching the phone number pattern
+        // let result5=/(\d{3})\D(\d{4})-(\d{3})/g;
+        let result5=/(\d{3})\s(\d{4})-(\d{3})/g;
+        let result6=result5.exec('My phone is:222 1234-123');//exec() if string is match then return array of string content and if not match then return null
+        document.write(result6);//"222 1234-123", "222","1234","123"
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

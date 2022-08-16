@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metacharacter in regular expression</title>
+</head>
+
+<body>
+    <script>
+
+        let str="harry is good boy and harry";
+        let regex=/harry/;
+
+        // Lets look into some metacharacter symbols
+        // regex=/^harry/;
+        // regex=/^harrys/;//^ means expression will match if string start with i.e, harrys
+
+        // regex=/harry$/; //$ at the end of the string means "string end with (regular expression or not)"
+        // regex=/harryfdf$/;
+
+        // regex=/h.rry/;//matches any one character
+        // str="harry is a good boy";//one character match
+        // str="hasrry is a good boy";//more than one character not match show
+        // str="hrry is a good boy";//zero character not match show
+        // regex=/h.rry/;
+
+
+        regex=/h*rry/;//zero or more than zero character than show match
+        // str="haardsaasdsrry is good boy";//more than zero character show match
+        // str="hrry is good boy";//zero character show match
+
+        // regex=/ha?rryi?/;// character after ? means that character is optional
+        // regex=/ha?rryi?t///not match because last t is not match
+        // str="hrry is good boy"//from harry a is removed
+        regex=/ha?rryi?/;//show match beacuse a is optional
+
+
+        // let result = regex.exec(str);
+        // document.write("The result from exec is "+result+"<br/>");
+
+        if(regex.test(str)){
+            document.write("The string '"+ str +"'<b> match</b> the expression '"+regex+"'");
+            // console.log("The string ${str} match the expression ${regex.source}");
+
+        }
+        else{
+            document.write("The string "+ str +"<b> dose not match </b>the expression "+regex);
+        }
+
+    </script>
+</body>
+
+</html>

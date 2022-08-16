@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+
+    <script>
+        var myfunction1=function showDetails(){
+            document.write("By using function expression<br/>");
+        }
+        //anonymous function
+        var myfunction2=function (){
+            document.write("It is an Anonymous Function <br/> Function without name<br/>");
+        }
+        //arrow function
+        var myfunction3= () =>{
+            document.write("It is an Arrow Function "); 
+           document.write("function without name and without function keyword <br/> by using => <br/>");
+        }
+
+        var myfunction4= (a,b) =>{
+            document.write(a+b);
+        }
+
+        myfunction1();
+        myfunction2();
+        myfunction3();
+        myfunction4(1,19);
+    </script>
+    <!-- <script>
+    var myfun1 = function show() {  
+        console.log("It is a Function Expression");     
+       }  
+       // Anonymous function  
+       var myfun2 = function () {  
+           console.log("It is an Anonymous Function"); 
+           document.write("Function without name<br/>")    
+          }  
+       //Arrow function  
+       var myfun3 = () => {  
+           console.log("It is an Arrow Function"); 
+           document.write("function without name and without function keyword <br/> by using =>")    
+          };  
+         
+       myfun1();  
+       myfun2();  
+       myfun3(); 
+    </script> -->
+       
+</body>
+</html>
