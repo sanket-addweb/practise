@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json date</title>
+</head>
+<body>
+    <!-- Date objects are not allowed in JSON.
+
+       If you need to include a date, write it as a string.
+
+       You can convert it back into a date object later: -->
+
+       <script>
+        const dateString='{"name":"John","Age":35,"Ec number":2343,"joining":"18-08-2021"}';
+        const jsonObj=JSON.parse(dateString);
+        console.log(jsonObj);
+        
+        //from jsonObj take joing and pass into date()
+        let dateString2=jsonObj.joining;
+        console.log(dateString2);
+        // let objJoining=new Date(dateString2);
+        let objJoining=new Date(jsonObj.joining);
+        console.log(objJoining);
+       </script>
+</body>
+</html>

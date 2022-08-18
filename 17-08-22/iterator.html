@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iterator</title>
+</head>
+
+<body>
+    <script>
+
+        console.log("welcome to Iterator in javascript");
+
+        function fruitsIterator(values) {
+            let nextIndexIs = 0;
+            //we will return an Object
+            return {
+                next: function () {
+                    if (nextIndexIs < values.length) {
+                        //we will return below object
+                        return {
+                            value: values[nextIndexIs++],
+                            done: false
+                        }
+                    }
+                    else {
+                        return {
+                            // value: undefined,
+                            done: true
+                        }
+                    }
+                    // nextIndexIs++;
+                }
+            }
+        }
+
+        const myArray=['apple', 'Banana', 'Orange','Grapes'];
+        console.log("My array is ", myArray);
+
+        //Using The iterator
+        const fruits=fruitsIterator(myArray);
+        console.log(fruits.next());//return object
+        console.log(fruits.next().value);//return value only
+        console.log(fruits.next());
+        console.log(fruits.next());
+        console.log(fruits.next());
+        console.log(fruits.next());
+
+    </script>
+</body>
+
+</html>

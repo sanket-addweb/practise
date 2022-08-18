@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array as json  </title>
+</head>
+<body>
+    <h3>Array as json and convert Array to json Array</h3>
+    <p id="demo"></p>
+    <script>
+        //json string or json array must be dubble quated
+        text='["Mercedes","BMW","Toyota","Swift"]';//text is in single quates therefor it is string
+        console.log(text);
+
+        let jsonArray=JSON.parse(text);
+        console.log(jsonArray);
+        document.getElementById("demo").innerHTML=jsonArray[1];
+        console.log(Array.isArray(jsonArray));//return true
+
+    </script>
+</body>
+</html>
