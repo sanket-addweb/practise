@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call back function in javascript</title>
+</head>
+<body>
+    <h3>Welcome to call back function in javascript</h3>
+    <script>
+        let person1= (friend,callFriend)=>{
+            console.log(`I am busy Now, beacuae I am taking to ${friend}. I am call you letter`);
+            callFriend();
+        }
+        let person2=()=>{
+            console.log("Hey What's up, Sorry I will call you letter");
+        }
+        person1("Savan",person2);//here two argument savan and person2 variable is pass into person1 and then exexute code and also argument person2 is pass as function and execute second function
+    </script>
+</body>
+</html>

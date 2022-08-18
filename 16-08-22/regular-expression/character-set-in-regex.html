@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character set, quantifires in regular expression</title>
+</head>
+
+<body>
+    <h2>Welcoome to Character set, quantifires in regular expression </h2>
+    <p class="demo-regex"></p>
+    <p class="demo-regex-2"></p>
+
+    <script>
+        console.log("Welcome to ragular expression character set and quantifier");
+        // Regular Expressions: status done
+        // Basic functions : status done
+        // Metacharacter Symbols : status done
+
+        let regex2=/harry/;
+
+        // Character Sets - We use []
+        regex2=/h[atr]rry/; //can be an a, t or r
+        regex2=/h[^atr]rry/;//can not be a, t or r ,if a,t, or r is there than not match
+        regex2=/h[a-z]rry/;//can be any character from a to z
+        regex2=/h[^aty]rry[sdj]/;//cannot be any of a, t or y + can be s d or j
+        regex2=/h[a-zA-z]rr[ay0-9][0-9]/;//we can have as many character sets as we want
+
+        // Quantifiers - We use {}
+        regex2=/har{2}y/; //character r can occur exactly 2 times
+        regex2=/har{0,2}y/;//character r can occur 0 to 2 (0,1, or 2) times, seperated 0 and 2 by coma(,) not should be by (-)
+
+        // Groupings  - We use paranthesis for groupings ()
+
+        regex2=/(harr){3}y/;//harr exactly occur three times
+        regex2=/(harr){0,3}y/;//harr  occur 0 to 3(0,1,2,3) times
+        regex2=/(harr){2}y(aj[0-9]){3}/;//harr occur 2 times and aj[character set between 0 to 9] occur 3 times
+        
+        // let str2="welcome harry to my channel";
+        // let str2="welcome harry2 to my channel";
+        // let str2="harrharry is good boy";
+       let str2="harrharryaj3aj4aj8 is good boy";
+
+
+
+        let result2=regex2.exec(str2);
+        //document.getElementById("demo-regex").innerHTML=result2;
+
+        // let result3=regex2.test(str2);
+        // document.write(result3);//return true if match string name str2
+
+        if(regex2.test(str2)){
+            document.write("The string "+str2+" <b>is match</b> "+"regular expression "+regex2);
+        }
+        else{
+            document.write("The string "+str2+" <b>is not match</b> "+"regular expression "+regex2);
+        }
+
+    </script>
+</body>
+
+</html>

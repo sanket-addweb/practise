@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise-1</title>
+</head>
+<body>
+    <h2>Welcome to promises</h2>
+    <script>
+        // let complete=true;
+        let complete=false;
+        let prom=new Promise(function(resolve,reject){
+            if(complete){
+                resolve("I'm successfully completed task");
+            }
+            else{
+                reject("I'm fail to complete my task on given time duration");
+            }
+        })
+
+        console.log(prom);
+    </script>
+</body>
+</html>

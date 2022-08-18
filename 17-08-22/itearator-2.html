@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator-2</title>
+</head>
+
+<body>
+    <script>
+        const favourtieMovies = ['Harry Potter', 'Lord of the Rings', 'Rush Hour', 'Interstellar', 'Evolution'];
+        const iterator = favourtieMovies[Symbol.iterator]();
+
+        console.log(iterator.next());  //{ value: 'Harry Potter', done: false }
+        console.log(iterator.next().value);  //{ value: 'Lord of the Rings', done: false }
+        console.log(iterator.next());  //{ value: 'Rush Hour', done: false }
+        console.log(iterator.next());  //{ value: 'Interstellar', done: false }
+        console.log(iterator.next());  //{ value: 'Evolution', done: false }
+        console.log(iterator.next());  //{ value: undefined, done: true }
+
+    </script>
+</body>
+
+</html>

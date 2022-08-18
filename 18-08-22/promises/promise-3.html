@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise-3</title>
+</head>
+<body>
+    <script>
+        function prom(a,b){
+            return new Promise(function (resolve,reject){
+                console.log("please Wait Your data is under process");
+                var c=a/b;
+                setTimeout(() => {
+                    if(c){
+                        resolve('The division of a and b is '+c);
+                    }
+                    else{
+                        reject('Fail to calculate this data');
+                    }
+                }, 4000);
+            }//this is function without name calles Anonymous Function with two argument resolve and reject
+            )
+        }
+        var success=(result) =>{
+            console.log(result);
+        }//here result is argument of arrow function
+        var fail=(error) =>{
+            var error="Please Enter valid number";
+            console.log(error);
+        }
+        prom(4,2).then(success);//return resolve statement because variable success is empty variable result
+        // prom(4,2);
+        prom(4,'b');// show error name which we use in reject statement with red line 
+        prom(4,"b").catch(fail);//return error statement which is store in fail varible
+
+
+        //you can also use variable with direct Arrow function
+        // prom(4,"a").then((result)=>{
+        //     var result="Thank you for usuing my divide function";
+
+        //     console.log(result);
+        // }).catch((error)=>{
+        //     var error="Not valid number please Enter valid number"
+        //     console.log(error);
+        // })
+    </script>
+</body>
+</html>
