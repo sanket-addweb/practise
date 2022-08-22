@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On input javascript event</title>
+</head>
+<body>
+    <form action="">
+        <p>Focus on input to see background change</p>
+        Enter Text: <input type="text" id="text" onfocus="myFunction()">
+        
+        <p id="demo"></p>
+    </form>
+    <script>
+        function myFunction(){
+            document.getElementById("text").style.background="yellow";
+        }
+    </script>
+</body>
+</html>

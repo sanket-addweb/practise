@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array inside book Object</title>
+</head>
+<body>
+    <h3>Array inside book object as:</h3>
+    <h4>Book name array, Book price array, Book Author array</h4>
+
+    <script>
+        //creating object as function
+
+        function Books(name,author,price){
+            var bookName=name;
+            var bookAuthor=author;
+            var bookPrice=price;
+
+            //creating global function and use it outside
+            this.displayBook=()=>{
+                document.write("Name: "+bookName+"<br/>Author: "+bookAuthor+"<br/>Price: "+bookPrice+"<br/>");
+            }
+
+            //calculate total price
+            this.totalPrice=()=>{
+                var sum=0;
+                bookPrice.forEach(function(itemPrice){
+                    sum=sum+itemPrice;
+                });
+                document.write("Total Price is "+sum+"<br/>");
+            }
+        }
+
+        // creating new Object book
+        let bookSet1=new Books(["Maths","Physics","Chemestry"],["Aswin Patel","Rahul Patel","Natvar Patel"],[250,350,210]);
+        bookSet1.displayBook();
+        bookSet1.totalPrice();
+    </script>
+</body>
+</html>

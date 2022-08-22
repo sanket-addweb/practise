@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorthand character classes</title>
+</head>
+
+<body>
+    <h3>Shorthand character classes in Regular expression</h3>
+
+    <script>
+
+        let regex1=/harry/;
+        
+        //character classes
+        //\w
+        regex1=/\war/; ////word character , -, _ or alphabet or numbers (one character only after that follwed by ar)
+        // let str1="Hello harry, he is a good boy";//matches
+        // let str1="Hello arry, he is a good boy";// not matches because before ar not any word character
+        
+        regex1=/\w+ar/; // \w+ means one or more word characters
+        // let str1="Hello hbtfdarry, he is a good boy";//matches
+        // let str1="Hello hbtfdrry, he is a good boy";// not matches because not followd by ar as regex1 written
+
+        //\W 
+        regex1=/\Wgood/;//Non word character
+        // let str1="Hello harry, he is a good boy";//matches (because before good non word character (space) is there)
+        regex1=/\W+good/;//\W+ means more than one Non word character
+        // let str1="Hello harry, he is a      good boy";//matches (because before good one or more than one non word character (space) is there)
+
+        //\d 
+        regex1=/\d999/;//\d means one digit(here in regex1 any one digit and followed by number 999)
+        // let str1="Hello harry, he is a good boy and number is 9999921999";//matches
+
+        regex1=/\d+999/;//\d+ means one or more than one digit
+        // let str1="Hello harry, he is a good boy and number is 9999921999";//matches
+
+        regex1=/\D999/;//\D means non digit (here in regex1 one any non degit and followed by 999 )
+        // let str1="Hello harry, he is a good boy and number is 9999921999";//matches
+        // let str1="Hello harry, he is a good boy and number isrtr9999921999";//matches
+        // let str1="Hello harry, he is a good boy and number is 349999921999";// not matches
+
+        regex1=/\D+999/;//\D means one or more than one non digit (here in regex1 one or more than one any non degit and followed by 999 )
+        // let str1="Hello harry, he is a good boy and number is dfdgdfd9999921999";//matches
+        // let str1="Hello harry, he is a good boy and number is dfdgdfd49999921999";// not matches
+
+        //\s
+        regex1=/\snumber/;// Match one whitespace character
+        // let str1="Hello harry, he is a good boy and   number is 9999921999";//matches
+        // let str1="Hello harry, he is a good boy and 3dnumber is 9999921999";// not matches
+
+        regex1=/\s+number/;//\s+ means match one or more than one whitespace characters
+        // let str1="Hello harry, he is a good boy and   number is 9999921999";//matches
+
+        regex1=/\Snumber/;//Match one non whitespace character
+        // let str1="Hello harry, he is a good boy and 3dnumber is 9999921999";//matches
+
+        regex1=/\S+number/;// Match one or more than one non whitespace character
+        // let str1="Hello harry, he is a good boy and 3de34enumber is 9999921999";//matches
+
+      // Assertions
+      regex1=/h(?=y)/;//?= means h pa6i y hovo j joi ae
+      //   let str1="Hello hyrry, is a good boy and 3de34enumber is 9999921999";//matches
+
+      regex1=/h(?!y)/;//?! means kai bi character hoi sake pan y na hovo joi ae
+      let str1="Hello hyrry, is a good boy and 3de34enumber is 9999921999";// not matches
+
+       
+
+        let result1=regex1.exec(str1);//return string if match and null for not match
+        console.log(result1);
+        
+        if(regex1.test(str1)){
+            // console.log("The string "+str1+"is <b>match</b> with "+regex1);
+            document.write("The string "+str1+" is <b>match</b> with "+regex1);
+
+        }
+        else{
+            // console.log("The string "+str1+"is <b>not match</b>with "+regex1);
+            document.write("The string "+str1+" is <b>not match</b> with "+regex1)
+        }
+
+    </script>
+</body>
+
+</html>

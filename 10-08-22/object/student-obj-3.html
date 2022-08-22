@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student object 3</title>
+</head>
+
+<body>
+    <script>
+
+        //creat object as function inside this make two global function by using this keyword and accesed by outside making new object
+
+        function student(nameFun, rollNoFun, marksFun) {
+            var name1 = nameFun;
+            var rollNo1 = rollNoFun;
+            var marks1 = marksFun;
+            this.printStudent=function(){
+                document.write("Name is "+name1+" having roll number is "+rollNo1+" And marks is "+marks1+" ");
+            }//by using this instead of var we make a global function and we can accesed outside also
+            
+            this.avgMarks = function () {
+                var avg, sum = 0;
+                marks1.forEach(function (marksFun) {
+                    sum = sum + marksFun;
+                });
+                avg = sum / marks1.length;
+                document.write(" and Average of marks is " +avg+"<br/>");
+            }
+            //if you use var avgMarks=funcion(){.....}... then it will not display output so use this for making global variable
+        }
+        
+        let student3=new student('Ravindra',89,[12,90,50,69,34]);
+        student3.printStudent();
+        student3.avgMarks();
+
+        var student2 = new student('Bhargav', 23, [59, 32, 90, 80]);
+        student2.printStudent();
+        student2.avgMarks();
+
+    </script>
+</body>
+
+</html>

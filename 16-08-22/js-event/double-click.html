@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On input javascript event</title>
+</head>
+<body>
+    <p id="demo1" ondblclick="myFunction()">Double click this paragraph to see magic</p>
+    <p id="demo"></p>
+    <p id="demo3"></p>
+    <script>
+        function myFunction(){
+            document.getElementById("demo").innerHTML="You double click therefore this function display text";
+        }
+
+        document.getElementById("demo1").addEventListener("dblclick",myFunction2);
+        function myFunction2(){
+            document.getElementById("demo3").innerHTML="This is display by Event listener";
+        }
+    </script>
+</body>
+</html>

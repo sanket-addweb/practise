@@ -11,45 +11,36 @@
 
     </form>
     <script>
-        // var student= new Object();
-        // student.name="Sanket",
-        // student.rollNo=26,
-        // student.marks=80;
-        // student.name="Ravi",
-        // student.rollNo=24,
-        // student.marks=90;
 
+        //creating Object method-1
+        var student= new Object();
+        student.name="Sanket",
+        student.rollNo=26,
+        student.marks=80;
+        student.name="Ravi",
+        student.rollNo=24,
+        student.marks=90;
+        document.write("Student name is "+student.name+" having marks is "+student.marks+"<br/>");
+
+        //creating Object Method-2
         var studentObj={
-            name:"Sanket",
-            rollNo:24,
-            marks:80,
-            get:function(name,rollNO,marks){
-                document.write(this.name+" having "+" Roll number is "+this.rollNO+" And his Marks is "+this.marks);
+            name:"Sagar",
+            rollNo:122,
+            marks:89,
+            get:function(){
+                document.write(this.name+" having "+" Roll number is "+this.rollNo+" And his Marks is "+this.marks);
             }
         }
 
-        // document.write(student.name+" having "+" Roll number is "+student.rollNO+" And his Marks is "+student.marks);
-        document.write(studentObj.name+"<br/>");//"Sanket"
-        document.write(studentObj.rollNo+"<br/>");
-        document.write(studentObj.marks+"<br/>");
+        document.write("By using Second method<br/>")
+        document.write("Student: "+studentObj.name+" Roll number: "+studentObj.rollNo+" Marks: "+studentObj.marks+"<br/>");
+        document.write(studentObj.name+"<br/>");//"Sagar"
+        document.write(studentObj.rollNo+"<br/>");//122
+        document.write(studentObj.marks+"<br/>");//89
         studentObj.get();
 
         // studentObj1=new studentObj("Ravi",25,86);
-        // studentObj.get();
-
-        function student(name1,rollNo1,marks1){
-            this.name=name1;
-            this.rollNO=rollNo1;
-            this.marks=marks1;
-        }
-        
-        var student1=new student("Sanket",24,80);
-        document.write("<br/>"+student1.name+" having "+" Roll number is "+student1.rollNO+" And his Marks is "+student1.marks);
-
-        var student2=new student("Ravi",45,85);
-        document.write("<br/>"+student2.name+" having "+" Roll number is "+student2.rollNO+" And his Marks is "+student2.marks);
-
-
+        // studentObj.get();//this object not run
         
     </script>
 </body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book object</title>
+</head>
+<body>
+    <h3>calculate cost of all book</h3>
+    <p id="demo"></p>
+    <p id="cost"></p>
+
+    <script>
+        
+        //creating object as function
+        function Book(name,author,price,pages){
+            var nameBook=name;
+            var authorBook=author;
+            this.priceBook=price;// make it global beacuse we use it outside also
+            var pagesBook=pages;
+
+            this.bookDetails=()=>{
+                document.write("Book name: "+nameBook+" author: "+author+" Price: "+this.priceBook+" Pages: "+pagesBook+"<br/>");// at time badhi book display thase
+
+                // document.getElementById("demo").innerHTML=("Book name: "+nameBook+" athor: "+author+" Price: "+priceBook+" Pages: "+pagesBook);//At a time aek j display thase kato sanket ni book or Ravi ni book
+            }
+        }
+
+        let book1=new Book("C++","sanket Prjapati",400,240);
+        book1.bookDetails();
+
+        let book2=new Book("Java","Ravi Thakor",350,380);
+        book2.bookDetails();
+
+        var sum=book1.priceBook+book2.priceBook;
+        document.write("The total price is "+sum);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Object 2</title>
+</head>
+<body>
+    <script>
+
+        //creating Object by object as function
+        // var name1,rollNo1,marks1;
+        function student(nameFun,rollNoFun,marksFun){
+            this.name1=nameFun;//make it global because we use it outside function
+            this.rollNO1=rollNoFun;
+            this.marks1=marksFun;
+        }
+        
+        var student1=new student("Sanket",14,[12,23,34,65,78]);
+        document.write("<br/>"+student1.name1+" having "+" Roll number is "+student1.rollNO1+" And his Marks is "+student1.marks1);
+
+
+        var student2=new student("Ravi",45,85);
+        document.write("<br/>"+student2.name1+" having "+" Roll number is "+student2.rollNO1+" And his Marks is "+student2.marks1);
+
+    </script>
+</body>
+</html>

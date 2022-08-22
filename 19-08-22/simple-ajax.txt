@@ -1,0 +1,6 @@
+Hello every one,
+Sanket here
+
+welcome to ajax
+   we are taking to asyncronous javascript and xml
+   here you are learn every thing

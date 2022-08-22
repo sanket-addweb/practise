@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throw statement</title>
+</head>
+
+<body>
+    <form action="">
+        <h2>Enter a number between 10 to 20</h2>
+        Enter Number:<input type="text" id="number">
+        <!-- <button onclick="check()">Click to know</button> -->
+        <button onclick="check()">Click Now</button>
+        <p id="demo"></p>
+    </form>
+
+    <script>
+        function check() {
+          const message = document.getElementById("demo");
+          message.innerHTML = "";
+          let num = document.getElementById("number").value;
+          try {
+              if(num>=10 &&num<=20){
+                  throw("Your input is correct");
+              }
+            if (num == "") {
+                throw "empty";
+            }
+            if (isNaN(num)) {
+                throw "not a number";
+            x = Number(num);
+            }
+            if (num < 10){ 
+                throw "too low";
+            }
+            if (num > 20) {
+                throw "too high";
+            }
+          }
+          catch (err) {
+            // message.innerHTML = "Input is " + err;
+            document.write("Input is "+err);
+          }
+        }
+      </script>
+</body>
+
+</html>

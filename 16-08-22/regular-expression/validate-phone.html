@@ -9,32 +9,38 @@
 </head>
 
 <body>
+    <form action="" method="get">
+        Enter Mobile Number: <input type="text" name="phone" id="phone" placeholder="123-123-1234" required>
+        <button onclick="getNum()">Click here</button>
+    </form>
+    <p id="demo"></p>
     <script>
 
-        //validate phone number 
-        function validatePhone(){
-            const pattern=/^\(?([0-9]{3})\)?[-.]?([0-9]{3})[-.]?([0-9]{4})$/g;
-            
+        function getNum(){
+            var num=document.getElementById("phone").value;
+            validatePhone(num);
         }
-
-
-        // program to validate the phone number
-        // function validatePhone(num) {
-        //     // regex pattern for phone number
-        //     const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/g;
-        //     // check if the phone number is valid
-        //     let result = num.match(re);
-        //     if (result) {
-        //         document.write('The number is valid.');
-        //     }
-        //     else {
-        //         let num = prompt('please Enter number in XXX-XXX-XXXX format:');
-        //         validatePhone(num);
-        //     }
-        // }
-        // // take input
-        // let number = prompt('Enter a number XXX-XXX-XXXX');
-        // validatePhone(number);
+            
+            //validate phone number 
+            function validatePhone(num){
+                // document.getElementById("demo").innerHTML="Hello";
+                // const pattern=/^\(?([0-9]{3})\)?[-.]?([0-9]{3})[-.]?([0-9]{4})$/g;
+                const regex1=/^([0-9]{3})[-][0-9]{3}[-]([0-9]{4})$/;
+                //^ means start with 0 to 9 with 3 number of quantity 
+                //$ means end wtih 0 to 9 with 4 number of quantity
+                
+                let result=regex1.test(num);
+                if(result){
+                    document.write("Enter number "+num+" is in valid formate");
+                    // document.getElementById("demo").innerHTML="Enter number "+num+" is in valid formate";
+                }
+                else{
+                    document.write("Enter number "+num+" is not valid formate");
+                    document.write("<br/>Please Enter Number in this formate 123-123-1234")
+                }
+                
+                
+        }
 
     </script>
 </body>

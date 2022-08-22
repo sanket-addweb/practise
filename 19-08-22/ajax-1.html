@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    
+</head>
+<body>
+    <h2>Welcome to Ajax, Acyncronous Javascript and xml</h2>
+    <button onclick="show()">Click to display data</button>
+
+    <p id="demo"></p>
+    <script>
+        function show(){
+
+            //create XMLHttpRequest Object
+            const req=new XMLHttpRequest();
+
+            //open the Object which name is req
+            req.open('GET','simple-ajax.txt',true);
+
+            //what to do when progress
+            req.onprogress=function(){
+                console.log("request object is in progress");
+            }
+            
+            //what to do when respose ready
+            req.onload=function(){
+                console.log(this.responseText);
+                document.getElementById("demo").innerHTML=this.responseText;
+
+            }//this simple-ajax.txt file open without reloading page
+
+            //send the request
+            req.send();
+
+        }
+    </script>
+</body>
+</html>

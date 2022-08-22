@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On input javascript event</title>
+</head>
+<body>
+    <form action="">
+        Enter Text: <input type="text" id="text" oncopy="myFunction()" value="Please copy this text">
+        
+        <p id="demo"></p>
+        <p id="demo2"></p>
+    </form>
+    <script>
+        document.getElementById("text").addEventListener("copy",myfunction2);//remember this syntax
+        function myfunction2(){
+            document.getElementById("demo2").innerHTML="You copied text this output by event listener";
+        }
+        function myFunction(){
+            document.getElementById("demo").innerHTML="You copy input text";
+        }
+    </script>
+</body>
+</html>

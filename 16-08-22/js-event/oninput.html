@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On input javascript event</title>
+</head>
+<body>
+    <form action="">
+        Enter Text: <input type="text" id="text" oninput="myFunction()">
+        
+        <p id="demo"></p>
+    </form>
+    <script>
+        function myFunction(){
+            var txt=document.getElementById("text").value;
+            var printTxt=document.getElementById("demo").innerHTML="You Wrote: "+txt;
+        }
+    </script>
+</body>
+</html>

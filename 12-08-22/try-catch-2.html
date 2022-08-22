@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<h2>JavaScript Error Handling</h2>
+  <h2>JavaScript Error Handling</h2>
 
-<p>How to use <b>catch</b> to display an error.</p>
+  <p>How to use <b>catch</b> to display an error.</p>
 
-<p id="demo"></p>
+  <p id="demo"></p>
 
-<script>
-try {
-  adddlert("Welcome guest!");
-}
-catch(err) {
-  document.getElementById("demo").innerHTML = err.message;//show syntax error or function not define
-}
-</script>
+  <script>
+
+    //referece Error
+    try {
+      // adddlert("Welcome guest!");//adddlert function not defined
+      let x=3+y;//y variable not defined
+    }
+    catch (err) {
+      document.getElementById("demo").innerHTML = err.name + " " + err.message;
+    }
+
+    //Type Error
+    try{
+      document.writ("Hello guys");
+    }
+    catch(err){
+      document.write(err.name+" "+err.message);//document.writ is not a function
+    }
+    finally{
+      document.write("<br/>Finally closed");
+    }
+
+    //Range Error
+    try{
+      let num=1.2345;
+      // document.write(num.toPrecision(2));
+      document.write(num.toPrecision(200));
+
+    }
+    catch(err){
+      document.write("<br/>"+err.name+" "+err.message);
+    }
+
+  </script>
 
 </body>
+
 </html>
