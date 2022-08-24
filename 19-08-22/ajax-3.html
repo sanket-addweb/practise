@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax by path is link</title>
+</head>
+
+<body>
+    <form action="">
+        <button onclick="show()">press to see json</button>
+    </form>
+    <p id="demo"></p>
+    <script>
+        function show() {
+            document.write("Welcome now");
+            console.log('welcome now');
+            var req = new XMLHttpRequest();
+
+            //open object XMLHttpRequsest
+            req.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+            // req.open('GET','simple-ajax.txt',true);
+
+
+            //what to do when it is in progress
+            req.onprogress = function () {
+                console.log("request is in progress");
+            }
+
+            req.onload = function () {
+                if (this.status === 200) {
+                    // console.log(this.responseText);
+                    var jsonObj = JSON.parse(this.responseText);
+                    console.log(jsonObj);
+                    let text="";
+                    for(let x in jsonObj){
+                        text=text+jsonObj[x];
+                    }
+                    console.log(text.name);
+                    document.getElementById("demo").innerHTML=jsonObj;
+
+                }
+
+            }
+
+            req.send();
+            console.log("we are done fatching of employees");
+        }
+    </script>
+</body>
+
+</html>

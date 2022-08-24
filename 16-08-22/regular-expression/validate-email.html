@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email validate</title>
+</head>
+<body>
+    <form action="">
+        <h3>Enter Email and Varify you Enter Email is in corect form or not</h3>
+        Enter Email: <input type="email" id="email">
+        <button onclick="check()">Ckick to check</button>
+        <p id="print-validation"></p>
+    </form>
+    <script>
+        function check(){
+            var emailStr=document.getElementById("email").value;
+            document.write(emailStr+"<br/>");
+            var regex=/(\S+@)(\S+.)/;//sanket0209@gmail.com
+
+            var result=regex.test(emailStr);
+            // var result=regex.match(emailStr);
+            // var result=regex.exec(emailStr);
+            
+            if(result){
+                // document.getElementById("print-validation").innerHTML="You Enter Email is valid form";
+                document.write("You Enter Email is valid form");
+            }
+            else{
+                // document.getElementById("print-validation").innerHTML=`You Enter Email is not valid form`;
+                document.write("You Enter Email is in not valid form");
+            }
+        }
+    </script>
+    
+</body>
+</html>
