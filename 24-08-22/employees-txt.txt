@@ -1,0 +1,1068 @@
+
+1)
+DISPLAY THE DETAILS OF ALL EMPLOYEES.
+select* from employees;
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name       | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh     | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 1290 | Raxit      | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2124 | Abhi       | 25   | male   | manager           |          11000 |            5 |      2300 |           17 | 2017-03-01 |
+| 2130 | Rahul      | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2190 | Rohit      | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2312 | Vasu       | 24   | male   | clerk             |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2323 | Suhasini   | 24   | female | salesman          |          14000 |            1 |      NULL |           12 | 2021-08-11 |
+| 2345 | Ravi       | 43   | male   | Drawing           |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 2389 | Mohit      | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2394 | Ramesh     | 25   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 2489 | Yogesh     | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+| 2912 | Sweta      | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+| 4039 | Arvind     | 20   | male   | clerk             |          11000 |            6 |      1100 |           14 | 2016-08-04 |
+| 4333 | Uvesh      | 29   | male   | Analyst           |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 4534 | Ronak      | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 4590 | Sagar      | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5610 | Sanket     | 22   | male   | Drawing           |          14000 |            3 |      NULL |           14 | 2020-08-13 |
+| 5673 | Anirudhdha | 28   | male   | manager           |          21000 |            4 |      2300 |           16 | 2018-03-01 |
+| 6190 | Rohit      | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6223 | Sanket     | 25   | male   | Analyst           |          14000 |            5 |      2000 |           12 | 2017-08-22 |
+| 6290 | Mukesh     | 25   | male   | Drawing           |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8230 | Rakesh     | 22   | male   | clerk             |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8537 | Roshan     | 35   | male   | Salesman          |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+| 8547 | Mohan      | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 8557 | Mahi       | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+| 8580 | Himanshu   | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
+| 8589 | Rushikesh  | 32   | male   | Salesman          |          11000 |            1 |      1000 |           19 | 2021-01-09 |
+| 8690 | Setu       | 29   | female | Salesman          |          14000 |            4 |      1000 |           19 | 2018-04-01 |
+| 8790 | Shruti     | 22   | female | clerk             |          14000 |            4 |      1000 |           19 | 2018-04-01 |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+2)
+DISPLAY THE NAME AND JOB FOR ALL EMPLOYEES.
+select name, works from employees;
++------------+-------------------+
+| Ramesh     | Flutter Developer |
+| Raxit      | Drawing           |
+| Abhi       | manager           |
+| Rahul      | QA                |
+| Rohit      | Android Developer |
+| Vasu       | clerk             |
+| Suhasini   | salesman          |
+| Ravi       | Drawing           |
+| Mohit      | clerk             |
+| Ramesh     | clerk             |
+| Yogesh     | Drawing           |
+| Sweta      | Analyst           |
+| Arvind     | clerk             |
+| Uvesh      | Analyst           |
+| Ronak      | Manager           |
+| Sagar      | Manager           |
+| Sanket     | Drawing           |
+| Anirudhdha | manager           |
+| Rohit      | Analyst           |
+| Sanket     | Analyst           |
+| Mukesh     | Drawing           |
+| Rakesh     | clerk             |
+| Roshan     | Salesman          |
+| Mohan      | Salesman          |
+| Mahi       | Salesman          |
+| Himanshu   | Salesman          |
+| Rushikesh  | Salesman          |
+| Setu       | Salesman          |
+| Shruti     | clerk             |
++------------+-------------------+
+
+3)
+DISPLAY NAME AND SALARY FOR ALL EMPLOYEES
+select name, salaryPerMonth from employees;
++------------+----------------+
+| name       | salaryPerMonth |
++------------+----------------+
+| Ramesh     |          12000 |
+| Raxit      |          14000 |
+| Abhi       |          11000 |
+| Rahul      |          12000 |
+| Rohit      |          10000 |
+| Vasu       |          13000 |
+| Suhasini   |          14000 |
+| Ravi       |          28000 |
+| Mohit      |          18000 |
+| Ramesh     |          18000 |
+| Yogesh     |          12000 |
+| Sweta      |          11000 |
+| Arvind     |          11000 |
+| Uvesh      |          13000 |
+| Ronak      |          18000 |
+| Sagar      |          28000 |
+| Sanket     |          14000 |
+| Anirudhdha |          21000 |
+| Rohit      |          18000 |
+| Sanket     |          14000 |
+| Mukesh     |          18000 |
+| Rakesh     |          14000 |
+| Roshan     |          18000 |
+| Mohan      |          18000 |
+| Mahi       |          12000 |
+| Himanshu   |          13000 |
+| Rushikesh  |          11000 |
+| Setu       |          14000 |
+| Shruti     |          14000 |
++------------+----------------+
+
+4)
+DISPLAY EMPLOYEE NUMBER AND TOTAL SALARY FOR EACH EMPLOYEE
+ select id, salaryPerMonth from employees;
++------+----------------+
+| id   | salaryPerMonth |
++------+----------------+
+| 1212 |          12000 |
+| 1290 |          14000 |
+| 2124 |          11000 |
+| 2130 |          12000 |
+| 2190 |          10000 |
+| 2312 |          13000 |
+| 2323 |          14000 |
+| 2345 |          28000 |
+| 2389 |          18000 |
+| 2394 |          18000 |
+| 2489 |          12000 |
+| 2912 |          11000 |
+| 4039 |          11000 |
+| 4333 |          13000 |
+| 4534 |          18000 |
+| 4590 |          28000 |
+| 5610 |          14000 |
+| 5673 |          21000 |
+| 6190 |          18000 |
+| 6223 |          14000 |
+| 6290 |          18000 |
+| 8230 |          14000 |
+| 8537 |          18000 |
+| 8547 |          18000 |
+| 8557 |          12000 |
+| 8580 |          13000 |
+| 8589 |          11000 |
+| 8690 |          14000 |
+| 8790 |          14000 |
++------+----------------+
+
+
+5)
+DISPLAY EMPLOYEE NAME AND ANNUAL SALARY FOR ALL EMPLOYEES.
+
+ select name, salaryPerMonth*12 from employees;
++------------+-------------------+
+| name       | salaryPerMonth*12 |
++------------+-------------------+
+| Ramesh     |            144000 |
+| Raxit      |            168000 |
+| Abhi       |            132000 |
+| Rahul      |            144000 |
+| Rohit      |            120000 |
+| Vasu       |            156000 |
+| Suhasini   |            168000 |
+| Ravi       |            336000 |
+| Mohit      |            216000 |
+| Ramesh     |            216000 |
+| Yogesh     |            144000 |
+| Sweta      |            132000 |
+| Arvind     |            132000 |
+| Uvesh      |            156000 |
+| Ronak      |            216000 |
+| Sagar      |            336000 |
+| Sanket     |            168000 |
+| Anirudhdha |            252000 |
+| Rohit      |            216000 |
+| Sanket     |            168000 |
+| Mukesh     |            216000 |
+| Rakesh     |            168000 |
+| Roshan     |            216000 |
+| Mohan      |            216000 |
+| Mahi       |            144000 |
+| Himanshu   |            156000 |
+| Rushikesh  |            132000 |
+| Setu       |            168000 |
+| Shruti     |            168000 |
++------------+-------------------+
+
+6)
+DISPLAY THE NAMES OF ALL EMPLOYEES WHO ARE WORKING IN DEPARTMENT NUMBER 12
+select name from employees where departmentNo=12;
++----------+
+| name     |
++----------+
+| Vasu     |
+| Suhasini |
+| Ravi     |
+| Uvesh    |
+| Rohit    |
+| Sanket   |
+| Mukesh   |
++----------+
+
+7)
+DISPLAY THE NAMES OF ALL EMPLOYEES WORKING AS CLERKS AND DRAWING
+A SALARYMORE THAN 3000.
+select name from employees where works='clerk' and salaryPerMonth>14000;
++--------+
+| name   |
++--------+
+| Mohit  |
+| Ramesh |
++--------+
+
+8)
+DISPLAY EMPLOYEE NUMBER AND NAMES FOR EMPLOYEES WHO EARN COMMISSION.
+select name from employees where commision;
++------------+
+| name       |
++------------+
+| Raxit      |
+| Abhi       |
+| Rahul      |
+| Rohit      |
+| Vasu       |
+| Ravi       |
+| Mohit      |
+| Ramesh     |
+| Yogesh     |
+| Arvind     |
+| Uvesh      |
+| Anirudhdha |
+| Rohit      |
+| Sanket     |
+| Mukesh     |
+| Rakesh     |
+| Roshan     |
+| Mohan      |
+| Mahi       |
+| Himanshu   |
+| Rushikesh  |
+| Setu       |
+| Shruti     |
++------------+
+
+9)
+DISPLAY NAMES OF EMPLOYEES WHO DO NOT EARN ANY COMMISSION
+select name from employees where commision is null;
++----------+
+| name     |
++----------+
+| Ramesh   |
+| Suhasini |
+| Sweta    |
+| Ronak    |
+| Sagar    |
+| Sanket   |
++----------+
+
+10)
+DISPLAY THE NAMES OF EMPLOYEES WHO ARE WORKING AS CLERK, SALESMAN OR ANALYSTAND DRAWING A SALARY MORE THAN 3000
+select name from employees where works='clerk' or works='salesman' and salaryPerMonth>12000 ;
++----------+
+| name     |
++----------+
+| Vasu     |
+| Suhasini |
+| Mohit    |
+| Ramesh   |
+| Arvind   |
+| Rakesh   |
+| Roshan   |
+| Mohan    |
+| Himanshu |
+| Setu     |
+| Shruti   |
++----------+
+
+11)
+DISPLAY THE NAMES OF EMPLOYEES WHO ARE WORKING IN THE COMPANY FOR THE PAST 5 YEARS.
+select name from employees where timeDuration>5 ;
++--------+
+| name   |
++--------+
+| Ramesh |
+| Ravi   |
+| Arvind |
+| Rohit  |
+| Mukesh |
++--------+
+
+12)
+DISPLAY THE LIST OF EMPLOYEES WHO HAVE JOINED THE COMPANY BEFORE 01-dec-2018 OR AFTER 01-jan-2021
+select name from employees where join_date<'01-dec-2018' or join_date>'01-jan-2021' ;
++------------+
+| name       |
++------------+
+| Ramesh     |
+| Raxit      |
+| Abhi       |
+| Rahul      |
+| Rohit      |
+| Vasu       |
+| Suhasini   |
+| Ravi       |
+| Mohit      |
+| Ramesh     |
+| Yogesh     |
+| Sweta      |
+| Arvind     |
+| Uvesh      |
+| Ronak      |
+| Sagar      |
+| Sanket     |
+| Anirudhdha |
+| Rohit      |
+| Sanket     |
+| Mukesh     |
+| Rakesh     |
+| Roshan     |
+| Mohan      |
+| Mahi       |
+| Himanshu   |
+| Rushikesh  |
+| Setu       |
+| Shruti     |
++------------+
+
+18)
+DISPLAY THE NAMES OF EMPLOYEES WORKING IN DEPARTMENT NUMBER 10 OR 20 OR 40 OR EMPLOYEES WORKING AS CLERKS, SALESMAN OR ANALYST.
+select name from employees where departmentNo=12 or departmentNo=20 or departmentNo=16 and(works='clerk' or works='salesman' or works='analyst') ;
++----------+
+| name     |
++----------+
+| Vasu     |
+| Suhasini |
+| Ravi     |
+| Uvesh    |
+| Rohit    |
+| Sanket   |
+| Mukesh   |
+| Himanshu |
++----------+
+
+19)
+DISPLAY THE NAMES OF EMPLOYEES WHOSE NAME STARTS WITH ALPHABET m.
+select* from employees where name like 'm%';
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 2389 | Mohit  | 28   | male   | clerk    |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 6290 | Mukesh | 25   | male   | Drawing  |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8547 | Mohan  | 35   | male   | Salesman |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 8557 | Mahi   | 30   | male   | Salesman |          12000 |            2 |      1000 |           18 | 2021-05-09 |
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+20)
+DISPLAY EMPLOYEE NAMES FOR EMPLOYEES WHOSE NAME ENDS WITH ALPHABET t.
+select* from employees where name like '%t';
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1290 | Raxit  | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2190 | Rohit  | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2389 | Mohit  | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 5610 | Sanket | 22   | male   | Drawing           |          14000 |            3 |      NULL |           14 | 2020-08-13 |
+| 6190 | Rohit  | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6223 | Sanket | 25   | male   | Analyst           |          14000 |            5 |      2000 |           12 | 2017-08-22 |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+21)
+DISPLAY THE NAMES OF EMPLOYEES WHOSE NAMES HAVE SECOND ALPHABET A IN THEIR NAMES.
+select* from employees where name like '_a%';
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 1290 | Raxit  | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2130 | Rahul  | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2312 | Vasu   | 24   | male   | clerk             |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2345 | Ravi   | 43   | male   | Drawing           |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 2394 | Ramesh | 25   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 4590 | Sagar  | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5610 | Sanket | 22   | male   | Drawing           |          14000 |            3 |      NULL |           14 | 2020-08-13 |
+| 6223 | Sanket | 25   | male   | Analyst           |          14000 |            5 |      2000 |           12 | 2017-08-22 |
+| 8230 | Rakesh | 22   | male   | clerk             |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8557 | Mahi   | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+22)
+DISPLAY THE NAMES OF EMPLOYEES WHOSE NAME IS EXACTLY FIVE CHARACTERS IN LENGTH
+select* from employees where name like '_____';
++------+-------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name  | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1290 | Raxit | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2130 | Rahul | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2190 | Rohit | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2389 | Mohit | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2912 | Sweta | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+| 4333 | Uvesh | 29   | male   | Analyst           |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 4534 | Ronak | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 4590 | Sagar | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 6190 | Rohit | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 8547 | Mohan | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
++------+-------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+23)
+DISPLAY THE NAMES OF EMPLOYEES WHO ARE NOT WORKING AS MANAGERS
+select name from employees where works='manager';
++------------+
+| name       |
++------------+
+| Abhi       |
+| Ronak      |
+| Sagar      |
+| Anirudhdha |
++------------+
+
+24)
+DISPLAY THE NAMES OF EMPLOYEES WHO ARE NOT WORKING AS SALESMAN OR CLERK OR ANALYST
+select name from employees where works not in('salesman','clerk','analyst');
++------------+
+| name       |
++------------+
+| Ramesh     |
+| Raxit      |
+| Abhi       |
+| Rahul      |
+| Rohit      |
+| Ravi       |
+| Yogesh     |
+| Ronak      |
+| Sagar      |
+| Sanket     |
+| Anirudhdha |
+| Mukesh     |
++------------+
+
+26)
+DISPLAY THE TOTAL NUMBER OF EMPLOYEES WORKING IN THE COMPANY
+select count(id) as numEmployees from employees;
++--------------+
+| numEmployees |
++--------------+
+|           29 |
++--------------+
+
+27)
+DISPLAY THE TOTAL SALARY BEING PAID TO ALL EMPLOYEES
+select sum(salaryPerMonth) as totalSalary from employees;
++-------------+
+| totalSalary |
++-------------+
+|      442000 |
++-------------+
+
+28)
+DISPLAY THE MAXIMUM SALARY FROM EMP TABLE
+select max(salaryPerMonth) as maxSalary from employees;
++-----------+
+| maxSalary |
++-----------+
+|     28000 |
++-----------+
+
+29)
+DISPLAY THE MINIMUM SALARY FROM EMP TABLE
+select min(salaryPerMonth) as minSalary from employees;
++-----------+
+| minSalary |
++-----------+
+|     10000 |
++-----------+
+
+30)
+DISPLAY THE AVERAGE SALARY FROM EMP TABLE
+select avg(salaryPerMonth) as avgSalary from employees;
++------------+
+| avgSalary  |
++------------+
+| 15241.3793 |
++------------+
+
+31)
+DISPLAY THE MAXIMUM SALARY BEING PAID TO CLERK
+select max(salaryPerMonth) as maxSalaryClerk from employees where works='clerk';
++----------------+
+| maxSalaryClerk |
++----------------+
+|          18000 |
++----------------+
+
+32)
+DISPLAY THE MAXIMUM SALARY BEING PAID IN DEPT NO 20
+select max(salaryPerMonth) as maxSalaryDepartmentNo20 from employees where departmentNo=20;
++-------------------------+
+| maxSalaryDepartmentNo20 |
++-------------------------+
+|                   13000 |
++-------------------------+
+
+33)
+DISPLAY THE MIN SAL BEING PAID TO ANY SALESMAN
+select min(salaryPerMonth) as minSalarySalesman from employees where works='salesman';
++-------------------+
+| minSalarySalesman |
++-------------------+
+|             11000 |
++-------------------+
+
+34)
+DISPLAY THE AVERAGE SALARY DRAWN BY MANAGERS
+select avg(salaryPerMonth) as avgSalaryManager from employees where works='manager';
++------------------+
+| avgSalaryManager |
++------------------+
+|       19500.0000 |
++------------------+
+
+35)
+DISPLAY THE TOTAL SALARY DRAWN BY ANALYST WORKING IN DEPT NO 40
+select sum(salaryPerMonth) as totalSalaryAnalyst from employees where works='analyst';
++--------------------+
+| totalSalaryAnalyst |
++--------------------+
+|              56000 |
++--------------------+
+
+36)
+DISPLAY THE NAMES and salary OF EMPLOYEES IN ORDER OF SALARY I.E. THE NAME OF THE EMPLOYEE EARNING LOWEST SALARY SHOULD APPEAR FIRST
+select name,salaryPerMonth from employees order by salaryPerMonth asc;
++------------+----------------+
+| name       | salaryPerMonth |
++------------+----------------+
+| Rohit      |          10000 |
+| Arvind     |          11000 |
+| Abhi       |          11000 |
+| Sweta      |          11000 |
+| Rushikesh  |          11000 |
+| Ramesh     |          12000 |
+| Yogesh     |          12000 |
+| Mahi       |          12000 |
+| Rahul      |          12000 |
+| Himanshu   |          13000 |
+| Vasu       |          13000 |
+| Uvesh      |          13000 |
+| Rakesh     |          14000 |
+| Setu       |          14000 |
+| Sanket     |          14000 |
+| Sanket     |          14000 |
+| Raxit      |          14000 |
+| Suhasini   |          14000 |
+| Shruti     |          14000 |
+| Ronak      |          18000 |
+| Mohit      |          18000 |
+| Mohan      |          18000 |
+| Roshan     |          18000 |
+| Ramesh     |          18000 |
+| Mukesh     |          18000 |
+| Rohit      |          18000 |
+| Anirudhdha |          21000 |
+| Ravi       |          28000 |
+| Sagar      |          28000 |
++------------+----------------+
+
+37)
+DISPLAY THE NAMES OF EMPLOYEES IN DESCENDING ORDER OF SALARY
+select name,salaryPerMonth from employees order by salaryPerMonth desc;
++------------+----------------+
+| name       | salaryPerMonth |
++------------+----------------+
+| Sagar      |          28000 |
+| Ravi       |          28000 |
+| Anirudhdha |          21000 |
+| Mohan      |          18000 |
+| Rohit      |          18000 |
+| Ramesh     |          18000 |
+| Mohit      |          18000 |
+| Mukesh     |          18000 |
+| Roshan     |          18000 |
+| Ronak      |          18000 |
+| Setu       |          14000 |
+| Sanket     |          14000 |
+| Rakesh     |          14000 |
+| Sanket     |          14000 |
+| Shruti     |          14000 |
+| Raxit      |          14000 |
+| Suhasini   |          14000 |
+| Uvesh      |          13000 |
+| Himanshu   |          13000 |
+| Vasu       |          13000 |
+| Mahi       |          12000 |
+| Rahul      |          12000 |
+| Yogesh     |          12000 |
+| Ramesh     |          12000 |
+| Abhi       |          11000 |
+| Sweta      |          11000 |
+| Rushikesh  |          11000 |
+| Arvind     |          11000 |
+| Rohit      |          10000 |
++------------+----------------+
+
+38)
+DISPLAY THE DETAILS FROM EMP TABLE IN ORDER OF EMP NAME
+select name from employees order by name asc;
++------------+
+| name       |
++------------+
+| Abhi       |
+| Anirudhdha |
+| Arvind     |
+| Himanshu   |
+| Mahi       |
+| Mohan      |
+| Mohit      |
+| Mukesh     |
+| Rahul      |
+| Rakesh     |
+| Ramesh     |
+| Ramesh     |
+| Ravi       |
+| Raxit      |
+| Rohit      |
+| Rohit      |
+| Ronak      |
+| Roshan     |
+| Rushikesh  |
+| Sagar      |
+| Sanket     |
+| Sanket     |
+| Setu       |
+| Shruti     |
+| Suhasini   |
+| Sweta      |
+| Uvesh      |
+| Vasu       |
+| Yogesh     |
++------------+
+
+39)
+DISPLAY EMPNO, ENAME, DEPTNO, AND SAL. SORT THE OUTPUT FIRST BASED ON NAMEAND WITHIN NAME BY DEPTNO AND WITHIN DEPTNO BY SAL
+select id, name,departmentNo, salaryPerMonth from employees order by name asc, departmentNo asc, salaryPerMonth asc ;
++------+------------+--------------+----------------+
+| id   | name       | departmentNo | salaryPerMonth |
++------+------------+--------------+----------------+
+| 2124 | Abhi       |           17 |          11000 |
+| 5673 | Anirudhdha |           16 |          21000 |
+| 4039 | Arvind     |           14 |          11000 |
+| 8580 | Himanshu   |           20 |          13000 |
+| 8557 | Mahi       |           18 |          12000 |
+| 8547 | Mohan      |           14 |          18000 |
+| 2389 | Mohit      |           18 |          18000 |
+| 6290 | Mukesh     |           12 |          18000 |
+| 2130 | Rahul      |           18 |          12000 |
+| 8230 | Rakesh     |           17 |          14000 |
+| 1212 | Ramesh     |           14 |          12000 |
+| 2394 | Ramesh     |           18 |          18000 |
+| 2345 | Ravi       |           12 |          28000 |
+| 1290 | Raxit      |           18 |          14000 |
+| 6190 | Rohit      |           12 |          18000 |
+| 2190 | Rohit      |           15 |          10000 |
+| 4534 | Ronak      |           14 |          18000 |
+| 8537 | Roshan     |           15 |          18000 |
+| 8589 | Rushikesh  |           19 |          11000 |
+| 4590 | Sagar      |           15 |          28000 |
+| 6223 | Sanket     |           12 |          14000 |
+| 5610 | Sanket     |           14 |          14000 |
+| 8690 | Setu       |           19 |          14000 |
+| 8790 | Shruti     |           19 |          14000 |
+| 2323 | Suhasini   |           12 |          14000 |
+| 2912 | Sweta      |           18 |          11000 |
+| 4333 | Uvesh      |           12 |          13000 |
+| 2312 | Vasu       |           12 |          13000 |
+| 2489 | Yogesh     |           16 |          12000 |
++------+------------+--------------+----------------+
+
+40)
+DISPLAY THE NAME OF THE EMPLOYEE ALONG WITH THEIR ANNUAL SALARY (SAL * 12).THE NAME OF THE EMPLOYEE EARNING HIGHEST ANNUAL SALARY SHOULD APPEAR FIRST
+select name, salaryPerMonth*12 from employees order by salaryPerMonth*12 asc;
++------------+-------------------+
+| name       | salaryPerMonth*12 |
++------------+-------------------+
+| Rohit      |            120000 |
+| Arvind     |            132000 |
+| Abhi       |            132000 |
+| Sweta      |            132000 |
+| Rushikesh  |            132000 |
+| Ramesh     |            144000 |
+| Yogesh     |            144000 |
+| Mahi       |            144000 |
+| Rahul      |            144000 |
+| Himanshu   |            156000 |
+| Vasu       |            156000 |
+| Uvesh      |            156000 |
+| Rakesh     |            168000 |
+| Setu       |            168000 |
+| Sanket     |            168000 |
+| Sanket     |            168000 |
+| Raxit      |            168000 |
+| Suhasini   |            168000 |
+| Shruti     |            168000 |
+| Ronak      |            216000 |
+| Mohit      |            216000 |
+| Mohan      |            216000 |
+| Roshan     |            216000 |
+| Ramesh     |            216000 |
+| Mukesh     |            216000 |
+| Rohit      |            216000 |
+| Anirudhdha |            252000 |
+| Ravi       |            336000 |
+| Sagar      |            336000 |
++------------+-------------------+
+
+41)
+DISPLAY NAME, SAL, HRA, PF, DA, TOTAL SAL FOR EACH EMPLOYEE. THE OUTPUT SHOULD BE IN THE ORDER OF TOTAL SAL, HRA 15% OF SAL, DA 10% OF SAL, PF 5% OF SAL TOTAL SALARY WILL BE (SAL*HRA*DA)-PF
+ select name, salaryPerMonth,salaryPerMonth*0.15 as HRA, salaryPerMonth*0.05 as PF, salaryPerMonth*0.1 as DA,salaryPerMonth-salaryPerMonth*0.05 as totalSalary from employees;
++------------+----------------+---------+---------+--------+-------------+
+| name       | salaryPerMonth | HRA     | PF      | DA     | totalSalary |
++------------+----------------+---------+---------+--------+-------------+
+| Ramesh     |          12000 | 1800.00 |  600.00 | 1200.0 |    11400.00 |
+| Raxit      |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Abhi       |          11000 | 1650.00 |  550.00 | 1100.0 |    10450.00 |
+| Rahul      |          12000 | 1800.00 |  600.00 | 1200.0 |    11400.00 |
+| Rohit      |          10000 | 1500.00 |  500.00 | 1000.0 |     9500.00 |
+| Vasu       |          13000 | 1950.00 |  650.00 | 1300.0 |    12350.00 |
+| Suhasini   |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Ravi       |          28000 | 4200.00 | 1400.00 | 2800.0 |    26600.00 |
+| Mohit      |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Ramesh     |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Yogesh     |          12000 | 1800.00 |  600.00 | 1200.0 |    11400.00 |
+| Sweta      |          11000 | 1650.00 |  550.00 | 1100.0 |    10450.00 |
+| Arvind     |          11000 | 1650.00 |  550.00 | 1100.0 |    10450.00 |
+| Uvesh      |          13000 | 1950.00 |  650.00 | 1300.0 |    12350.00 |
+| Ronak      |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Sagar      |          28000 | 4200.00 | 1400.00 | 2800.0 |    26600.00 |
+| Sanket     |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Anirudhdha |          21000 | 3150.00 | 1050.00 | 2100.0 |    19950.00 |
+| Rohit      |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Sanket     |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Mukesh     |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Rakesh     |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Roshan     |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Mohan      |          18000 | 2700.00 |  900.00 | 1800.0 |    17100.00 |
+| Mahi       |          12000 | 1800.00 |  600.00 | 1200.0 |    11400.00 |
+| Himanshu   |          13000 | 1950.00 |  650.00 | 1300.0 |    12350.00 |
+| Rushikesh  |          11000 | 1650.00 |  550.00 | 1100.0 |    10450.00 |
+| Setu       |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
+| Shruti     |          14000 | 2100.00 |  700.00 | 1400.0 |    13300.00 |
++------------+----------------+---------+---------+--------+-------------+
+
+42)
+DISPLAY DEPT NUMBERS AND TOTAL NUMBER OF EMPLOYEES WITHIN EACH GROUP
+select departmentNo, count(id) from employees group by departmentNO;
++--------------+-----------+
+| departmentNo | count(id) |
++--------------+-----------+
+|           12 |         7 |
+|           14 |         5 |
+|           15 |         3 |
+|           16 |         2 |
+|           17 |         2 |
+|           18 |         6 |
+|           19 |         3 |
+|           20 |         1 |
++--------------+-----------+
+
+43)
+DISPLAY THE VARIOUS JOBS AND TOTAL NUMBER OF EMPLOYEES WITH EACH JOB GROUP
+select works, count(id) as totalNum from employees group by works;
++-------------------+----------+
+| works             | totalNum |
++-------------------+----------+
+| Analyst           |        4 |
+| Android Developer |        1 |
+| clerk             |        6 |
+| Drawing           |        5 |
+| Flutter Developer |        1 |
+| manager           |        4 |
+| QA                |        1 |
+| salesman          |        7 |
++-------------------+----------+
+
+44)
+DISPLAY DEPARTMENT NUMBERS AND TOTAL SALARY FOR EACH DEPARTMENT
+select departmentNo, sum(salaryPerMonth) as totalSalary from employees group by departmentNo; 
++--------------+-------------+
+| departmentNo | totalSalary |
++--------------+-------------+
+|           12 |      118000 |
+|           14 |       73000 |
+|           15 |       56000 |
+|           16 |       33000 |
+|           17 |       25000 |
+|           18 |       85000 |
+|           19 |       39000 |
+|           20 |       13000 |
++--------------+-------------+
+
+45)
+DISPLAY DEPARTMENT NUMBERS AND MAXIMUM SALARY FOR EACH DEPARTMENT
+select departmentNo, max(salaryPerMonth) as maxSalary from employees group by departmentNo; 
++--------------+-----------+
+| departmentNo | maxSalary |
++--------------+-----------+
+|           12 |     28000 |
+|           14 |     18000 |
+|           15 |     28000 |
+|           16 |     21000 |
+|           17 |     14000 |
+|           18 |     18000 |
+|           19 |     14000 |
+|           20 |     13000 |
++--------------+-----------+
+
+46)
+DISPLAY THE VARIOUS JOBS AND TOTAL SALARY FOR EACH JOB
+select works, sum(salaryPerMonth) as totalSalary from employees group by works;
++-------------------+-------------+
+| works             | totalSalary |
++-------------------+-------------+
+| Analyst           |       56000 |
+| Android Developer |       10000 |
+| clerk             |       88000 |
+| Drawing           |       86000 |
+| Flutter Developer |       12000 |
+| manager           |       78000 |
+| QA                |       12000 |
+| salesman          |      100000 |
++-------------------+-------------+
+
+47)
+DISPLAY EACH JOB ALONG WITH MINIMUM SAL BEING PAID IN EACH JOB GROUP
+select works, min(salaryPerMonth) as minSalary from employees group by works;
++-------------------+-----------+
+| works             | minSalary |
++-------------------+-----------+
+| Analyst           |     11000 |
+| Android Developer |     10000 |
+| clerk             |     11000 |
+| Drawing           |     12000 |
+| Flutter Developer |     12000 |
+| manager           |     11000 |
+| QA                |     12000 |
+| salesman          |     11000 |
++-------------------+-----------+
+
+48)
+DISPLAY THE DEPARTMENT NUMBERS WITH MORE THAN THREE EMPLOYEES IN EACH DEPT
+select count(id) as numEmployees, departmentNo from employees group by departmentNo having count(id)>3;
++--------------+--------------+
+| numEmployees | departmentNo |
++--------------+--------------+
+|            7 |           12 |
+|            5 |           14 |
+|            6 |           18 |
++--------------+--------------+
+
+49)
+DISPLAY THE VARIOUS JOBS ALONG WITH TOTAL SAL FOR EACH OF THE JOBS WHERE TOTAL SALIS GREATER THAN 40000
+select works, sum(salaryPerMonth) as totalSalary from employees group by works having sum(salaryPerMonth)>40000;
++----------+-------------+
+| works    | totalSalary |
++----------+-------------+
+| Analyst  |       56000 |
+| clerk    |       88000 |
+| Drawing  |       86000 |
+| manager  |       78000 |
+| salesman |      100000 |
++----------+-------------+
+
+50)
+DISPLAY THE VARIOUS JOBS ALONG WITH TOTAL NUMBER OF EMPLOYEES IN EACH JOB. THE OUTPUT SHOULD CONTAIN ONLY THOSE JOBS WITH MORE THAN THREE EMPLOYEES
+select works, count(id) as totalEmployees from employees group by works having count(id)>3;
++----------+----------------+
+| works    | totalEmployees |
++----------+----------------+
+| Analyst  |              4 |
+| clerk    |              6 |
+| Drawing  |              5 |
+| manager  |              4 |
+| salesman |              7 |
++----------+----------------+
+
+
+51)
+DISPLAY THE NAME OF EMP WHO EARNS HIGHEST SAL.
+select name from employees where salaryPerMonth=(select max(salaryPerMonth) from employees);
++-------+
+| name  |
++-------+
+| Ravi  |
+| Sagar |
++-------+
+
+58)
+DISPLAY THE EMPLOYEE NAMES WHO ARE WORKING IN sales DEPT.
+select name from employees where works='salesman'
+    -> ;
++-----------+
+| name      |
++-----------+
+| Suhasini  |
+| Roshan    |
+| Mohan     |
+| Mahi      |
+| Himanshu  |
+| Rushikesh |
+| Setu      |
++-----------+
+
+63)
+DISPLAY THE NAMES OF EMPLOYEES IN UPPER CASE.
+select upper(name) from employees;
++-------------+
+| upper(name) |
++-------------+
+| RAMESH      |
+| RAXIT       |
+| ABHI        |
+| RAHUL       |
+| ROHIT       |
+| VASU        |
+| SUHASINI    |
+| RAVI        |
+| MOHIT       |
+| RAMESH      |
+| YOGESH      |
+| SWETA       |
+| ARVIND      |
+| UVESH       |
+| RONAK       |
+| SAGAR       |
+| SANKET      |
+| ANIRUDHDHA  |
+| ROHIT       |
+| SANKET      |
+| MUKESH      |
+| RAKESH      |
+| ROSHAN      |
+| MOHAN       |
+| MAHI        |
+| HIMANSHU    |
+| RUSHIKESH   |
+| SETU        |
+| SHRUTI      |
++-------------+
+
+64)
+DISPLAY THE NAMES OF EMPLOYEES IN LOWER CASE.
+select lower(name) from employees;
++-------------+
+| lower(name) |
++-------------+
+| ramesh      |
+| raxit       |
+| abhi        |
+| rahul       |
+| rohit       |
+| vasu        |
+| suhasini    |
+| ravi        |
+| mohit       |
+| ramesh      |
+| yogesh      |
+| sweta       |
+| arvind      |
+| uvesh       |
+| ronak       |
+| sagar       |
+| sanket      |
+| anirudhdha  |
+| rohit       |
+| sanket      |
+| mukesh      |
+| rakesh      |
+| roshan      |
+| mohan       |
+| mahi        |
+| himanshu    |
+| rushikesh   |
+| setu        |
+| shruti      |
++-------------+
+
+66)
+FIND OUT THE LENGTH OF YOUR NAME USING APPROPRIATE FUNCTION.
+select char_length(name),name from employees where name='Sanket';
++-------------------+--------+
+| char_length(name) | name   |
++-------------------+--------+
+|                 6 | Sanket |
+|                 6 | Sanket |
++-------------------+--------+
+
+67)
+DISPLAY THE LENGTH OF ALL EMPLOYEES’ NAMES.
+select char_length(name),name from employees;
++-------------------+------------+
+| char_length(name) | name       |
++-------------------+------------+
+|                 6 | Ramesh     |
+|                 5 | Raxit      |
+|                 4 | Abhi       |
+|                 5 | Rahul      |
+|                 5 | Rohit      |
+|                 4 | Vasu       |
+|                 8 | Suhasini   |
+|                 4 | Ravi       |
+|                 5 | Mohit      |
+|                 6 | Ramesh     |
+|                 6 | Yogesh     |
+|                 5 | Sweta      |
+|                 6 | Arvind     |
+|                 5 | Uvesh      |
+|                 5 | Ronak      |
+|                 5 | Sagar      |
+|                 6 | Sanket     |
+|                10 | Anirudhdha |
+|                 5 | Rohit      |
+|                 6 | Sanket     |
+|                 6 | Mukesh     |
+|                 6 | Rakesh     |
+|                 6 | Roshan     |
+|                 5 | Mohan      |
+|                 4 | Mahi       |
+|                 8 | Himanshu   |
+|                 9 | Rushikesh  |
+|                 4 | Setu       |
+|                 6 | Shruti     |
++-------------------+------------+
+
+68)
+DISPLAY THE NAME OF THE EMPLOYEE CONCATENATE WITH EMP NO.
+select concat(id,name) from employees;
++-----------------+
+| concat(id,name) |
++-----------------+
+| 1212Ramesh      |
+| 1290Raxit       |
+| 2124Abhi        |
+| 2130Rahul       |
+| 2190Rohit       |
+| 2312Vasu        |
+| 2323Suhasini    |
+| 2345Ravi        |
+| 2389Mohit       |
+| 2394Ramesh      |
+| 2489Yogesh      |
+| 2912Sweta       |
+| 4039Arvind      |
+| 4333Uvesh       |
+| 4534Ronak       |
+| 4590Sagar       |
+| 5610Sanket      |
+| 5673Anirudhdha  |
+| 6190Rohit       |
+| 6223Sanket      |
+| 6290Mukesh      |
+| 8230Rakesh      |
+| 8537Roshan      |
+| 8547Mohan       |
+| 8557Mahi        |
+| 8580Himanshu    |
+| 8589Rushikesh   |
+| 8690Setu        |
+| 8790Shruti      |
++-----------------+
+
+

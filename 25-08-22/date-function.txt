@@ -1,0 +1,59 @@
+create table hospitalBirth ( id int(10) not null primary key auto_increment, name varchar(40),dob date, dotime time, dat datetime);
+
+desc hospitalBirth;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(10)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(40) | YES  |     | NULL    |                |
+| dob    | date        | YES  |     | NULL    |                |
+| dotime | time        | YES  |     | NULL    |                |
+| dat    | datetime    | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+
+ insert into hospitalBirth values(1,'sanket','1999-09-02','01:34:12','1999-09-02 01:34:12');
+
+select *from hospitalBirth;
++----+--------+------------+----------+---------------------+
+| id | name   | dob        | dotime   | dat                 |
++----+--------+------------+----------+---------------------+
+|  1 | sanket | 1999-09-02 | 01:34:12 | 1999-09-02 01:34:12 |
++----+--------+------------+----------+---------------------+
+
+select now();
++---------------------+
+| now()               |
++---------------------+
+| 2022-08-25 11:06:39 |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [test_11]> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2022-08-25 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [test_11]> select curtime();
++-----------+
+| curtime() |
++-----------+
+| 11:07:00  |
++-----------+
+
+
+insert into hospitalBirth values(2,'Mahesh',curdate(),curtime(),now());
+Query OK, 1 row affected (0.011 sec)
+
+
+select *from hospitalBirth;
++----+--------+------------+----------+---------------------+
+| id | name   | dob        | dotime   | dat                 |
++----+--------+------------+----------+---------------------+
+|  1 | sanket | 1999-09-02 | 01:34:12 | 1999-09-02 01:34:12 |
+|  2 | Mahesh | 2022-08-25 | 11:08:34 | 2022-08-25 11:08:34 |
++----+--------+------------+----------+---------------------+
+
+

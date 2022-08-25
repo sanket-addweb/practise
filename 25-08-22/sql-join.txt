@@ -1,0 +1,532 @@
+
+1st table
+select* from Employees;
++------+--------+-----------+-------------+
+| id   | Ename  | address   | mobile      |
++------+--------+-----------+-------------+
+| 1122 | Rajesh | Surat     | 97232332345 |
+| 1212 | Mahesh | Visanagar |  9832842844 |
+| 1242 | Mukesh | Valsad    |  9832434343 |
+| 4121 | Abhi   | Mahesana  | 90323212192 |
+| 4122 | Ravi   | Bhuj      | 97232232444 |
+| 4129 | Sanket | Mahesana  |  9032232444 |
+| 4190 | Dixit  | Valsad    |  9032328932 |
+| 4231 | Ramesh | Mahesana  |  9032232192 |
+| 4322 | Ramesh | Dahod     |  9723233775 |
+| 8977 | Tanay  | Navsari   |   903829827 |
+| 8992 | Talha  | Valsad    |  9038328932 |
+| 8997 | Ani    | Valsad    | 90388658932 |
+
+2nd table
+select* from Department;
++------+------------+----------+----------------+--------------------+
+| id   | departName | departID | designation    | email              |
++------+------------+----------+----------------+--------------------+
+| 1122 | Maintanace |       20 | M Engineer     | rajesh@gmail.com   |
+| 1122 | Maintanace |       20 | M Engineer     | rajesh@gmail.com   |
+| 1212 | Maintanace |       20 | M Engineer     | mahesh@gmail.com   |
+| 1242 | Electrical |       18 | M Engineer     | mukesh@gmail.com   |
+| 4121 | Electrical |       18 | M Engineer     | abhi@gmail.com     |
+| 4122 | Electrical |       18 | M Engineer     | ravi@gmail.com     |
+| 4129 | Production |       22 | P Engineer     | sanket@gmail.com   |
+| 4190 | Production |       22 | P Engineer     | dixit@gmail.com    |
+| 4231 | Production |       22 | P Engineer     | ramesh@gmail.com   |
+| 4322 | Maintanace |       20 | M Engineer     | ramesh12@gmail.com |
+| 9123 | Maintanace |       20 | M new Engineer | kalp12@gmail.com   |
+| 9233 | Electrical |       18 | E new Engineer | yogesh@gmail.com   |
++------+------------+----------+----------------+--------------------+
+
+3rd table
+select* from Salary;
++--------------------+--------+-----------+-------+
+| email              | salary | deduction | bonus |
++--------------------+--------+-----------+-------+
+| rajesh@gmail.com   |  12000 |      1900 |  1290 |
+| mahesh@gmail.com   |  11000 |      1200 |  1500 |
+| mukesh@gmail.com   |  18000 |      1900 |  2200 |
+| abhi@gmail.com     |  17000 |      1700 |  2100 |
+| ravi@gmail.com     |  13000 |      1100 |  1400 |
+| sanket@gmail.com   |  21000 |      2300 |  2200 |
+| dixit@gmail.com    |  19000 |      1900 |  2100 |
+| ramesh@gmail.com   |  14000 |      1100 |  1800 |
+| ramesh12@gmail.com |  16000 |      1800 |  1900 |
++--------------------+--------+-----------+-------+
+
+-----Inner join-----------------------------------------------------------------------------------------
+
+select e.id, e.Ename, e.address, e.mobile, d.departName, d.departId,d.designation 
+from Employees as e join Department as d 
+on e.id=d.id;
++------+--------+-----------+-------------+------------+----------+-------------+
+| id   | Ename  | address   | mobile      | departName | departId | designation |
++------+--------+-----------+-------------+------------+----------+-------------+
+| 1122 | Rajesh | Surat     | 97232332345 | Maintanace |       20 | M Engineer  |
+| 1122 | Rajesh | Surat     | 97232332345 | Maintanace |       20 | M Engineer  |
+| 1212 | Mahesh | Visanagar |  9832842844 | Maintanace |       20 | M Engineer  |
+| 1242 | Mukesh | Valsad    |  9832434343 | Electrical |       18 | M Engineer  |
+| 4121 | Abhi   | Mahesana  | 90323212192 | Electrical |       18 | M Engineer  |
+| 4122 | Ravi   | Bhuj      | 97232232444 | Electrical |       18 | M Engineer  |
+| 4129 | Sanket | Mahesana  |  9032232444 | Production |       22 | P Engineer  |
+| 4190 | Dixit  | Valsad    |  9032328932 | Production |       22 | P Engineer  |
+| 4231 | Ramesh | Mahesana  |  9032232192 | Production |       22 | P Engineer  |
+| 4322 | Ramesh | Dahod     |  9723233775 | Maintanace |       20 | M Engineer  |
++------+--------+-----------+-------------+------------+----------+-------------+
+
+
+----------outer left join-----------------------------------------------------------------------------
+
+select e.id, e.Ename, d.departName, d.departId, d.designation 
+from Employees as e left join Department as d 
+on e.id=d.id;
++------+--------+------------+----------+-------------+
+| id   | Ename  | departName | departId | designation |
++------+--------+------------+----------+-------------+
+| 1122 | Rajesh | Maintanace |       20 | M Engineer  |
+| 1122 | Rajesh | Maintanace |       20 | M Engineer  |
+| 1212 | Mahesh | Maintanace |       20 | M Engineer  |
+| 1242 | Mukesh | Electrical |       18 | M Engineer  |
+| 4121 | Abhi   | Electrical |       18 | M Engineer  |
+| 4122 | Ravi   | Electrical |       18 | M Engineer  |
+| 4129 | Sanket | Production |       22 | P Engineer  |
+| 4190 | Dixit  | Production |       22 | P Engineer  |
+| 4231 | Ramesh | Production |       22 | P Engineer  |
+| 4322 | Ramesh | Maintanace |       20 | M Engineer  |
+| 8977 | Tanay  | NULL       |     NULL | NULL        |
+| 8992 | Talha  | NULL       |     NULL | NULL        |
+| 8997 | Ani    | NULL       |     NULL | NULL        |
++------+--------+------------+----------+-------------+
+
+ three table left join
+select e.id, e.Ename, d.departName, s.salary from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email;
++------+--------+------------+--------+
+| id   | Ename  | departName | salary |
++------+--------+------------+--------+
+| 1122 | Rajesh | Maintanace |  12000 |
+| 1122 | Rajesh | Maintanace |  12000 |
+| 1212 | Mahesh | Maintanace |  11000 |
+| 1242 | Mukesh | Electrical |  18000 |
+| 4121 | Abhi   | Electrical |  17000 |
+| 4122 | Ravi   | Electrical |  13000 |
+| 4129 | Sanket | Production |  21000 |
+| 4190 | Dixit  | Production |  19000 |
+| 4231 | Ramesh | Production |  14000 |
+| 4322 | Ramesh | Maintanace |  16000 |
+| 8977 | Tanay  | NULL       |   NULL |
+| 8992 | Talha  | NULL       |   NULL |
+| 8997 | Ani    | NULL       |   NULL |
++------+--------+------------+--------+
+
+
+-------------outer right join------------------------------------------------------------------------
+select e.id, e.Ename, d.departName, d.designation 
+    -> from Employees as e right join Department as d
+    -> on e.id=d.id;
++------+--------+------------+----------------+
+| id   | Ename  | departName | designation    |
++------+--------+------------+----------------+
+| 1122 | Rajesh | Maintanace | M Engineer     |
+| 1122 | Rajesh | Maintanace | M Engineer     |
+| 1212 | Mahesh | Maintanace | M Engineer     |
+| 1242 | Mukesh | Electrical | M Engineer     |
+| 4121 | Abhi   | Electrical | M Engineer     |
+| 4122 | Ravi   | Electrical | M Engineer     |
+| 4129 | Sanket | Production | P Engineer     |
+| 4190 | Dixit  | Production | P Engineer     |
+| 4231 | Ramesh | Production | P Engineer     |
+| 4322 | Ramesh | Maintanace | M Engineer     |
+| NULL | NULL   | Maintanace | M new Engineer |
+| NULL | NULL   | Electrical | E new Engineer |
++------+--------+------------+----------------+
+
+------------inner join three table--------------------------------------------------------------------------
+select e.id, e.Ename, d.departName, d.departId, d.designation, s.salary
+    -> from Employees as e join Department as d
+    -> on e.id=d.id join Salary as s
+    -> on d.email=s.email;
++------+--------+------------+----------+-------------+--------+
+| id   | Ename  | departName | departId | designation | salary |
++------+--------+------------+----------+-------------+--------+
+| 1122 | Rajesh | Maintanace |       20 | M Engineer  |  12000 |
+| 1122 | Rajesh | Maintanace |       20 | M Engineer  |  12000 |
+| 1212 | Mahesh | Maintanace |       20 | M Engineer  |  11000 |
+| 1242 | Mukesh | Electrical |       18 | M Engineer  |  18000 |
+| 4121 | Abhi   | Electrical |       18 | M Engineer  |  17000 |
+| 4122 | Ravi   | Electrical |       18 | M Engineer  |  13000 |
+| 4129 | Sanket | Production |       22 | P Engineer  |  21000 |
+| 4190 | Dixit  | Production |       22 | P Engineer  |  19000 |
+| 4231 | Ramesh | Production |       22 | P Engineer  |  14000 |
+| 4322 | Ramesh | Maintanace |       20 | M Engineer  |  16000 |
++------+--------+------------+----------+-------------+--------+
+
+----------------full join----------------------------------------------------------------------------------
+select e.id, e.Ename, d.departName, d.departId, d.designation from Employees as e left join Department as d on e.id=d.id
+    -> union all
+    -> select e.id, e.Ename, d.departName, d.departId, d.designation
+    -> from Employees as e right join Department as d 
+    -> on e.id=d.id;
++------+--------+------------+----------+----------------+
+| id   | Ename  | departName | departId | designation    |
++------+--------+------------+----------+----------------+
+| 1122 | Rajesh | Maintanace |       20 | M Engineer     |
+| 1122 | Rajesh | Maintanace |       20 | M Engineer     |
+| 1212 | Mahesh | Maintanace |       20 | M Engineer     |
+| 1242 | Mukesh | Electrical |       18 | M Engineer     |
+| 4121 | Abhi   | Electrical |       18 | M Engineer     |
+| 4122 | Ravi   | Electrical |       18 | M Engineer     |
+| 4129 | Sanket | Production |       22 | P Engineer     |
+| 4190 | Dixit  | Production |       22 | P Engineer     |
+| 4231 | Ramesh | Production |       22 | P Engineer     |
+| 4322 | Ramesh | Maintanace |       20 | M Engineer     |
+| 8977 | Tanay  | NULL       |     NULL | NULL           |
+| 8992 | Talha  | NULL       |     NULL | NULL           |
+| 8997 | Ani    | NULL       |     NULL | NULL           |
+| 1122 | Rajesh | Maintanace |       20 | M Engineer     |
+| 1122 | Rajesh | Maintanace |       20 | M Engineer     |
+| 1212 | Mahesh | Maintanace |       20 | M Engineer     |
+| 1242 | Mukesh | Electrical |       18 | M Engineer     |
+| 4121 | Abhi   | Electrical |       18 | M Engineer     |
+| 4122 | Ravi   | Electrical |       18 | M Engineer     |
+| 4129 | Sanket | Production |       22 | P Engineer     |
+| 4190 | Dixit  | Production |       22 | P Engineer     |
+| 4231 | Ramesh | Production |       22 | P Engineer     |
+| 4322 | Ramesh | Maintanace |       20 | M Engineer     |
+| NULL | NULL   | Maintanace |       20 | M new Engineer |
+| NULL | NULL   | Electrical |       18 | E new Engineer |
++------+--------+------------+----------+----------------+
+
+-----------------------------------cross join-----------------------------------------------------------------------------
+
+select e.id, d.id from Employees as e cross join Department as d;
++------+------+
+| id   | id   |
++------+------+
+| 8977 | 1122 |
+| 4231 | 1122 |
+| 4129 | 1122 |
+| 4190 | 1122 |
+| 8992 | 1122 |
+| 4322 | 1122 |
+| 1242 | 1122 |
+| 1212 | 1122 |
+| 4121 | 1122 |
+| 8997 | 1122 |
+| 4122 | 1122 |
+| 1122 | 1122 |
+| 8977 | 1122 |
+| 4231 | 1122 |
+| 4129 | 1122 |
+| 4190 | 1122 |
+| 8992 | 1122 |
+| 4322 | 1122 |
+| 1242 | 1122 |
+| 1212 | 1122 |
+| 4121 | 1122 |
+| 8997 | 1122 |
+| 4122 | 1122 |
+| 1122 | 1122 |
+| 8977 | 1212 |
+| 4231 | 1212 |
+| 4129 | 1212 |
+| 4190 | 1212 |
+| 8992 | 1212 |
+| 4322 | 1212 |
+| 1242 | 1212 |
+| 1212 | 1212 |
+| 4121 | 1212 |
+| 8997 | 1212 |
+| 4122 | 1212 |
+| 1122 | 1212 |
+| 8977 | 1242 |
+| 4231 | 1242 |
+| 4129 | 1242 |
+| 4190 | 1242 |
+| 8992 | 1242 |
+| 4322 | 1242 |
+| 1242 | 1242 |
+| 1212 | 1242 |
+| 4121 | 1242 |
+| 8997 | 1242 |
+| 4122 | 1242 |
+| 1122 | 1242 |
+| 8977 | 4121 |
+| 4231 | 4121 |
+| 4129 | 4121 |
+| 4190 | 4121 |
+| 8992 | 4121 |
+| 4322 | 4121 |
+| 1242 | 4121 |
+| 1212 | 4121 |
+| 4121 | 4121 |
+| 8997 | 4121 |
+| 4122 | 4121 |
+| 1122 | 4121 |
+| 8977 | 4122 |
+| 4231 | 4122 |
+| 4129 | 4122 |
+| 4190 | 4122 |
+| 8992 | 4122 |
+| 4322 | 4122 |
+| 1242 | 4122 |
+| 1212 | 4122 |
+| 4121 | 4122 |
+| 8997 | 4122 |
+| 4122 | 4122 |
+| 1122 | 4122 |
+| 8977 | 4129 |
+| 4231 | 4129 |
+| 4129 | 4129 |
+| 4190 | 4129 |
+| 8992 | 4129 |
+| 4322 | 4129 |
+| 1242 | 4129 |
+| 1212 | 4129 |
+| 4121 | 4129 |
+| 8997 | 4129 |
+| 4122 | 4129 |
+| 1122 | 4129 |
+| 8977 | 4190 |
+| 4231 | 4190 |
+| 4129 | 4190 |
+| 4190 | 4190 |
+| 8992 | 4190 |
+| 4322 | 4190 |
+| 1242 | 4190 |
+| 1212 | 4190 |
+| 4121 | 4190 |
+| 8997 | 4190 |
+| 4122 | 4190 |
+| 1122 | 4190 |
+| 8977 | 4231 |
+| 4231 | 4231 |
+| 4129 | 4231 |
+| 4190 | 4231 |
+| 8992 | 4231 |
+| 4322 | 4231 |
+| 1242 | 4231 |
+| 1212 | 4231 |
+| 4121 | 4231 |
+| 8997 | 4231 |
+| 4122 | 4231 |
+| 1122 | 4231 |
+| 8977 | 4322 |
+| 4231 | 4322 |
+| 4129 | 4322 |
+| 4190 | 4322 |
+| 8992 | 4322 |
+| 4322 | 4322 |
+| 1242 | 4322 |
+| 1212 | 4322 |
+| 4121 | 4322 |
+| 8997 | 4322 |
+| 4122 | 4322 |
+| 1122 | 4322 |
+| 8977 | 9123 |
+| 4231 | 9123 |
+| 4129 | 9123 |
+| 4190 | 9123 |
+| 8992 | 9123 |
+| 4322 | 9123 |
+| 1242 | 9123 |
+| 1212 | 9123 |
+| 4121 | 9123 |
+| 8997 | 9123 |
+| 4122 | 9123 |
+| 1122 | 9123 |
+| 8977 | 9233 |
+| 4231 | 9233 |
+| 4129 | 9233 |
+| 4190 | 9233 |
+| 8992 | 9233 |
+| 4322 | 9233 |
+| 1242 | 9233 |
+| 1212 | 9233 |
+| 4121 | 9233 |
+| 8997 | 9233 |
+| 4122 | 9233 |
+| 1122 | 9233 |
++------+------+
+
+---------------------join with where clause, group by and oerder by--------------------
+1)
+select count(e.id), d.departId 
+    -> from Employees as e left join Department as d
+    -> on e.id=d.id 
+    -> group by departId;
++-------------+----------+
+| count(e.id) | departId |
++-------------+----------+
+|           3 |     NULL |
+|           3 |       18 |
+|           4 |       20 |
+|           3 |       22 |
++-------------+----------+
+
+2) select name having salary is maximum
+select e.id, e.Ename, max(s.salary),d.departName  from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where s.salary=(select max(salary) from Salary);
++------+--------+---------------+------------+
+| id   | Ename  | max(s.salary) | departName |
++------+--------+---------------+------------+
+| 4129 | Sanket |         21000 | Production |
++------+--------+---------------+------------+
+
+3) select name having salry>14000
+select e.id, e.Ename,d.departName, s.salary  from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where s.salary>14000;
++------+--------+------------+--------+
+| id   | Ename  | departName | salary |
++------+--------+------------+--------+
+| 1242 | Mukesh | Electrical |  18000 |
+| 4121 | Abhi   | Electrical |  17000 |
+| 4129 | Sanket | Production |  21000 |
+| 4190 | Dixit  | Production |  19000 |
+| 4322 | Ramesh | Maintanace |  16000 |
++------+--------+------------+--------+
+
+4)select name having id is between 1200 and 4200
+select e.id, e.Ename,d.departName, s.salary  from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where e.id between 1200 and 4200;
++------+--------+------------+--------+
+| id   | Ename  | departName | salary |
++------+--------+------------+--------+
+| 1212 | Mahesh | Maintanace |  11000 |
+| 1242 | Mukesh | Electrical |  18000 |
+| 4121 | Abhi   | Electrical |  17000 |
+| 4122 | Ravi   | Electrical |  13000 |
+| 4129 | Sanket | Production |  21000 |
+| 4190 | Dixit  | Production |  19000 |
++------+--------+------------+--------+
+
+5)display name by sort(order by) having left join
+select e.id, e.Ename, d.departName, s.salary from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email order by e.Ename asc;
++------+--------+------------+--------+
+| id   | Ename  | departName | salary |
++------+--------+------------+--------+
+| 4121 | Abhi   | Electrical |  17000 |
+| 8997 | Ani    | NULL       |   NULL |
+| 4190 | Dixit  | Production |  19000 |
+| 1212 | Mahesh | Maintanace |  11000 |
+| 1242 | Mukesh | Electrical |  18000 |
+| 1122 | Rajesh | Maintanace |  12000 |
+| 1122 | Rajesh | Maintanace |  12000 |
+| 4231 | Ramesh | Production |  14000 |
+| 4322 | Ramesh | Maintanace |  16000 |
+| 4122 | Ravi   | Electrical |  13000 |
+| 4129 | Sanket | Production |  21000 |
+| 8992 | Talha  | NULL       |   NULL |
+| 8977 | Tanay  | NULL       |   NULL |
++------+--------+------------+--------+
+
+
+6)in above quary only show first five with sort name (by using limit 5)
+select e.id, e.Ename, d.departName, s.salary from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email order by e.Ename asc limit 5;
++------+--------+------------+--------+
+| id   | Ename  | departName | salary |
++------+--------+------------+--------+
+| 4121 | Abhi   | Electrical |  17000 |
+| 8997 | Ani    | NULL       |   NULL |
+| 4190 | Dixit  | Production |  19000 |
+| 1212 | Mahesh | Maintanace |  11000 |
+| 1242 | Mukesh | Electrical |  18000 |
++------+--------+------------+--------+
+
+7)use left join and display how many record where departName is null
+select e.id, e.Ename, d.departName, s.salary from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email  where d.departName is null;
++------+-------+------------+--------+
+| id   | Ename | departName | salary |
++------+-------+------------+--------+
+| 8977 | Tanay | NULL       |   NULL |
+| 8992 | Talha | NULL       |   NULL |
+| 8997 | Ani   | NULL       |   NULL |
++------+-------+------------+--------+
+3 rows in set (0.002 sec)
+
+sort by employees name 
+MariaDB [join_learn]> select e.id, e.Ename, d.departName, s.salary from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email  where d.departName is null order by e.Ename;
++------+-------+------------+--------+
+| id   | Ename | departName | salary |
++------+-------+------------+--------+
+| 8997 | Ani   | NULL       |   NULL |
+| 8992 | Talha | NULL       |   NULL |
+| 8977 | Tanay | NULL       |   NULL |
++------+-------+------------+--------+
+
+8)depart id=18 and bonus=2100 then desplay name departName and salary
+select e.id, e.Ename, d.departName, s.salary  from Employees as e left join Department as d   on e.id=d.id left join Salary as s  on d.email=s.email where d.departId=18 and s.bonus=2100;
++------+-------+------------+--------+
+| id   | Ename | departName | salary |
++------+-------+------------+--------+
+| 4121 | Abhi  | Electrical |  17000 |
++------+-------+------------+--------+
+
+9)depart id=18 or bonus=2100 then desplay name departId and bonus
+select e.id, e.Ename, d.departName,departId, s.bonus  from Employees as e left join Department as d   on e.id=d.id left join Salary as s  on d.email=s.email where d.departId=18 or s.bonus=2100;
++------+--------+------------+----------+-------+
+| id   | Ename  | departName | departId | bonus |
++------+--------+------------+----------+-------+
+| 1242 | Mukesh | Electrical |       18 |  2200 |
+| 4121 | Abhi   | Electrical |       18 |  2100 |
+| 4122 | Ravi   | Electrical |       18 |  1400 |
+| 4190 | Dixit  | Production |       22 |  2100 |
++------+--------+------------+----------+-------+
+
+10)
+select count(e.id), d.departName, s.deduction  from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email group by s.deduction order by e.Ename asc;
++-------------+------------+-----------+
+| count(e.id) | departName | deduction |
++-------------+------------+-----------+
+|           1 | Electrical |      1700 |
+|           1 | Maintanace |      1200 |
+|           4 | Maintanace |      1900 |
+|           1 | Maintanace |      1800 |
+|           2 | Electrical |      1100 |
+|           1 | Production |      2300 |
+|           3 | NULL       |      NULL |
++-------------+------------+-----------+
+
+11) despaly average salary of every departid
+select avg(s.salary) as avgSalary, d.departId from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email group by departId;
++------------+----------+
+| avgSalary  | departId |
++------------+----------+
+| 16000.0000 |       18 |
+| 12750.0000 |       20 |
+| 18000.0000 |       22 |
++------------+----------+
+
+12)total salary paid to departId=20
+select sum(s.salary) as totalSalary, d.departId from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where departId=20;
++-------------+----------+
+| totalSalary | departId |
++-------------+----------+
+|       51000 |       20 |
++-------------+----------+
+
+13) how many employees in departId=20
+select count(s.salary) as totalEmp, d.departId from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where departId=20;
++-------------+----------+
+| totalEmp    | departId |
++-------------+----------+
+|           4 |       20 |
++-------------+----------+
+
+14)max salary of departId=20
+select max(s.salary) as totalSalary,e.Ename, d.departId from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email where departId=20;
++-------------+--------+----------+
+| totalSalary | Ename  | departId |
++-------------+--------+----------+
+|       16000 | Rajesh |       20 |
++-------------+--------+----------+
+
+15)MAKE A group of departId and count how many emp works
+ select count(e.id) as totalEmp, d.departId from Employees as e join Department as d on e.id=d.id join Salary as s on d.email=s.email group by d.departId having count(e.id)>2 ;
++----------+----------+
+| totalEmp | departId |
++----------+----------+
+|        3 |       18 |
+|        4 |       20 |
+|        3 |       22 |
++----------+----------+
+
+
+
+
+
+
