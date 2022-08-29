@@ -1230,6 +1230,799 @@ select REPLACE('USER TRLATE FUNCTION','A','B');
 | USER TRLBTE FUNCTION                    |
 +-----------------------------------------+
 
+72)
+DISPLAY THE INFORMATION FROM EMP TABLE. WHEREVER JOB ‘MANAGER’ IS FOUND IT SHOULD BE DISPLAYED AS BOSS(REPLACE FUNCTION)
+select id, name, replace(works,'manager','Boss') as works from employees; 
++------+------------+-------------------+
+| id   | name       | works             |
++------+------------+-------------------+
+| 1212 | Ramesh     | Flutter Developer |
+| 1290 | Raxit      | Drawing           |
+| 2124 | Abhi       | Boss              |
+| 2130 | Rahul      | QA                |
+| 2190 | Rohit      | Android Developer |
+| 2312 | Vasu       | clerk             |
+| 2323 | Suhasini   | salesman          |
+| 2345 | Ravi       | Drawing           |
+| 2389 | Mohit      | clerk             |
+| 2394 | Ramesh     | clerk             |
+| 2489 | Yogesh     | Drawing           |
+| 2912 | Sweta      | Analyst           |
+| 4039 | Arvind     | clerk             |
+| 4333 | Uvesh      | Analyst           |
+| 4534 | Ronak      | Manager           |
+| 4590 | Sagar      | Manager           |
+| 5610 | Sanket     | Drawing           |
+| 5673 | Anirudhdha | Boss              |
+| 6190 | Rohit      | Analyst           |
+| 6223 | Sanket     | Analyst           |
+| 6290 | Mukesh     | Drawing           |
+| 8230 | Rakesh     | clerk             |
+| 8537 | Roshan     | Salesman          |
+| 8547 | Mohan      | Salesman          |
+| 8557 | Mahi       | Salesman          |
+| 8580 | Himanshu   | Salesman          |
+| 8589 | Rushikesh  | Salesman          |
+| 8690 | Setu       | Salesman          |
+| 8790 | Shruti     | clerk             |
++------+------------+-------------------+
+
+79)
+DISPLAY CURRENT TIME.
+select curtime();
++-----------+
+| curtime() |
++-----------+
+| 16:33:46  |
++-----------+
+
+81)
+DISPLAY THE COMMON JOBS FROM DEPARTMENT NUMBER 10 AND 14.
+select works, departmentNO from employees where departmentNo between 10 and 14;
++-------------------+--------------+
+| works             | departmentNO |
++-------------------+--------------+
+| Flutter Developer |           14 |
+| clerk             |           12 |
+| salesman          |           12 |
+| Drawing           |           12 |
+| clerk             |           14 |
+| Analyst           |           12 |
+| Manager           |           14 |
+| Drawing           |           14 |
+| Analyst           |           12 |
+| Analyst           |           12 |
+| Drawing           |           12 |
+| Salesman          |           14 |
++-------------------+--------------+
+
+82)
+DISPLAY THE JOBS FOUND IN DEPARTMENT NUMBER 10 AND 14 ELIMINATE DUPLICATE JOBS.
+select works from employees where departmentNo between 10 and 14 group by works;
++-------------------+
+| works             |
++-------------------+
+| Analyst           |
+| clerk             |
+| Drawing           |
+| Flutter Developer |
+| Manager           |
+| salesman          |
++-------------------+
+
+83)
+DISPLAY THE JOBS WHICH ARE UNIQUE TO DEPT NO 10.
+
+87)
+DISPLAY THOSE EMPLOYEES WHOSE NAME CONTAINS NOT LESS THAN 4 CHARS.
+select name, char_length(name) as length from employees where char_length(name)<6;
++-------+--------+
+| name  | length |
++-------+--------+
+| Raxit |      5 |
+| Abhi  |      4 |
+| Rahul |      5 |
+| Rohit |      5 |
+| Vasu  |      4 |
+| Ravi  |      4 |
+| Mohit |      5 |
+| Sweta |      5 |
+| Uvesh |      5 |
+| Ronak |      5 |
+| Sagar |      5 |
+| Rohit |      5 |
+| Mohan |      5 |
+| Mahi  |      4 |
+| Setu  |      4 |
++-------+--------+
+
+88)
+DISPLAY THOSE DEPARTMENTS WHOSE NAME START WITH ‘S’ WHILE work NAME END WITH ‘t’.
+select departmentNo,name, works from employees where name like 's%' and works like '%t'; 
++--------------+--------+---------+
+| departmentNo | name   | works   |
++--------------+--------+---------+
+|           18 | Sweta  | Analyst |
+|           12 | Sanket | Analyst |
++--------------+--------+---------+
+
+89)
+DISPLAY THOSE EMPLOYEES WHOSE SALESMAN NAME IS ROSHAN.
+select name, works from employees where name='Roshan' and works='Salesman';
++--------+----------+
+| name   | works    |
++--------+----------+
+| Roshan | Salesman |
++--------+----------+
+
+90)
+DISPLAY THOSE EMPLOYEES WHOSE SALARY IS MORE THAN 18000 AFTER GIVING 20% INCREMENT.
+SELECT name, salaryPerMonth*1.20 as new_salary from employees where salaryPerMonth*1.20>18000;
++------------+------------+
+| name       | new_salary |
++------------+------------+
+| Ravi       |   33600.00 |
+| Mohit      |   21600.00 |
+| Ramesh     |   21600.00 |
+| Ronak      |   21600.00 |
+| Sagar      |   33600.00 |
+| Anirudhdha |   25200.00 |
+| Rohit      |   21600.00 |
+| Mukesh     |   21600.00 |
+| Roshan     |   21600.00 |
+| Mohan      |   21600.00 |
++------------+------------+
+
+91)
+DISPLAY ALL EMPLOYEES WITH THERE DEPT NAME.
+select name, works as department_name from employees;
++------------+-------------------+
+| name       | department_name   |
++------------+-------------------+
+| Ramesh     | Flutter Developer |
+| Raxit      | Drawing           |
+| Abhi       | manager           |
+| Rahul      | QA                |
+| Rohit      | Android Developer |
+| Vasu       | clerk             |
+| Suhasini   | salesman          |
+| Ravi       | Drawing           |
+| Mohit      | clerk             |
+| Ramesh     | clerk             |
+| Yogesh     | Drawing           |
+| Sweta      | Analyst           |
+| Arvind     | clerk             |
+| Uvesh      | Analyst           |
+| Ronak      | Manager           |
+| Sagar      | Manager           |
+| Sanket     | Drawing           |
+| Anirudhdha | manager           |
+| Rohit      | Analyst           |
+| Sanket     | Analyst           |
+| Mukesh     | Drawing           |
+| Rakesh     | clerk             |
+| Roshan     | Salesman          |
+| Mohan      | Salesman          |
+| Mahi       | Salesman          |
+| Himanshu   | Salesman          |
+| Rushikesh  | Salesman          |
+| Setu       | Salesman          |
+| Shruti     | clerk             |
++------------+-------------------+
+
+92)
+DISPLAY ENAME WHO ARE WORKING IN SALES DEPT.
+select name, works from employees where works='Salesman';
++-----------+----------+
+| name      | works    |
++-----------+----------+
+| Suhasini  | salesman |
+| Roshan    | Salesman |
+| Mohan     | Salesman |
+| Mahi      | Salesman |
+| Himanshu  | Salesman |
+| Rushikesh | Salesman |
+| Setu      | Salesman |
++-----------+----------+
+
+
+-------------------------------------------------------table changed-------------------------------------------------------------------------------
+
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+93)
+DISPLAY EMPLOYEE NAME, DEPTNAME, SALARY AND COMM. FOR THOSE SAL IN BETWEEN 13000 TO 18000 WHILE LOCATION IS CHICAGO.
+select name, city, salary from empDetail where salary between 13000 and 18000 and city='Ahmedabad';
++-------+-----------+--------+
+| name  | city      | salary |
++-------+-----------+--------+
+| Jigar | Ahmedabad |  14000 |
+| Rohit | Ahmedabad |  16000 |
+| Janak | Ahmedabad |  15000 |
+| Manoj | Ahmedabad |  14000 |
++-------+-----------+--------+
+
+94
+DISPLAY THOSE EMPLOYEES WHOSE SALARY GREATER THAN HIS MANAGER SALARY.
+select e.name, e.salary, e.underManager from empDetail as e left join empDetail as m on e.underManager=m.name where e.salary > m.salary; 
++--------+--------+--------------+
+| name   | salary | underManager |
++--------+--------+--------------+
+| Rahul  |  20000 | Jigar        |
+| Mohit  |  16000 | Jigar        |
+| Ragu   |  18000 | Rohit        |
+| Ramesh |  20000 | Rohit        |
++--------+--------+--------------+
+
+select e.name, e.salary, e.underManager, m.salary as managerSalary from empDetail as e left join empDetail as m on e.underManager=m.name where e.salary > m.salary; 
++--------+--------+--------------+---------------+
+| name   | salary | underManager | managerSalary |
++--------+--------+--------------+---------------+
+| Rahul  |  20000 | Jigar        |         14000 |
+| Mohit  |  16000 | Jigar        |         14000 |
+| Ragu   |  18000 | Rohit        |         16000 |
+| Ramesh |  20000 | Rohit        |         16000 |
++--------+--------+--------------+---------------+
+
+
+
+95)
+
+select * from empDetail where departNo= any(select departNo from empDetail where name= any (select underManager from empDetail group by underManager) );
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+96)
+DISPLAY THOSE EMPLOYEES WHO ARE NOT WORKING UNDER ANY MANGER.
+select name, underManager from empDetail where underManager is null; 
++--------+--------------+
+| name   | underManager |
++--------+--------------+
+| Jigar  | NULL         |
+| Rohit  | NULL         |
+| Sanket | NULL         |
++--------+--------------+
+
+98)
+UPDATE THE SALARY OF EACH EMPLOYEE BY 10% INCREMENTS THAT ARE NOT ELIGIBLE FOR COMMISSION.
+
+this record is from employees table
+ select id, name, salaryPerMonth*1.10 as salaryIncrement from employees where commision is null;
++------+----------+-----------------+
+| id   | name     | salaryIncrement |
++------+----------+-----------------+
+| 1212 | Ramesh   |        13200.00 |
+| 2323 | Suhasini |        15400.00 |
+| 2912 | Sweta    |        12100.00 |
+| 4534 | Ronak    |        19800.00 |
+| 4590 | Sagar    |        30800.00 |
+| 5610 | Sanket   |        15400.00 |
++------+----------+-----------------+
+
+
+100)
+DISPLAY EMPLOYEE NAME, JOB, DEPTNAME, LOCATION FOR ALL WHO ARE WORKING AS MANAGERS.
+select * from empDetail where works='Manager'; 
++------+--------+-----------+---------+--------+----------+--------------+
+| id   | name   | city      | works   | salary | departNo | underManager |
++------+--------+-----------+---------+--------+----------+--------------+
+| 1201 | Jigar  | Ahmedabad | Manager |  14000 |       12 | NULL         |
+| 1401 | Rohit  | Ahmedabad | Manager |  16000 |       16 | NULL         |
+| 1601 | Sanket | Mahesana  | Manager |  20000 |       20 | NULL         |
++------+--------+-----------+---------+--------+----------+--------------+
+
+101)
+DISPLAY THOSE EMPLOYEES WHOSE MANAGER NAMES IS Jigar, AND ALSO DISPLAY THERE MANAGER NAME.
+ select name, underManager from empDetail where underManager='Jigar';
++--------+--------------+
+| name   | underManager |
++--------+--------------+
+| Rahul  | Jigar        |
+| Mukesh | Jigar        |
+| Ramesh | Jigar        |
+| Mohit  | Jigar        |
+| Lokesh | Jigar        |
+| Yogesh | Jigar        |
++--------+--------------+
+
+103
+DISPLAY EMPLOYEE NAME, HIS JOB, HIS DEPT NO, HIS MANAGER NAME AND MAKE OUT OF AN UNDER DEPARTMENT WISE.
+select name, works, departNO, underManager from empDetail order by departNo desc;
++---------+----------+----------+--------------+
+| name    | works    | departNO | underManager |
++---------+----------+----------+--------------+
+| Roshan  | clerk    |       20 | Sanket       |
+| Mehul   | Designer |       20 | Sanket       |
+| Rahul   | salesman |       20 | Sanket       |
+| Sanket  | Manager  |       20 | NULL         |
+| Rakesh  | salesman |       18 | Rohit        |
+| Ramesh  | designer |       18 | Rohit        |
+| Ragu    | clerk    |       18 | Rohit        |
+| Manoj   | clerk    |       16 | Rohit        |
+| Janak   | Designer |       16 | Rohit        |
+| Bhavesh | salesman |       16 | Rohit        |
+| Rohit   | Manager  |       16 | NULL         |
+| Yogesh  | salesman |       14 | Jigar        |
+| Lokesh  | clerk    |       14 | Jigar        |
+| Mohit   | designer |       14 | Jigar        |
+| Ramesh  | clerk    |       12 | Jigar        |
+| Mukesh  | salesman |       12 | Jigar        |
+| Rahul   | designer |       12 | Jigar        |
+| Jigar   | Manager  |       12 | NULL         |
++---------+----------+----------+--------------+
+
+104)
+LIST OUT ALL THE EMPLOYEES NAME, JOB, AND SALARY GRADE AND DEPARTMENT NAME FOR EVERY ONE IN THE COMPANY EXCEPT ‘CLERK’. SORT ON SALARY DISPLAY THE HIGHEST SALARY.
+select name, works, salaryPerMonth as salary, departmentNO from employees where works not in ('clerk') order by salaryPerMonth desc;
++------------+-------------------+--------+--------------+
+| name       | works             | salary | departmentNO |
++------------+-------------------+--------+--------------+
+| Sagar      | Manager           |  28000 |           15 |
+| Ravi       | Drawing           |  28000 |           12 |
+| Anirudhdha | manager           |  21000 |           16 |
+| Rohit      | Analyst           |  18000 |           12 |
+| Mukesh     | Drawing           |  18000 |           12 |
+| Roshan     | Salesman          |  18000 |           15 |
+| Mohan      | Salesman          |  18000 |           14 |
+| Ronak      | Manager           |  18000 |           14 |
+| Sanket     | Analyst           |  14000 |           12 |
+| Sanket     | Drawing           |  14000 |           14 |
+| Setu       | Salesman          |  14000 |           19 |
+| Suhasini   | salesman          |  14000 |           12 |
+| Raxit      | Drawing           |  14000 |           18 |
+| Uvesh      | Analyst           |  13000 |           12 |
+| Himanshu   | Salesman          |  13000 |           20 |
+| Mahi       | Salesman          |  12000 |           18 |
+| Ramesh     | Flutter Developer |  12000 |           14 |
+| Rahul      | QA                |  12000 |           18 |
+| Yogesh     | Drawing           |  12000 |           16 |
+| Sweta      | Analyst           |  11000 |           18 |
+| Rushikesh  | Salesman          |  11000 |           19 |
+| Abhi       | manager           |  11000 |           17 |
+| Rohit      | Android Developer |  10000 |           15 |
++------------+-------------------+--------+--------------+
+
+105)
+DISPLAY EMPLOYEE NAME, HIS JOB AND HIS MANAGER. DISPLAY ALSO EMPLOYEES WHO ARE WITHOUT MANAGER.
+ select * from empDetail order by underManager;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+106)
+FIND OUT THE TOP 5 EARNER OF COMPANY.
+select id, name, salary from empDetail order by salary desc limit 5;
++------+--------+--------+
+| id   | name   | salary |
++------+--------+--------+
+| 1504 | Ramesh |  20000 |
+| 1203 | Rahul  |  20000 |
+| 1601 | Sanket |  20000 |
+| 1503 | Ragu   |  18000 |
+| 1311 | Mohit  |  16000 |
++------+--------+--------+
+107)
+DISPLAY THE NAME OF THOSE EMPLOYEES WHO ARE GETTING HIGHEST SALARY.
+select id, name, salary from empDetail order by salary desc limit 5;
++------+--------+--------+
+| id   | name   | salary |
++------+--------+--------+
+| 1504 | Ramesh |  20000 |
+| 1203 | Rahul  |  20000 |
+| 1601 | Sanket |  20000 |
+| 1503 | Ragu   |  18000 |
+| 1311 | Mohit  |  16000 |
++------+--------+--------+
+
+108)
+DISPLAY THOSE EMPLOYEES WHOSE SALARY IS EQUAL TO AVERAGE OF MAXIMUM AND MINIMUM.
+select id, name, salary from empDetail where salary in (select (max(salary)+min(salary))/2 from empDetail having salary=(max(salary)+min(salary))/2);
++------+-------+--------+
+| id   | name  | salary |
++------+-------+--------+
+| 1405 | Janak |  15000 |
++------+-------+--------+
+
+109)
+DISPLAY COUNT OF EMPLOYEES IN EACH DEPARTMENT WHERE COUNT GREATER THAN 3.
+select count(id) as numEmp,departmentNo from employees group by departmentNo having count(id)>3;
++--------+--------------+
+| numEmp | departmentNo |
++--------+--------------+
+|      7 |           12 |
+|      5 |           14 |
+|      6 |           18 |
++--------+--------------+
+
+110)
+DISPLAY DepartNo WHERE AT LEAST 3 ARE WORKING AND DISPLAY ONLY DepartNO
+select count(id),departmentNo from employees group by departmentNo having count(id)>=3;
++-----------+--------------+
+| count(id) | departmentNo |
++-----------+--------------+
+|         7 |           12 |
+|         5 |           14 |
+|         3 |           15 |
+|         6 |           18 |
+|         3 |           19 |
++-----------+--------------+
+
+111)
+DISPLAY NAME OF THOSE MANAGERS NAME WHOSE SALARY IS MORE THAN AVERAGE SALARY OF COMPANY.
+select name, salary from empDetail where works='Manager' and salary> all (select avg(salary) from empDetail);
++--------+--------+
+| name   | salary |
++--------+--------+
+| Rohit  |  16000 |
+| Sanket |  20000 |
++--------+--------+
+
+112)
+DISPLAY THOSE MANAGERS NAME WHOSE SALARY IS MORE THAN AN AVERAGE SALARY OF HIS EMPLOYEES.
+select name, works, salary from empDetail where salary>all (select avg(salary) from empDetail group by underManager) and works in ('Manager');
++--------+---------+--------+
+| name   | works   | salary |
++--------+---------+--------+
+| Sanket | Manager |  20000 |
++--------+---------+--------+
+
+113)
+DISPLAY EMPLOYEE NAME, SAL, COMM AND NET PAY FOR THOSE EMPLOYEES WHOSE NET PAY ARE GREATER THAN OR EQUAL TO ANY OTHER EMPLOYEE SALARY OF THE COMPANY?
+select e.id,e.Ename,d.departId, s.salary, s.bonus, (s.salary+s.bonus- s.deduction) as netPay from Employees as e left join Department as d on e.id=d.id left join Salary as s on d.email=s.email where (s.salary+s.bonus-s.deduction)>= all(select min(salary) from Salary);
++------+--------+----------+--------+-------+--------+
+| id   | Ename  | departId | salary | bonus | netPay |
++------+--------+----------+--------+-------+--------+
+| 1122 | Rajesh |       20 |  12000 |  1290 |  11390 |
+| 1122 | Rajesh |       20 |  12000 |  1290 |  11390 |
+| 1212 | Mahesh |       20 |  11000 |  1500 |  11300 |
+| 1242 | Mukesh |       18 |  18000 |  2200 |  18300 |
+| 4121 | Abhi   |       18 |  17000 |  2100 |  17400 |
+| 4122 | Ravi   |       18 |  13000 |  1400 |  13300 |
+| 4129 | Sanket |       22 |  21000 |  2200 |  20900 |
+| 4190 | Dixit  |       22 |  19000 |  2100 |  19200 |
+| 4231 | Ramesh |       22 |  14000 |  1800 |  14700 |
+| 4322 | Ramesh |       20 |  16000 |  1900 |  16100 |
++------+--------+----------+--------+-------+--------+
+
+114
+DISPLAY THOSE EMPLOYEES WHOSE SALARY IS LESS THAN HIS MANAGER BUT MORE THAN SALARY OF ANY OTHER MANAGERS.
+select e.name, e.salary, e.underManager from empDetail as e left join empDetail as m on e.underManager=m.name where e.salary <= m.salary and e.salary > any (select salary from empDetail where works='Manager');
++-------+--------+--------------+
+| name  | salary | underManager |
++-------+--------+--------------+
+| Janak |  15000 | Rohit        |
+| Mehul |  16000 | Sanket       |
++-------+--------+--------------+
+
+here manager's sanket salary is 20000 and Rohit salary is 16000 and Jigur salary is 14000.
+
+115)
+                               DISPLAY ALL EMPLOYEES NAMES WITH TOTAL SAL OF COMPANY WITH EMPLOYEE NAME.
+                                select concat(sum(salary),name) from empDetail; 
+                                +--------------------------+
+                                | concat(sum(salary),name) |
+                                +--------------------------+
+                                | 266000Jigar              |
+                                +--------------------------+
+
+116)
+FIND OUT THE LAST 5(LEAST) EARNER OF THE COMPANY?
+select name, salary from empDetail order by salary asc limit 5;
++---------+--------+
+| name    | salary |
++---------+--------+
+| Mukesh  |  10000 |
+| Rahul   |  11000 |
+| Yogesh  |  11000 |
+| Ramesh  |  12000 |
+| Bhavesh |  12000 |
++---------+--------+
+
+117
+FIND OUT THE NUMBER OF EMPLOYEES WHOSE SALARY IS GREATER THAN THERE MANAGER SALARY?
+select e.name, e.salary, e.underManager, m.salary as managerSalary from empDetail as e left join empDetail as m on e.underManager=m.name where e.salary > m.salary; 
++--------+--------+--------------+---------------+
+| name   | salary | underManager | managerSalary |
++--------+--------+--------------+---------------+
+| Rahul  |  20000 | Jigar        |         14000 |
+| Mohit  |  16000 | Jigar        |         14000 |
+| Ragu   |  18000 | Rohit        |         16000 |
+| Ramesh |  20000 | Rohit        |         16000 |
++--------+--------+--------------+---------------+
+
+119)
+DELETE THOSE DEPARTMENT WHERE NO EMPLOYEE WORKING?
+
+modify table for this question
+select * from empDetail;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| NULL | NULL    | NULL      | NULL     |   NULL |       12 | NULL         |
+| NULL | NULL    | NULL      | NULL     |   NULL |       20 | NULL         |
+| NULL | NULL    | NULL      | NULL     |   NULL |       14 | NULL         |
++------+---------+-----------+----------+--------+----------+--------------+
+
+now delete record which department having no employees
+ delete from empDetail where id is null;
+Query OK, 3 rows affected (0.017 sec)
+
+MariaDB [test_11]> select * from empDetail;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+120)
+DELETE THOSE RECORDS FROM EMP TABLE WHOSE DEPTNO NOT AVAILABLE IN DEPT TABLE? 
+
+modify table and delete record having departNo is null
+
+ select* from empDetail;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| 1700 | Rutul   | Mahesana  | NULL     |  12000 |     NULL | NULL         |
+| 1702 | Utsav   | Mahesana  | NULL     |  11000 |     NULL | NULL         |
+| 1712 | Ramesh  | Mahesana  | NULL     |  11000 |     NULL | NULL         |
++------+---------+-----------+----------+--------+----------+--------------+
+21 rows in set (0.001 sec)
+
+MariaDB [test_11]> delete from empDetail where departNo is null;
+Query OK, 3 rows affected (0.011 sec)
+
+MariaDB [test_11]> select* from empDetail;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+122)
+DISPLAY EMPLOYEE NAME, SAL, COMM. AND WHOSE NET PAY IS GREATER
+THAN ANY OTHER IN THE COMPANY? 
+select * from empDetail where salary> any(select min(salary) from empDetail );
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+124)
+DISPLAY THOSE EMPLOYEES WHOSE SALARY IS ODD VALUE?
+select id, name,city,salary from empDetail where salary%2!=0;
++------+--------+----------+--------+
+| id   | name   | city     | salary |
++------+--------+----------+--------+
+| 1720 | Ronak  | Mahesana |   1289 |
+| 1721 | Mahesh | Mahesana |   1229 |
++------+--------+----------+--------+
+
+125)
+DISPLAY THOSE EMPLOYEES WHOSE SALARY CONTAINS AT LEAST 4 DIGITS?
+
+alter table empDetail modify salary varchar(20);
+Query OK, 20 rows affected (0.163 sec)             
+Records: 20  Duplicates: 0  Warnings: 0
+
+MariaDB [test_11]> desc empDetail;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| id           | int(11)     | NO   | PRI | NULL    |       |
+| name         | varchar(49) | YES  |     | NULL    |       |
+| city         | varchar(59) | YES  |     | NULL    |       |
+| works        | varchar(49) | YES  |     | NULL    |       |
+| salary       | varchar(20) | YES  |     | NULL    |       |
+| departNo     | bigint(10)  | YES  |     | NULL    |       |
+| underManager | varchar(49) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+select id,salary, char_length(salary) as numDigitSalary from empDetail  where  char_length(salary)=4;
++------+--------+----------------+
+| id   | salary | numDigitSalary |
++------+--------+----------------+
+| 1720 |   1289 |              4 |
+| 1721 |   1229 |              4 |
++------+--------+----------------+
+
+127)
+DISPLAY THOSE EMPLOYEES WHOSE NAME CONTAINS “A”?
+insert into empDetail values(1722,'Ankit','Mahesana','Designer',1244,20,'Sanket');
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [test_11]> select * from empDetail where name like '%a%';
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| 1720 | Ronak   | Mahesana  | clerk    |   1289 |       12 | Sanket       |
+| 1721 | Mahesh  | Mahesana  | Designer |   1229 |       20 | Sanket       |
+| 1722 | Ankit   | Mahesana  | Designer |   1244 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+
+
+141)
+DISPLAY THE MANAGER WHO IS HAVING MAXIMUM NUMBER OF EMPLOYEES
+WORKING UNDER HIM?
+
+172
+DISPLAY EMPLOYEES WHO CAN EARN MORE THAN LOWEST SAL IN DEPT NO 14
+ select avg(salary) as avgSalary, departNo from empDetail where departNo=14;
++------------+----------+
+| avgSalary  | departNo |
++------------+----------+
+| 13333.3333 |       14 |
++------------+----------+
+
+176)
+FIND ALL DEPT’S WHICH HAVE MORE THAN 3 EMPLOYEES
+select departNo, count(id) as numEmp from empDetail group by departNo having count(id)>3;
++----------+--------+
+| departNo | numEmp |
++----------+--------+
+|       12 |      4 |
+|       16 |      4 |
+|       20 |      6 |
++----------+--------+
+
+
+
+
+
 
 
 

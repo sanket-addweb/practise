@@ -346,6 +346,56 @@ select e.id, d.id from Employees as e cross join Department as d;
 | 1122 | 9233 |
 +------+------+
 
+-----------------------------------self join---------------------------------------------------------------------
+for that make a new table
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+
+select e.name,e.id, e.underManager from empDetail as e left join empDetail as e1 on e.underManager=e1.name order by underManager asc;
++---------+------+--------------+
+| name    | id   | underManager |
++---------+------+--------------+
+| Rohit   | 1401 | NULL         |
+| Jigar   | 1201 | NULL         |
+| Sanket  | 1601 | NULL         |
+| Yogesh  | 1313 | Jigar        |
+| Rahul   | 1203 | Jigar        |
+| Ramesh  | 1213 | Jigar        |
+| Lokesh  | 1312 | Jigar        |
+| Mukesh  | 1212 | Jigar        |
+| Mohit   | 1311 | Jigar        |
+| Janak   | 1405 | Rohit        |
+| Ragu    | 1503 | Rohit        |
+| Rakesh  | 1505 | Rohit        |
+| Bhavesh | 1403 | Rohit        |
+| Manoj   | 1407 | Rohit        |
+| Ramesh  | 1504 | Rohit        |
+| Roshan  | 1610 | Sanket       |
+| Mehul   | 1605 | Sanket       |
+| Rahul   | 1603 | Sanket       |
++---------+------+--------------+
+
 ---------------------join with where clause, group by and oerder by--------------------
 1)
 select count(e.id), d.departId 
