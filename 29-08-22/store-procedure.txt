@@ -1,0 +1,193 @@
+select * from empDetail;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| 1721 | Mahesh  | Mahesana  | Designer |   1229 |       20 | Sanket       |
+| 1722 | Ankit   | Mahesana  | Designer |   1244 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+1)
+delimiter //
+MariaDB [test_11]> create procedure sp_GetEmp()
+    -> begin
+    -> select id, name, works, departNo from empDetail;
+    -> end //
+delimiter ;
+
+now calling GetEmp
+call sp_GetEmp;
++------+---------+----------+----------+
+| id   | name    | works    | departNo |
++------+---------+----------+----------+
+| 1201 | Jigar   | Manager  |       12 |
+| 1203 | Rahul   | designer |       12 |
+| 1212 | Mukesh  | salesman |       12 |
+| 1213 | Ramesh  | clerk    |       12 |
+| 1311 | Mohit   | designer |       14 |
+| 1312 | Lokesh  | clerk    |       14 |
+| 1313 | Yogesh  | salesman |       14 |
+| 1401 | Rohit   | Manager  |       16 |
+| 1403 | Bhavesh | salesman |       16 |
+| 1405 | Janak   | Designer |       16 |
+| 1407 | Manoj   | clerk    |       16 |
+| 1503 | Ragu    | clerk    |       18 |
+| 1504 | Ramesh  | designer |       18 |
+| 1505 | Rakesh  | salesman |       18 |
+| 1601 | Sanket  | Manager  |       20 |
+| 1603 | Rahul   | salesman |       20 |
+| 1605 | Mehul   | Designer |       20 |
+| 1610 | Roshan  | clerk    |       20 |
+| 1721 | Mahesh  | Designer |       20 |
+| 1722 | Ankit   | Designer |       20 |
++------+---------+----------+----------+
+
+2)
+delimiter //
+MariaDB [test_11]> create procedure sp_GetEmpByDepartNo(IN departNO int(9))
+    -> begin
+    -> select id, name, departNo from empDetail where departNo=departNo;
+    -> end
+    -> //
+Query OK, 0 rows affected (0.017 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> call sp_GetEmpByDepartNo(12);
++------+---------+----------+
+| id   | name    | departNo |
++------+---------+----------+
+| 1201 | Jigar   |       12 |
+| 1203 | Rahul   |       12 |
+| 1212 | Mukesh  |       12 |
+| 1213 | Ramesh  |       12 |
+| 1311 | Mohit   |       12 |
+| 1312 | Lokesh  |       12 |
+| 1313 | Yogesh  |       12 |
+| 1401 | Rohit   |       12 |
+| 1403 | Bhavesh |       12 |
+| 1405 | Janak   |       12 |
+| 1407 | Manoj   |       12 |
+| 1503 | Ragu    |       12 |
+| 1504 | Ramesh  |       12 |
+| 1505 | Rakesh  |       12 |
+| 1601 | Sanket  |       12 |
+| 1603 | Rahul   |       12 |
+| 1605 | Mehul   |       12 |
+| 1610 | Roshan  |       12 |
+| 1721 | Mahesh  |       12 |
+| 1722 | Ankit   |       12 |
++------+---------+----------+
+
+3) In keyword for setting input of procedure by passing parameter 
+create procedure sp_GetEmpByDepartNo(IN departNo1 bigint(9))
+    -> begin 
+    -> select id,name, departNo from empDetail where departNo=departNo1;
+    -> end //
+Query OK, 0 rows affected (0.017 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> call sp_GetEmpByDepartNo(12);
++------+--------+----------+
+| id   | name   | departNo |
++------+--------+----------+
+| 1201 | Jigar  |       12 |
+| 1203 | Rahul  |       12 |
+| 1212 | Mukesh |       12 |
+| 1213 | Ramesh |       12 |
++------+--------+----------+
+
+4)out keyword for geting output of procedure
+ delimiter //
+MariaDB [test_11]> create procedure sp_CountNumEmp(out totalEmp int(9))
+    -> begin
+    -> select count(id), departNo from empDetail where departNo=12;
+    -> end //
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> call sp_CountNumEmp(@SeeTotalEmp);
++-----------+----------+
+| count(id) | departNo |
++-----------+----------+
+|         4 |       12 |
++-----------+----------+
+
+5)inout, passing input parameter and geting it's output into other output parameter
+create procedure sp_CountEmp_inout(inout totalEmp int, in underManager1 varchar(49))
+    -> begin
+    -> select count(id) into totalEmp from empDetail where underManager=underManager1; 
+    -> end //
+Query OK, 0 rows affected (0.016 sec)
+
+delimiter ;
+
+call sp_CountEmp_inout(@numEmp,'Sanket');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [test_11]> select @numEmp as totalEmp;
++----------+
+| totalEmp |
++----------+
+|        5 |
++----------+
+1 row in set (0.000 sec)
+
+6)
+ delimiter //
+MariaDB [test_11]> create procedure sp_CountEmpByWorks_Inout(inout totalEmp int(10), in works1 varchar(49)) 
+                   begin 
+                   select count(id) into totalEmp from empDetail where works=works1; -- note down coloumn should not be more than one i.e, select count(id),works from this will not run 
+                   end //
+Query OK, 0 rows affected (0.017 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> call sp_CountEmpByWorks_Inout(@output,'Manager');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [test_11]> select @output as totalEmp;
++----------+
+| totalEmp |
++----------+
+|        3 |
++----------+
+1 row in set (0.000 sec)
+
+7) user creation
+
+create user 'sam'@'localhost' Identified by '123';
+
+grant all on test_11. * to sam@localhost;
+
+8)
+revoke permission
+revoke update, delete on test_11. * from uvesh@localhost;
+Query OK, 0 rows affected (0.004 sec)
+
+revoke all, grant option from uvesh@localhost;
+Query OK, 0 rows affected (0.007 sec)
+
+
+
+
+
+
+
+
+

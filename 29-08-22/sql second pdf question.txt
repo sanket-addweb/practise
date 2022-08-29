@@ -1,0 +1,868 @@
+2)
+Select the employees in department 12
+
+select * from employees where departmentNo=12;
++------+----------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name     | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+----------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 2312 | Vasu     | 24   | male   | clerk    |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2323 | Suhasini | 24   | female | salesman |          14000 |            1 |      NULL |           12 | 2021-08-11 |
+| 2345 | Ravi     | 43   | male   | Drawing  |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 4333 | Uvesh    | 29   | male   | Analyst  |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 6190 | Rohit    | 25   | male   | Analyst  |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6223 | Sanket   | 25   | male   | Analyst  |          14000 |            5 |      2000 |           12 | 2017-08-22 |
+| 6290 | Mukesh   | 25   | male   | Drawing  |          18000 |            6 |      1000 |           12 | 2016-02-22 |
++------+----------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+3)
+List the names, numbers and departments of all clerks.
+select * from employees where works='clerk';
++------+--------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| 2312 | Vasu   | 24   | male   | clerk |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2389 | Mohit  | 28   | male   | clerk |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2394 | Ramesh | 25   | male   | clerk |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 4039 | Arvind | 20   | male   | clerk |          11000 |            6 |      1100 |           14 | 2016-08-04 |
+| 8230 | Rakesh | 22   | male   | clerk |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8790 | Shruti | 22   | female | clerk |          14000 |            4 |      1000 |           19 | 2018-04-01 |
++------+--------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+
+4)
+Find the department numbers and names of employees of all departments with deptno greater than 20.
+ select * from employees where departmentNo>14;
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name       | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1290 | Raxit      | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2124 | Abhi       | 25   | male   | manager           |          11000 |            5 |      2300 |           17 | 2017-03-01 |
+| 2130 | Rahul      | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2190 | Rohit      | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2389 | Mohit      | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2394 | Ramesh     | 25   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 2489 | Yogesh     | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+| 2912 | Sweta      | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+| 4590 | Sagar      | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5673 | Anirudhdha | 28   | male   | manager           |          21000 |            4 |      2300 |           16 | 2018-03-01 |
+| 8230 | Rakesh     | 22   | male   | clerk             |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8537 | Roshan     | 35   | male   | Salesman          |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+| 8557 | Mahi       | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+| 8580 | Himanshu   | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
+| 8589 | Rushikesh  | 32   | male   | Salesman          |          11000 |            1 |      1000 |           19 | 2021-01-09 |
+| 8690 | Setu       | 29   | female | Salesman          |          14000 |            4 |      1000 |           19 | 2018-04-01 |
+| 8790 | Shruti     | 22   | female | clerk             |          14000 |            4 |      1000 |           19 | 2018-04-01 |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+5)Find employees whose commission is greater than their salaries.
+select * from employees where comission>salaryPerMonth;
+
+6)
+Find employees whose commission is greater than 60 % of their salaries.
+select * from employees where comission>0.6*salaryPerMonth;
+
+7)
+List name, job and salary of all employees in department 18 who earn more than 2000/-.
+select name, salaryPerMonth from employees where departmentNo=18 and salaryPerMonth>12000;
++--------+----------------+
+| name   | salaryPerMonth |
++--------+----------------+
+| Raxit  |          14000 |
+| Mohit  |          18000 |
+| Ramesh |          18000 |
++--------+----------------+
+
+8)
+Find all salesmen in department 19 whose salary is greater than 11000/-.
+select * from employees where departmentNo=19 and (salaryPerMonth>11000 and works='Salesman');
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 8690 | Setu | 29   | female | Salesman |          14000 |            4 |      1000 |           19 | 2018-04-01 |
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+9)
+Find all employees whose designation is either manager or president.
+select * from employees where works='Manager' or works='President';
+
+10)
+Find all managers who are not in department 30.
+select * from employees where works='Manager' and departmentNo !=16;
++------+-------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+| id   | name  | age  | gender | works   | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+| 2124 | Abhi  | 25   | male   | manager |          11000 |            5 |      2300 |           17 | 2017-03-01 |
+| 4534 | Ronak | 34   | male   | Manager |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 4590 | Sagar | 24   | male   | Manager |          28000 |            5 |      NULL |           15 | 2017-08-02 |
++------+-------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+
+11)
+Find all the details of managers and clerks in dept 10.
+select * from empDetail where departNo=12 and works in ('Manager','clerk');
++------+--------+-----------+---------+--------+----------+--------------+
+| id   | name   | city      | works   | salary | departNo | underManager |
++------+--------+-----------+---------+--------+----------+--------------+
+| 1201 | Jigar  | Ahmedabad | Manager |  14000 |       12 | NULL         |
+| 1213 | Ramesh | Ahmedabad | clerk   |  12000 |       12 | Jigar        |
++------+--------+-----------+---------+--------+----------+--------------+
+
+12)
+Find the details of all the managers (in any dept) and clerks in dept 20.
+select * from empDetail where works='Manager' or (works='clerk' and departNo=20);
++------+--------+-----------+---------+--------+----------+--------------+
+| id   | name   | city      | works   | salary | departNo | underManager |
++------+--------+-----------+---------+--------+----------+--------------+
+| 1201 | Jigar  | Ahmedabad | Manager |  14000 |       12 | NULL         |
+| 1401 | Rohit  | Ahmedabad | Manager |  16000 |       16 | NULL         |
+| 1601 | Sanket | Mahesana  | Manager |  20000 |       20 | NULL         |
+| 1610 | Roshan | Mahesana  | clerk   |  14000 |       20 | Sanket       |
++------+--------+-----------+---------+--------+----------+--------------+
+
+13)
+ Find the details of all the managers in dept. 10 and all clerks in dept 20 and all employees who are neither managers nor clerks but whose salary is more than or equal to 15000/-.
+select * from empDetail where (works='Manager' and departNo=12) or (works='clerk' and departNo=20) or (works!='Manager' and works!='clerk' and salary>=15000);
++------+--------+-----------+----------+--------+----------+--------------+
+| id   | name   | city      | works    | salary | departNo | underManager |
++------+--------+-----------+----------+--------+----------+--------------+
+| 1201 | Jigar  | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1203 | Rahul  | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1311 | Mohit  | Surat     | designer |  16000 |       14 | Jigar        |
+| 1405 | Janak  | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1504 | Ramesh | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1605 | Mehul  | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan | Mahesana  | clerk    |  14000 |       20 | Sanket       |
++------+--------+-----------+----------+--------+----------+--------------+
+
+14)
+ Find the names of anyone in dept. 20 who is neither manager nor clerk.
+select name, works from empDetail where works not in('Manager','clerk');
++---------+----------+
+| name    | works    |
++---------+----------+
+| Rahul   | designer |
+| Mukesh  | salesman |
+| Mohit   | designer |
+| Yogesh  | salesman |
+| Bhavesh | salesman |
+| Janak   | Designer |
+| Ramesh  | designer |
+| Rakesh  | salesman |
+| Rahul   | salesman |
+| Mehul   | Designer |
+| Mahesh  | Designer |
+| Ankit   | Designer |
++---------+----------+
+
+15)
+Find the names of employees who earn between 12000/- and 16000/-
+select name, salary from empDetail where salary between 12000 and 16000;
++---------+--------+
+| name    | salary |
++---------+--------+
+| Jigar   |  14000 |
+| Ramesh  |  12000 |
+| Mohit   |  16000 |
+| Lokesh  |  13000 |
+| Rohit   |  16000 |
+| Bhavesh |  12000 |
+| Janak   |  15000 |
+| Manoj   |  14000 |
+| Rakesh  |  14000 |
+| Mehul   |  16000 |
+| Roshan  |  14000 |
++---------+--------+
+
+16)
+Find the employees who are clerks, designer or salesmen.
+
+select * from empDetail where works in('clerk','salesman','designer'); 
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| 1721 | Mahesh  | Mahesana  | Designer |   1229 |       20 | Sanket       |
+| 1722 | Ankit   | Mahesana  | Designer |   1244 |       20 | Sanket       |
++------+---------+-----------+----------+--------+----------+--------------+
+
+17)
+Find the employees who are not clerks, analysts or salesmen.
+select * from empDetail where works not  in('clerk','salesman','designer'); 
++------+--------+-----------+---------+--------+----------+--------------+
+| id   | name   | city      | works   | salary | departNo | underManager |
++------+--------+-----------+---------+--------+----------+--------------+
+| 1201 | Jigar  | Ahmedabad | Manager |  14000 |       12 | NULL         |
+| 1401 | Rohit  | Ahmedabad | Manager |  16000 |       16 | NULL         |
+| 1601 | Sanket | Mahesana  | Manager |  20000 |       20 | NULL         |
++------+--------+-----------+---------+--------+----------+--------------+
+3 rows in set (0.001 sec)
+
+18)
+Find the employees who do not receive commission.
+select * from employees where commision is null;
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name     | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh   | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 2323 | Suhasini | 24   | female | salesman          |          14000 |            1 |      NULL |           12 | 2021-08-11 |
+| 2912 | Sweta    | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+| 4534 | Ronak    | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 4590 | Sagar    | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5610 | Sanket   | 22   | male   | Drawing           |          14000 |            3 |      NULL |           14 | 2020-08-13 |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+6 rows in set (0.000 sec)
+
+19)
+Find the different jobs of employees receiving commission.
+select works, commision from employees where commision is not null;
++-------------------+-----------+
+| works             | commision |
++-------------------+-----------+
+| Drawing           |      1000 |
+| manager           |      2300 |
+| QA                |      2200 |
+| Android Developer |      2100 |
+| clerk             |      1400 |
+| Drawing           |      2000 |
+| clerk             |      2100 |
+| clerk             |      2100 |
+| Drawing           |      2300 |
+| clerk             |      1100 |
+| Analyst           |      1000 |
+| manager           |      2300 |
+| Analyst           |      1000 |
+| Analyst           |      2000 |
+| Drawing           |      1000 |
+| clerk             |      1400 |
+| Salesman          |      2000 |
+| Salesman          |      2000 |
+| Salesman          |      1000 |
+| Salesman          |      1200 |
+| Salesman          |      1000 |
+| Salesman          |      1000 |
+| clerk             |      1000 |
++-------------------+-----------+
+
+20)
+Find the employees who do not receive commission or whose commission is less than 1400/-.
+select works, commision from employees where commision is  null or commision<1400;
++-------------------+-----------+
+| works             | commision |
++-------------------+-----------+
+| Flutter Developer |      NULL |
+| Drawing           |      1000 |
+| salesman          |      NULL |
+| Analyst           |      NULL |
+| clerk             |      1100 |
+| Analyst           |      1000 |
+| Manager           |      NULL |
+| Manager           |      NULL |
+| Drawing           |      NULL |
+| Analyst           |      1000 |
+| Drawing           |      1000 |
+| Salesman          |      1000 |
+| Salesman          |      1200 |
+| Salesman          |      1000 |
+| Salesman          |      1000 |
+| clerk             |      1000 |
++-------------------+-----------+
+
+21)
+If all the employees not receiving commission is entitles to a bonus of Rs. 250/- show the net earnings of all the employees.
+select id, name,(salary+250) as netSalary from empDetail;
++------+---------+-----------+
+| id   | name    | netSalary |
++------+---------+-----------+
+| 1201 | Jigar   |     14250 |
+| 1203 | Rahul   |     20250 |
+| 1212 | Mukesh  |     10250 |
+| 1213 | Ramesh  |     12250 |
+| 1311 | Mohit   |     16250 |
+| 1312 | Lokesh  |     13250 |
+| 1313 | Yogesh  |     11250 |
+| 1401 | Rohit   |     16250 |
+| 1403 | Bhavesh |     12250 |
+| 1405 | Janak   |     15250 |
+| 1407 | Manoj   |     14250 |
+| 1503 | Ragu    |     18250 |
+| 1504 | Ramesh  |     20250 |
+| 1505 | Rakesh  |     14250 |
+| 1601 | Sanket  |     20250 |
+| 1603 | Rahul   |     11250 |
+| 1605 | Mehul   |     16250 |
+| 1610 | Roshan  |     14250 |
+| 1721 | Mahesh  |      1479 |
+| 1722 | Ankit   |      1494 |
++------+---------+-----------+
+
+ select id, name,(salaryPerMonth+250) as netSalary, commision from employees where commision is null;
++------+----------+-----------+-----------+
+| id   | name     | netSalary | commision |
++------+----------+-----------+-----------+
+| 1212 | Ramesh   |     12250 |      NULL |
+| 2323 | Suhasini |     14250 |      NULL |
+| 2912 | Sweta    |     11250 |      NULL |
+| 4534 | Ronak    |     18250 |      NULL |
+| 4590 | Sagar    |     28250 |      NULL |
+| 5610 | Sanket   |     14250 |      NULL |
+| 9021 | Mahendra |      NULL |      NULL |
++------+----------+-----------+-----------+
+
+
+22)
+Find all the employees whose total earning is greater than 14000/- .
+select * from empDetail where salary>14000;
++------+--------+-----------+----------+--------+----------+--------------+
+| id   | name   | city      | works    | salary | departNo | underManager |
++------+--------+-----------+----------+--------+----------+--------------+
+| 1203 | Rahul  | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1311 | Mohit  | Surat     | designer |  16000 |       14 | Jigar        |
+| 1401 | Rohit  | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1405 | Janak  | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1503 | Ragu   | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1504 | Ramesh | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1601 | Sanket | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1605 | Mehul  | Mahesana  | Designer |  16000 |       20 | Sanket       |
++------+--------+-----------+----------+--------+----------+--------------+
+
+23)
+Find all the employees whose name begins with 'M' or ends with ‘n’
+select * from employees where name like ('m%n');
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name  | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 8547 | Mohan | 35   | male   | Salesman |          18000 |            4 |      2000 |           14 | 2016-06-09 |
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+24) 
+Find all the employees whose names contain the letter ‘M’ in any case.
+select * from employees where name like ('%m%');
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name     | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh   | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 2389 | Mohit    | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2394 | Ramesh   | 25   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 6290 | Mukesh   | 25   | male   | Drawing           |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8547 | Mohan    | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 8557 | Mahi     | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+| 8580 | Himanshu | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+7 rows in set (0.001 sec)
+
+25) 
+Find all the employees whose names are upto 15 character long and have letter ‘R’ as 3rd character of their names.
+select id, name, char_length(name) as nameLength from employees where name like ('__r%') and char_length(name)>4;
++------+--------+------------+
+| id   | name   | nameLength |
++------+--------+------------+
+| 8790 | Shruti |          6 |
++------+--------+------------+
+
+26) 
+Find all the employees who were hired in the month of February (of any year).
+select id, name, join_date from employees where month(join_date)=2;
++------+--------+------------+
+| id   | name   | join_date  |
++------+--------+------------+
+| 1290 | Raxit  | 2020-02-22 |
+| 2489 | Yogesh | 2018-02-01 |
+| 6290 | Mukesh | 2016-02-22 |
++------+--------+------------+
+
+27)
+Find all the employees who were hired on last day of the month.
+insert into employees (id, name, join_date) values(9021,'Mahendra','2022-01-30');
+Query OK, 1 row affected (0.012 sec)
+
+select * from employees where join_date=last_day(join_date);
++------+-----------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| id   | name      | age  | gender | works | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-----------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| 9111 | Rajendra  | NULL | NULL   | NULL  |           NULL |         NULL |      NULL |         NULL | 2022-01-31 |
++------+-----------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+
+MariaDB [test_11]> select id, name, join_date from employees where day(join_date)=30 or day(join_date)=31;
++------+----------+------------+
+| id   | name     | join_date  |
++------+----------+------------+
+| 9021 | Mahendra | 2022-01-30 |
++------+----------+------------+
+
+28) 
+Find all the employees who were hired more than 2 years ago.
+select id, name, join_date from employees where year(join_date)<=2020;
++------+------------+------------+
+| id   | name       | join_date  |
++------+------------+------------+
+| 1212 | Ramesh     | 2016-08-09 |
+| 1290 | Raxit      | 2020-02-22 |
+| 2124 | Abhi       | 2017-03-01 |
+| 2130 | Rahul      | 2020-08-06 |
+| 2190 | Rohit      | 2018-08-03 |
+| 2312 | Vasu       | 2017-08-01 |
+| 2345 | Ravi       | 2014-06-02 |
+| 2389 | Mohit      | 2020-04-01 |
+| 2394 | Ramesh     | 2020-03-01 |
+| 2489 | Yogesh     | 2018-02-01 |
+| 2912 | Sweta      | 2020-08-13 |
+| 4039 | Arvind     | 2016-08-04 |
+| 4333 | Uvesh      | 2018-08-22 |
+| 4534 | Ronak      | 2020-08-05 |
+| 4590 | Sagar      | 2017-08-02 |
+| 5610 | Sanket     | 2020-08-13 |
+| 5673 | Anirudhdha | 2018-03-01 |
+| 6190 | Rohit      | 2016-08-22 |
+| 6223 | Sanket     | 2017-08-22 |
+| 6290 | Mukesh     | 2016-02-22 |
+| 8230 | Rakesh     | 2017-04-01 |
+| 8537 | Roshan     | 2020-05-09 |
+| 8547 | Mohan      | 2016-06-09 |
+| 8580 | Himanshu   | 2018-01-01 |
+| 8690 | Setu       | 2018-04-01 |
+| 8790 | Shruti     | 2018-04-01 |
++------+------------+------------+
+
+
+29) 
+Find the managers hired in the year 2017.
+select id, name, join_date from employees where year(join_date)=2017 and works='manager';
++------+-------+------------+
+| id   | name  | join_date  |
++------+-------+------------+
+| 2124 | Abhi  | 2017-03-01 |
+| 4590 | Sagar | 2017-08-02 |
++------+-------+------------+
+
+30)
+Display the names and jobs of all the employees separated by a space.
+select concat(name,' ',id) from employees;
++---------------------+
+| concat(name,' ',id) |
++---------------------+
+| Ramesh 1212         |
+| Raxit 1290          |
+| Abhi 2124           |
+| Rahul 2130          |
+| Rohit 2190          |
+| Vasu 2312           |
+| Suhasini 2323       |
+| Ravi 2345           |
+| Mohit 2389          |
+| Ramesh 2394         |
+| Yogesh 2489         |
+| Sweta 2912          |
+| Arvind 4039         |
+| Uvesh 4333          |
+| Ronak 4534          |
+| Sagar 4590          |
+| Sanket 5610         |
+| Anirudhdha 5673     |
+| Rohit 6190          |
+| Sanket 6223         |
+| Mukesh 6290         |
+| Rakesh 8230         |
+| Roshan 8537         |
+| Mohan 8547          |
+| Mahi 8557           |
+| Himanshu 8580       |
+| Rushikesh 8589      |
+| Setu 8690           |
+| Shruti 8790         |
+| Mahendra 9021       |
+| Rajendra  9111      |
++---------------------+
+
+
+31)
+Display the names of all the employees right aligning them to 15 characters.
+select lpad(name,15,'.') from employees;
++-------------------+
+| lpad(name,15,'.') |
++-------------------+
+| .........Ramesh   |
+| ..........Raxit   |
+| ...........Abhi   |
+| ..........Rahul   |
+| ..........Rohit   |
+| ...........Vasu   |
+| .......Suhasini   |
+| ...........Ravi   |
+| ..........Mohit   |
+| .........Ramesh   |
+| .........Yogesh   |
+| ..........Sweta   |
+| .........Arvind   |
+| ..........Uvesh   |
+| ..........Ronak   |
+| ..........Sagar   |
+| .........Sanket   |
+| .....Anirudhdha   |
+| ..........Rohit   |
+| .........Sanket   |
+| .........Mukesh   |
+| .........Rakesh   |
+| .........Roshan   |
+| ..........Mohan   |
+| ...........Mahi   |
+| .......Himanshu   |
+| ......Rushikesh   |
+| ...........Setu   |
+| .........Shruti   |
+| .......Mahendra   |
++-------------------+
+
+32)
+Display the names of all the employees padding them to the right up to 15 characters with ‘*’.
+select lpad(name,15,'*') from empDetail;
++-------------------+
+| lpad(name,15,'*') |
++-------------------+
+| **********Jigar   |
+| **********Rahul   |
+| *********Mukesh   |
+| *********Ramesh   |
+| **********Mohit   |
+| *********Lokesh   |
+| *********Yogesh   |
+| **********Rohit   |
+| ********Bhavesh   |
+| **********Janak   |
+| **********Manoj   |
+| ***********Ragu   |
+| *********Ramesh   |
+| *********Rakesh   |
+| *********Sanket   |
+| **********Rahul   |
+| **********Mehul   |
+| *********Roshan   |
+| *********Mahesh   |
+| **********Ankit   |
++-------------------+
+
+33)
+Display the names of all the employees without any leading ‘r’.
+select id,name from employees where name not like 'r%';
++------+------------+
+| id   | name       |
++------+------------+
+| 2124 | Abhi       |
+| 2312 | Vasu       |
+| 2323 | Suhasini   |
+| 2389 | Mohit      |
+| 2489 | Yogesh     |
+| 2912 | Sweta      |
+| 4039 | Arvind     |
+| 4333 | Uvesh      |
+| 4590 | Sagar      |
+| 5610 | Sanket     |
+| 5673 | Anirudhdha |
+| 6223 | Sanket     |
+| 6290 | Mukesh     |
+| 8547 | Mohan      |
+| 8557 | Mahi       |
+| 8580 | Himanshu   |
+| 8690 | Setu       |
+| 8790 | Shruti     |
+| 9021 | Mahendra   |
++------+------------+
+
+34)
+Display the names of all the employees without any trailing ‘H’.
+select id, name from employees where name not like '%h';
++------+------------+
+| id   | name       |
++------+------------+
+| 1290 | Raxit      |
+| 2124 | Abhi       |
+| 2130 | Rahul      |
+| 2190 | Rohit      |
+| 2312 | Vasu       |
+| 2323 | Suhasini   |
+| 2345 | Ravi       |
+| 2389 | Mohit      |
+| 2912 | Sweta      |
+| 4039 | Arvind     |
+| 4534 | Ronak      |
+| 4590 | Sagar      |
+| 5610 | Sanket     |
+| 5673 | Anirudhdha |
+| 6190 | Rohit      |
+| 6223 | Sanket     |
+| 8537 | Roshan     |
+| 8547 | Mohan      |
+| 8557 | Mahi       |
+| 8580 | Himanshu   |
+| 8690 | Setu       |
+| 8790 | Shruti     |
+| 9021 | Mahendra   |
++------+------------+
+
+35)
+Show the first 3 and last 3 characters of the names of all the employees.
+function substr take three parameter first string, second parameter starting index of substring and third parameters substring length
+select substr(name,1,3) as first3, substr(reverse(name),1,3) as last3 from employees;
++--------+-------+
+| first3 | last3 |
++--------+-------+
+| Ram    | hse   |
+| Rax    | tix   |
+| Abh    | ihb   |
+| Rah    | luh   |
+| Roh    | tih   |
+| Vas    | usa   |
+| Suh    | ini   |
+| Rav    | iva   |
+| Moh    | tih   |
+| Ram    | hse   |
+| Yog    | hse   |
+| Swe    | ate   |
+| Arv    | dni   |
+| Uve    | hse   |
+| Ron    | kan   |
+| Sag    | rag   |
+| San    | tek   |
+| Ani    | ahd   |
+| Roh    | tih   |
+| San    | tek   |
+| Muk    | hse   |
+| Rak    | hse   |
+| Ros    | nah   |
+| Moh    | nah   |
+| Mah    | iha   |
+| Him    | uhs   |
+| Rus    | hse   |
+| Set    | ute   |
+| Shr    | itu   |
+| Mah    | ard   |
++--------+-------+
+
+36)
+Display the names of all the employees replacing ‘a’ with ‘A’.
+select name,replace(name,'a','A') as replaced  from employees;
++------------+------------+
+| name       | replaced   |
++------------+------------+
+| Ramesh     | RAmesh     |
+| Raxit      | RAxit      |
+| Abhi       | Abhi       |
+| Rahul      | RAhul      |
+| Rohit      | Rohit      |
+| Vasu       | VAsu       |
+| Suhasini   | SuhAsini   |
+| Ravi       | RAvi       |
+| Mohit      | Mohit      |
+| Ramesh     | RAmesh     |
+| Yogesh     | Yogesh     |
+| Sweta      | SwetA      |
+| Arvind     | Arvind     |
+| Uvesh      | Uvesh      |
+| Ronak      | RonAk      |
+| Sagar      | SAgAr      |
+| Sanket     | SAnket     |
+| Anirudhdha | AnirudhdhA |
+| Rohit      | Rohit      |
+| Sanket     | SAnket     |
+| Mukesh     | Mukesh     |
+| Rakesh     | RAkesh     |
+| Roshan     | RoshAn     |
+| Mohan      | MohAn      |
+| Mahi       | MAhi       |
+| Himanshu   | HimAnshu   |
+| Rushikesh  | Rushikesh  |
+| Setu       | Setu       |
+| Shruti     | Shruti     |
+| Mahendra   | MAhendrA   |
+| Rajendra   | RAjendrA   |
++------------+------------+
+
+38)
+Show the salary of all the employees , rounding it to the nearest Rs. 12000/-.
+select round(12.23);
++--------------+
+| round(12.23) |
++--------------+
+|           12 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [test_11]> select ceil(12.23);
++-------------+
+| ceil(12.23) |
++-------------+
+|          13 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [test_11]> select floor(12.23);
++--------------+
+| floor(12.23) |
++--------------+
+|           12 |
++--------------+
+
+select name,round(salary) as nearestSalary from empDetail where salary=12000;
++---------+---------------+
+| name    | nearestSalary |
++---------+---------------+
+| Ramesh  |         12000 |
+| Bhavesh |         12000 |
++---------+---------------+
+
+40) 
+Show the names of all the employees and date on which they completed 3 years of service.
+MariaDB [test_11]> insert into employees (id,name,join_date) values(9213,'Rahul','2019-08-12');
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [test_11]> select id, name, join_date from employees where year(join_date)=2019 and month(join_date)=8;
++------+-------+------------+
+| id   | name  | join_date  |
++------+-------+------------+
+| 9213 | Rahul | 2019-08-12 |
++------+-------+------------+
+
+insert into employees (id,name,join_date) values(9214,'Rahul','2019-08-29');
+
+select id, name, join_date from employees where year(join_date)=2019 and month(join_date)=month(curdate()) and dayofmonth(join_date)=dayofmonth(curdate());
++------+-------+------------+
+| id   | name  | join_date  |
++------+-------+------------+
+| 9214 | Rahul | 2019-08-29 |
++------+-------+------------+
+
+43)
+Display the details of all the employees sorted on the names.
+select * from empDetail order by name;
++------+---------+-----------+----------+--------+----------+--------------+
+| id   | name    | city      | works    | salary | departNo | underManager |
++------+---------+-----------+----------+--------+----------+--------------+
+| 1722 | Ankit   | Mahesana  | Designer |   1244 |       20 | Sanket       |
+| 1403 | Bhavesh | Ahmedabad | salesman |  12000 |       16 | Rohit        |
+| 1405 | Janak   | Ahmedabad | Designer |  15000 |       16 | Rohit        |
+| 1201 | Jigar   | Ahmedabad | Manager  |  14000 |       12 | NULL         |
+| 1312 | Lokesh  | Surat     | clerk    |  13000 |       14 | Jigar        |
+| 1721 | Mahesh  | Mahesana  | Designer |   1229 |       20 | Sanket       |
+| 1407 | Manoj   | Ahmedabad | clerk    |  14000 |       16 | Rohit        |
+| 1605 | Mehul   | Mahesana  | Designer |  16000 |       20 | Sanket       |
+| 1311 | Mohit   | Surat     | designer |  16000 |       14 | Jigar        |
+| 1212 | Mukesh  | Ahmedabad | salesman |  10000 |       12 | Jigar        |
+| 1503 | Ragu    | Vadodara  | clerk    |  18000 |       18 | Rohit        |
+| 1203 | Rahul   | Ahmedabad | designer |  20000 |       12 | Jigar        |
+| 1603 | Rahul   | Mahesana  | salesman |  11000 |       20 | Sanket       |
+| 1505 | Rakesh  | vadodara  | salesman |  14000 |       18 | Rohit        |
+| 1504 | Ramesh  | Vadodara  | designer |  20000 |       18 | Rohit        |
+| 1213 | Ramesh  | Ahmedabad | clerk    |  12000 |       12 | Jigar        |
+| 1401 | Rohit   | Ahmedabad | Manager  |  16000 |       16 | NULL         |
+| 1610 | Roshan  | Mahesana  | clerk    |  14000 |       20 | Sanket       |
+| 1601 | Sanket  | Mahesana  | Manager  |  20000 |       20 | NULL         |
+| 1313 | Yogesh  | Surat     | salesman |  11000 |       14 | Jigar        |
++------+---------+-----------+----------+--------+----------+--------------+
+20 rows in set (0.001 sec)
+
+44)
+Display the names of the employees, based on the tenure with the oldest employee coming first.
+select id, name, age from employees order by age desc;
++------+------------+------+
+| id   | name       | age  |
++------+------------+------+
+| 2345 | Ravi       | 43   |
+| 8537 | Roshan     | 35   |
+| 8547 | Mohan      | 35   |
+| 4534 | Ronak      | 34   |
+| 2130 | Rahul      | 32   |
+| 8589 | Rushikesh  | 32   |
+| 8557 | Mahi       | 30   |
+| 2190 | Rohit      | 30   |
+| 4333 | Uvesh      | 29   |
+| 8580 | Himanshu   | 29   |
+| 8690 | Setu       | 29   |
+| 5673 | Anirudhdha | 28   |
+| 2389 | Mohit      | 28   |
+| 2489 | Yogesh     | 27   |
+| 1290 | Raxit      | 26   |
+| 2124 | Abhi       | 25   |
+| 6290 | Mukesh     | 25   |
+| 6223 | Sanket     | 25   |
+| 6190 | Rohit      | 25   |
+| 2394 | Ramesh     | 25   |
+| 2323 | Suhasini   | 24   |
+| 2312 | Vasu       | 24   |
+| 4590 | Sagar      | 24   |
+| 5610 | Sanket     | 22   |
+| 8230 | Rakesh     | 22   |
+| 8790 | Shruti     | 22   |
+| 1212 | Ramesh     | 20   |
+| 4039 | Arvind     | 20   |
+| 2912 | Sweta      | 18   |
+| 9021 | Mahendra   | NULL |
+| 9111 | Rajendra   | NULL |
+| 9212 | Manoj      | NULL |
+| 9213 | Rahul      | NULL |
+| 9214 | Rahul      | NULL |
++------+------------+------+
+
+45) 
+Display the names, jobs and salaries of employees, sorting on job and salary.
+select name, works, salaryPerMonth from employees order by works asc, salaryPerMonth asc;
++------------+-------------------+----------------+
+| name       | works             | salaryPerMonth |
++------------+-------------------+----------------+
+| Rahul      | NULL              |           NULL |
+| Mahendra   | NULL              |           NULL |
+| Rajendra   | NULL              |           NULL |
+| Manoj      | NULL              |           NULL |
+| Rahul      | NULL              |           NULL |
+| Sweta      | Analyst           |          11000 |
+| Uvesh      | Analyst           |          13000 |
+| Sanket     | Analyst           |          14000 |
+| Rohit      | Analyst           |          18000 |
+| Rohit      | Android Developer |          10000 |
+| Arvind     | clerk             |          11000 |
+| Vasu       | clerk             |          13000 |
+| Rakesh     | clerk             |          14000 |
+| Shruti     | clerk             |          14000 |
+| Ramesh     | clerk             |          18000 |
+| Mohit      | clerk             |          18000 |
+| Yogesh     | Drawing           |          12000 |
+| Sanket     | Drawing           |          14000 |
+| Raxit      | Drawing           |          14000 |
+| Mukesh     | Drawing           |          18000 |
+| Ravi       | Drawing           |          28000 |
+| Ramesh     | Flutter Developer |          12000 |
+| Abhi       | manager           |          11000 |
+| Ronak      | Manager           |          18000 |
+| Anirudhdha | manager           |          21000 |
+| Sagar      | Manager           |          28000 |
+| Rahul      | QA                |          12000 |
+| Rushikesh  | Salesman          |          11000 |
+| Mahi       | Salesman          |          12000 |
+| Himanshu   | Salesman          |          13000 |
+| Suhasini   | salesman          |          14000 |
+| Setu       | Salesman          |          14000 |
+| Mohan      | Salesman          |          18000 |
+| Roshan     | Salesman          |          18000 |
++------------+-------------------+----------------+
+
+
+
+
+
+
+
+
+
+
+
+
