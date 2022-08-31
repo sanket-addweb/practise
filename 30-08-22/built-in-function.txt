@@ -1,0 +1,125 @@
+1)
+delimiter $$
+ create function fnDaily_Salary(salary decimal(10,2)) returns decimal(10,2) deterministic begin declare daily_salary decimal(10,2); set daily_salary=salary/30; return(daily_salary); end$$
+Query OK, 0 rows affected (0.014 sec)
+
+delimiter ;
+select fnDaily_Salary(1000);
++----------------------+
+| fnDaily_Salary(1000) |
++----------------------+
+|                33.33 |
++----------------------+
+1 row in set (0.001 sec)
+
+2)
+create function fnNet_Salary(salary int(9),bonus int(9)) 
+returns int(9) 
+deterministic 
+begin 
+declare net_salary int(9); 
+set net_salary=salary+bonus; 
+return (net_salary); 
+end $$ 
+Query OK, 0 rows affected (0.023 sec)
+
+select id,name,fnNet_Salary(salaryPerMonth,commision) as netSalary from employees; 
++------+------------+-----------+
+| id   | name       | netSalary |
++------+------------+-----------+
+| 1212 | Ramesh     |      NULL |
+| 1290 | Raxit      |     15000 |
+| 2124 | Abhi       |     13300 |
+| 2130 | Rahul      |     14200 |
+| 2190 | Rohit      |     12100 |
+| 2312 | Vasu       |     14400 |
+| 2323 | Suhasini   |      NULL |
+| 2345 | Ravi       |     30000 |
+| 2389 | Mohit      |     20100 |
+| 2394 | Ramesh     |     20100 |
+| 2489 | Yogesh     |     14300 |
+| 2912 | Sweta      |      NULL |
+| 4039 | Arvind     |     12100 |
+| 4333 | Uvesh      |     14000 |
+| 4534 | Ronak      |      NULL |
+| 4590 | Sagar      |      NULL |
+| 5610 | Sanket     |      NULL |
+| 5673 | Anirudhdha |     23300 |
+| 6190 | Rohit      |     19000 |
+| 6223 | Sanket     |     16000 |
+| 6290 | Mukesh     |     19000 |
+| 8230 | Rakesh     |     15400 |
+| 8537 | Roshan     |     20000 |
+| 8547 | Mohan      |     20000 |
+| 8557 | Mahi       |     13000 |
+| 8580 | Himanshu   |     14200 |
+| 8589 | Rushikesh  |     12000 |
+| 8690 | Setu       |     15000 |
+| 8790 | Shruti     |     15000 |
+| 9021 | Mahendra   |      NULL |
+| 9111 | Rajendra   |      NULL |
+| 9212 | Manoj      |      NULL |
+| 9213 | Rahul      |      NULL |
+| 9214 | Rahul      |      NULL |
+| 9215 | Raman      |      NULL |
++------+------------+-----------+
+
+
+3)
+ create function fnEmp_Age(age int) returns varchar(49) 
+ deterministic 
+ begin 
+ declare emp_age_msg varchar(49); 
+ if age>35 then  
+ set emp_age_msg='above 35'; 
+ elseif (age <=35 and age>=30) then 
+ set emp_age_msg='age 30 to 35'; 
+ elseif age<30 then 
+ set emp_age_msg='below 30'; 
+ end if;  
+ return (emp_age_msg); 
+ end$$
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> select id,name, fnEmp_Age(age) as ageMsg from employees;
++------+------------+--------------+
+| id   | name       | ageMsg       |
++------+------------+--------------+
+| 1212 | Ramesh     | below 30     |
+| 1290 | Raxit      | below 30     |
+| 2124 | Abhi       | below 30     |
+| 2130 | Rahul      | age 30 to 35 |
+| 2190 | Rohit      | age 30 to 35 |
+| 2312 | Vasu       | below 30     |
+| 2323 | Suhasini   | below 30     |
+| 2345 | Ravi       | above 35     |
+| 2389 | Mohit      | below 30     |
+| 2394 | Ramesh     | below 30     |
+| 2489 | Yogesh     | below 30     |
+| 2912 | Sweta      | below 30     |
+| 4039 | Arvind     | below 30     |
+| 4333 | Uvesh      | below 30     |
+| 4534 | Ronak      | age 30 to 35 |
+| 4590 | Sagar      | below 30     |
+| 5610 | Sanket     | below 30     |
+| 5673 | Anirudhdha | below 30     |
+| 6190 | Rohit      | below 30     |
+| 6223 | Sanket     | below 30     |
+| 6290 | Mukesh     | below 30     |
+| 8230 | Rakesh     | below 30     |
+| 8537 | Roshan     | age 30 to 35 |
+| 8547 | Mohan      | age 30 to 35 |
+| 8557 | Mahi       | age 30 to 35 |
+| 8580 | Himanshu   | below 30     |
+| 8589 | Rushikesh  | age 30 to 35 |
+| 8690 | Setu       | below 30     |
+| 8790 | Shruti     | below 30     |
+| 9021 | Mahendra   | NULL         |
+| 9111 | Rajendra   | NULL         |
+| 9212 | Manoj      | NULL         |
+| 9213 | Rahul      | NULL         |
+| 9214 | Rahul      | NULL         |
+| 9215 | Raman      | NULL         |
++------+------------+--------------+
+

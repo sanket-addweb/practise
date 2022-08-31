@@ -742,6 +742,101 @@ select id, name, join_date from employees where year(join_date)=2019 and month(j
 | 9214 | Rahul | 2019-08-29 |
 +------+-------+------------+
 
+more accurate
+SELECT id,name,join_date,timestampdiff(year,join_date,curdate()) as yearDiff from employees where timestampdiff(year,join_date,curdate())=3;
++------+-------+------------+----------+
+| id   | name  | join_date  | yearDiff |
++------+-------+------------+----------+
+| 9213 | Rahul | 2019-08-12 |        3 |
+| 9214 | Rahul | 2019-08-29 |        3 |
++------+-------+------------+----------+
+
+41)
+For each employee, display the no. of days passed since the employee joined the company.
+select id, name,timestampdiff(day,join_date,curdate()) as numDays from employees;
++------+------------+---------+
+| id   | name       |numofDays|
++------+------------+---------+
+| 1212 | Ramesh     |    2212 |
+| 1290 | Raxit      |     920 |
+| 2124 | Abhi       |    2008 |
+| 2130 | Rahul      |     754 |
+| 2190 | Rohit      |    1488 |
+| 2312 | Vasu       |    1855 |
+| 2323 | Suhasini   |     384 |
+| 2345 | Ravi       |    3011 |
+| 2389 | Mohit      |     881 |
+| 2394 | Ramesh     |     912 |
+| 2489 | Yogesh     |    1671 |
+| 2912 | Sweta      |     747 |
+| 4039 | Arvind     |    2217 |
+| 4333 | Uvesh      |    1469 |
+| 4534 | Ronak      |     755 |
+| 4590 | Sagar      |    1854 |
+| 5610 | Sanket     |     747 |
+| 5673 | Anirudhdha |    1643 |
+| 6190 | Rohit      |    2199 |
+| 6223 | Sanket     |    1834 |
+| 6290 | Mukesh     |    2381 |
+| 8230 | Rakesh     |    1977 |
+| 8537 | Roshan     |     843 |
+| 8547 | Mohan      |    2273 |
+| 8557 | Mahi       |     478 |
+| 8580 | Himanshu   |    1702 |
+| 8589 | Rushikesh  |     598 |
+| 8690 | Setu       |    1612 |
+| 8790 | Shruti     |    1612 |
+| 9021 | Mahendra   |     212 |
+| 9111 | Rajendra   |     211 |
+| 9212 | Manoj      |      18 |
+| 9213 | Rahul      |    1114 |
+| 9214 | Rahul      |    1097 |
+| 9215 | Raman      |     365 |
++------+------------+---------+
+
+42)
+For each employee, display the no. of months passed since the employee joined the company.
+ select id, name,timestampdiff(month,join_date,curdate()) as numOfMonth from employees;
++------+------------+------------+
+| id   | name       | numOfMonth |
++------+------------+------------+
+| 1212 | Ramesh     |         72 |
+| 1290 | Raxit      |         30 |
+| 2124 | Abhi       |         65 |
+| 2130 | Rahul      |         24 |
+| 2190 | Rohit      |         48 |
+| 2312 | Vasu       |         60 |
+| 2323 | Suhasini   |         12 |
+| 2345 | Ravi       |         98 |
+| 2389 | Mohit      |         28 |
+| 2394 | Ramesh     |         29 |
+| 2489 | Yogesh     |         54 |
+| 2912 | Sweta      |         24 |
+| 4039 | Arvind     |         72 |
+| 4333 | Uvesh      |         48 |
+| 4534 | Ronak      |         24 |
+| 4590 | Sagar      |         60 |
+| 5610 | Sanket     |         24 |
+| 5673 | Anirudhdha |         53 |
+| 6190 | Rohit      |         72 |
+| 6223 | Sanket     |         60 |
+| 6290 | Mukesh     |         78 |
+| 8230 | Rakesh     |         64 |
+| 8537 | Roshan     |         27 |
+| 8547 | Mohan      |         74 |
+| 8557 | Mahi       |         15 |
+| 8580 | Himanshu   |         55 |
+| 8589 | Rushikesh  |         19 |
+| 8690 | Setu       |         52 |
+| 8790 | Shruti     |         52 |
+| 9021 | Mahendra   |          7 |
+| 9111 | Rajendra   |          6 |
+| 9212 | Manoj      |          0 |
+| 9213 | Rahul      |         36 |
+| 9214 | Rahul      |         36 |
+| 9215 | Raman      |         12 |
++------+------------+------------+
+
 43)
 Display the details of all the employees sorted on the names.
 select * from empDetail order by name;
@@ -854,6 +949,1040 @@ select name, works, salaryPerMonth from employees order by works asc, salaryPerM
 | Mohan      | Salesman          |          18000 |
 | Roshan     | Salesman          |          18000 |
 +------------+-------------------+----------------+
+
+46)
+Display the names, jobs and salaries of employees, sorting on descending order of job and within job sorted on salary.
+select name, works, salary from empDetail order by works desc, salary asc;
+Connection id:    9
+Current database: test_11
+
++---------+----------+--------+
+| name    | works    | salary |
++---------+----------+--------+
+| Mukesh  | salesman |  10000 |
+| Rahul   | salesman |  11000 |
+| Yogesh  | salesman |  11000 |
+| Bhavesh | salesman |  12000 |
+| Rakesh  | salesman |  14000 |
+| Jigar   | Manager  |  14000 |
+| Rohit   | Manager  |  16000 |
+| Sanket  | Manager  |  20000 |
+| Mahesh  | Designer |   1229 |
+| Ankit   | Designer |   1244 |
+| Janak   | Designer |  15000 |
+| Mehul   | Designer |  16000 |
+| Mohit   | designer |  16000 |
+| Rahul   | designer |  20000 |
+| Ramesh  | designer |  20000 |
+| Ramesh  | clerk    |  12000 |
+| Lokesh  | clerk    |  13000 |
+| Roshan  | clerk    |  14000 |
+| Manoj   | clerk    |  14000 |
+| Ragu    | clerk    |  18000 |
++---------+----------+--------+
+
+47) 
+List the employee names, department names and salary for those employees who have completed 1 year of service.
+
+more accurate result
+ SELECT id,name,join_date,timestampdiff(year,join_date,curdate()) as yearDiff from employees where timestampdiff(year,join_date,curdate())=1;
++------+-----------+------------+----------+
+| id   | name      | join_date  | yearDiff |
++------+-----------+------------+----------+
+| 2323 | Suhasini  | 2021-08-11 |        1 |
+| 8557 | Mahi      | 2021-05-09 |        1 |
+| 8589 | Rushikesh | 2021-01-09 |        1 |
+| 9215 | Raman     | 2021-08-30 |        1 |
++------+-----------+------------+----------+
+
+
+MariaDB [test_11]> select id, name,join_date from employees where year(join_date)=2021 and  month(join_date)=month(curdate()) and weekofyear(join_date)=weekofyear(curdate());
++------+-------+------------+
+| id   | name  | join_date  |
++------+-------+------------+
+| 9215 | Raman | 2021-08-30 |
++------+-------+------------+
+
+48)
+List the employee names, department names and salary for those employees who are earning 0 commission or commission is null. Sort your output in the order of department
+name.
+select* from employees where commision is null order by departmentNo asc; 
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name      | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 9215 | Raman     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2021-08-30 |
+| 9214 | Rahul     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-29 |
+| 9213 | Rahul     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-12 |
+| 9212 | Manoj     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-08-12 |
+| 9111 | Rajendra  | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-01-31 |
+| 9021 | Mahendra  | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-01-30 |
+| 2323 | Suhasini  | 24   | female | salesman          |          14000 |            1 |      NULL |           12 | 2021-08-11 |
+| 5610 | Sanket    | 22   | male   | Drawing           |          14000 |            3 |      NULL |           14 | 2020-08-13 |
+| 4534 | Ronak     | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 1212 | Ramesh    | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 4590 | Sagar     | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 2912 | Sweta     | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+49)
+List the employee names, department names and hiredate for those employees who have joined in 2017 . Sort your output in the order of joining date.
+select name, departmentNo, join_date from employees where year(join_date)=2017 order by join_date;
++--------+--------------+------------+
+| name   | departmentNo | join_date  |
++--------+--------------+------------+
+| Abhi   |           17 | 2017-03-01 |
+| Rakesh |           17 | 2017-04-01 |
+| Vasu   |           12 | 2017-08-01 |
+| Sagar  |           15 | 2017-08-02 |
+| Sanket |           12 | 2017-08-22 |
++--------+--------------+------------+
+
+50) 
+List all the department names along with the names of employees in them , irrespective of the fact whether any employee is there or not.
+select departmentNo, count(id) as numEmp from employees group by departmentNo;
++--------------+--------+
+| departmentNo | numEmp |
++--------------+--------+
+|         NULL |      6 |
+|           12 |      7 |
+|           14 |      5 |
+|           15 |      3 |
+|           16 |      2 |
+|           17 |      2 |
+|           18 |      6 |
+|           19 |      3 |
+|           20 |      1 |
++--------------+--------+
+
+51)
+Select employees first name, last name, job_id and salary whose first name starts with alphabet S
+select name, id, salaryPerMonth from employees where name like 's%';
++----------+------+----------------+
+| name     | id   | salaryPerMonth |
++----------+------+----------------+
+| Suhasini | 2323 |          14000 |
+| Sweta    | 2912 |          11000 |
+| Sagar    | 4590 |          28000 |
+| Sanket   | 5610 |          14000 |
+| Sanket   | 6223 |          14000 |
+| Setu     | 8690 |          14000 |
+| Shruti   | 8790 |          14000 |
++----------+------+----------------+
+7 rows in set (0.001 sec)
+
+52) 
+Write a query to select employee with the highest salary
+select name, id, max(salaryPerMonth) as maxSalary from employees where salaryPerMonth= all (select max(salaryPerMonth) from employees);
++------+------+-----------+
+| name | id   | maxSalary |
++------+------+-----------+
+| Ravi | 2345 |     28000 |
++------+------+-----------+
+
+select name, id, max(salaryPerMonth) as maxSalary from employees where salaryPerMonth in (select max(salaryPerMonth) from employees);
++------+------+-----------+
+| name | id   | maxSalary |
++------+------+-----------+
+| Ravi | 2345 |     28000 |
++------+------+-----------+
+1 row in set (0.001 sec)
+
+53)
+Select employee with the second highest salary
+
+55)
+Write a query to select employees and their corresponding managers and their salaries
+select id, name, salary, underManager from empDetail where underManager is not null;
++------+---------+--------+--------------+
+| id   | name    | salary | underManager |
++------+---------+--------+--------------+
+| 1203 | Rahul   |  20000 | Jigar        |
+| 1212 | Mukesh  |  10000 | Jigar        |
+| 1213 | Ramesh  |  12000 | Jigar        |
+| 1311 | Mohit   |  16000 | Jigar        |
+| 1312 | Lokesh  |  13000 | Jigar        |
+| 1313 | Yogesh  |  11000 | Jigar        |
+| 1403 | Bhavesh |  12000 | Rohit        |
+| 1405 | Janak   |  15000 | Rohit        |
+| 1407 | Manoj   |  14000 | Rohit        |
+| 1503 | Ragu    |  18000 | Rohit        |
+| 1504 | Ramesh  |  20000 | Rohit        |
+| 1505 | Rakesh  |  14000 | Rohit        |
+| 1603 | Rahul   |  11000 | Sanket       |
+| 1605 | Mehul   |  16000 | Sanket       |
+| 1610 | Roshan  |  14000 | Sanket       |
+| 1721 | Mahesh  |   1229 | Sanket       |
+| 1722 | Ankit   |   1244 | Sanket       |
++------+---------+--------+--------------+
+
+56)
+Write a query to show count of employees under each manager in descending order
+select count(id) as numEmp, underManager from empDetail group by underManager order by underManager desc;
++--------+--------------+
+| numEmp | underManager |
++--------+--------------+
+|      5 | Sanket       |
+|      6 | Rohit        |
+|      6 | Jigar        |
+|      3 | NULL         |
++--------+--------------+
+
+select count(id) as numEmp, underManager from empDetail group by underManager having underManager is not null order by underManager desc;
++--------+--------------+
+| numEmp | underManager |
++--------+--------------+
+|      5 | Sanket       |
+|      6 | Rohit        |
+|      6 | Jigar        |
++--------+--------------+
+
+57)
+Find the count of employees in each department
+select count(id) as numEmp, departNO from empDetail group by departNo;
++--------+----------+
+| numEmp | departNO |
++--------+----------+
+|      4 |       12 |
+|      3 |       14 |
+|      4 |       16 |
+|      3 |       18 |
+|      6 |       20 |
++--------+----------+
+
+58)
+Get the count of employees hired year wise
+select count(id) as numEmp, year(join_date) as hireYear  from employees group by year(join_date);
++--------+----------+
+| numEmp | hireYear |
++--------+----------+
+|      1 |     2014 |
+|      5 |     2016 |
+|      5 |     2017 |
+|      7 |     2018 |
+|      2 |     2019 |
+|      8 |     2020 |
+|      4 |     2021 |
+|      3 |     2022 |
++--------+----------+
+
+59) 
+Find the salary range of employees
+select max(salary) as maxSalary, min(salary) as minSalary from empDetail;
++-----------+-----------+
+| maxSalary | minSalary |
++-----------+-----------+
+|     20000 |      1229 |
++-----------+-----------+
+
+60) 
+Select the employees whose first_name contains “an”
+select id, name from employees where name like '%an%';
++------+------------+
+| id   | name       |
++------+------------+
+| 5610 | Sanket     |
+| 5673 | Anirudhdha |
+| 6223 | Sanket     |
+| 8537 | Roshan     |
+| 8547 | Mohan      |
+| 8580 | Himanshu   |
+| 9212 | Manoj      |
+| 9215 | Raman      |
++------+------------+
+
+62)
+Find the employees who joined in August, 1994.
+ select * from employees where month(join_date)=8 and year(join_date)=2017;
++------+--------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works   | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+| 2312 | Vasu   | 24   | male   | clerk   |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 4590 | Sagar  | 24   | male   | Manager |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 6223 | Sanket | 25   | male   | Analyst |          14000 |            5 |      2000 |           12 | 2017-08-22 |
++------+--------+------+--------+---------+----------------+--------------+-----------+--------------+------------+
+
+63) 
+Write an SQL query to display employees who earn more than the average salary in that company
+select id, name, salaryPerMonth from employees where salaryPerMonth > all(select avg(salaryPerMonth) from employees);
++------+------------+----------------+
+| id   | name       | salaryPerMonth |
++------+------------+----------------+
+| 2345 | Ravi       |          28000 |
+| 2389 | Mohit      |          18000 |
+| 2394 | Ramesh     |          18000 |
+| 4534 | Ronak      |          18000 |
+| 4590 | Sagar      |          28000 |
+| 5673 | Anirudhdha |          21000 |
+| 6190 | Rohit      |          18000 |
+| 6290 | Mukesh     |          18000 |
+| 8537 | Roshan     |          18000 |
+| 8547 | Mohan      |          18000 |
++------+------------+----------------+
+
+64)
+Find the maximum salary from each department.
+ select max(salary) as maxSalary, departNo from empDetail group by departNo;
++-----------+----------+
+| maxSalary | departNo |
++-----------+----------+
+|     20000 |       12 |
+|     16000 |       14 |
+|     16000 |       16 |
+|     20000 |       18 |
+|     20000 |       20 |
++-----------+----------+
+
+65)
+Write a SQL query to display the 5 least earning employees
+ select id, name, salary from empDetail order by salary limit 5;
++------+--------+--------+
+| id   | name   | salary |
++------+--------+--------+
+| 1721 | Mahesh |   1229 |
+| 1722 | Ankit  |   1244 |
+| 1212 | Mukesh |  10000 |
+| 1603 | Rahul  |  11000 |
+| 1313 | Yogesh |  11000 |
++------+--------+--------+
+
+67)
+Display the employees first name and the name in reverse order
+ select id, name from empDetail order by name desc;
++------+---------+
+| id   | name    |
++------+---------+
+| 1313 | Yogesh  |
+| 1601 | Sanket  |
+| 1610 | Roshan  |
+| 1401 | Rohit   |
+| 1504 | Ramesh  |
+| 1213 | Ramesh  |
+| 1505 | Rakesh  |
+| 1203 | Rahul   |
+| 1603 | Rahul   |
+| 1503 | Ragu    |
+| 1212 | Mukesh  |
+| 1311 | Mohit   |
+| 1605 | Mehul   |
+| 1407 | Manoj   |
+| 1721 | Mahesh  |
+| 1312 | Lokesh  |
+| 1201 | Jigar   |
+| 1405 | Janak   |
+| 1403 | Bhavesh |
+| 1722 | Ankit   |
++------+---------+
+
+68)
+Find the employees who joined the company after 15th of the month
+select id,name,join_date from employees where dayofmonth(join_date)>15; 
++------+-----------+------------+
+| id   | name      | join_date  |
++------+-----------+------------+
+| 1290 | Raxit     | 2020-02-22 |
+| 4333 | Uvesh     | 2018-08-22 |
+| 6190 | Rohit     | 2016-08-22 |
+| 6223 | Sanket    | 2017-08-22 |
+| 6290 | Mukesh    | 2016-02-22 |
+| 9021 | Mahendra  | 2022-01-30 |
+| 9111 | Rajendra  | 2022-01-31 |
+| 9214 | Rahul     | 2019-08-29 |
+| 9215 | Raman     | 2021-08-30 |
+| 9821 | Hiten     | 2022-08-30 |
++------+-----------+------------+
+
+69)
+Display the managers and the reporting employees who work in different departments
+select id, name, departNo,underManager from empDetail where departNo not in(select departNo from empDetail where works='Manager');
++------+--------+----------+--------------+
+| id   | name   | departNo | underManager |
++------+--------+----------+--------------+
+| 1311 | Mohit  |       14 | Jigar        |
+| 1312 | Lokesh |       14 | Jigar        |
+| 1313 | Yogesh |       14 | Jigar        |
+| 1503 | Ragu   |       18 | Rohit        |
+| 1504 | Ramesh |       18 | Rohit        |
+| 1505 | Rakesh |       18 | Rohit        |
++------+--------+----------+--------------+
+
+70) 
+Get all values from the “FIRST_NAME” column after removing white space on the left.
+select name,trim(leading ' ' from name) from employees where departmentNo is null;
++------------------+-----------------------------+
+| name             | trim(leading ' ' from name) |
++------------------+-----------------------------+
+| Mahendra         | Mahendra                    |
+| Rajendra         | Rajendra                    |
+| Manoj            | Manoj                       |
+| Rahul            | Rahul                       |
+| Rahul            | Rahul                       |
+| Raman            | Raman                       |
+| Hiten            | Hiten                       |
+| Mohit            | Mohit                       |
+| Mohit            | Mohit                       |
+|     Parixit***** | Parixit*****                |
+|   Mohit          | Mohit                       |
++------------------+-----------------------------+
+
+71) 
+Get all values from the “FIRST_NAME” column after removing white space on the right.
+ select name, trim(trailing '*' from name) from employees where departmentNo is null;
++------------------+------------------------------+
+| name             | trim(trailing '*' from name) |
++------------------+------------------------------+
+| Mahendra         | Mahendra                     |
+| Rajendra         | Rajendra                     |
+| Manoj            | Manoj                        |
+| Rahul            | Rahul                        |
+| Rahul            | Rahul                        |
+| Raman            | Raman                        |
+| Hiten            | Hiten                        |
+| Mohit            | Mohit                        |
+| Mohit            | Mohit                        |
+|     Parixit***** |     Parixit                  |
+|   Mohit          |   Mohit                      |
++------------------+------------------------------+
+
+72)
+Get the position of the letter ‘h’ in ‘John’.
+select instr('John','h');
++-------------------+
+| instr('John','h') |
++-------------------+
+|                 3 |
++-------------------+
+
+73)
+Get the first 4 characters of “FIRST_NAME” column.
+ select substr(name,1,4),name from empDetail;
++------------------+---------+
+| substr(name,1,4) | name    |
++------------------+---------+
+| Jiga             | Jigar   |
+| Rahu             | Rahul   |
+| Muke             | Mukesh  |
+| Rame             | Ramesh  |
+| Mohi             | Mohit   |
+| Loke             | Lokesh  |
+| Yoge             | Yogesh  |
+| Rohi             | Rohit   |
+| Bhav             | Bhavesh |
+| Jana             | Janak   |
+| Mano             | Manoj   |
+| Ragu             | Ragu    |
+| Rame             | Ramesh  |
+| Rake             | Rakesh  |
+| Sank             | Sanket  |
+| Rahu             | Rahul   |
+| Mehu             | Mehul   |
+| Rosh             | Roshan  |
+| Mahe             | Mahesh  |
+| Anki             | Ankit   |
++------------------+---------+
+
+75) 
+Get all “Last_Name” in uppercase.
+ select name, upper(name) from empDetail;
++---------+-------------+
+| name    | upper(name) |
++---------+-------------+
+| Jigar   | JIGAR       |
+| Rahul   | RAHUL       |
+| Mukesh  | MUKESH      |
+| Ramesh  | RAMESH      |
+| Mohit   | MOHIT       |
+| Lokesh  | LOKESH      |
+| Yogesh  | YOGESH      |
+| Rohit   | ROHIT       |
+| Bhavesh | BHAVESH     |
+| Janak   | JANAK       |
+| Manoj   | MANOJ       |
+| Ragu    | RAGU        |
+| Ramesh  | RAMESH      |
+| Rakesh  | RAKESH      |
+| Sanket  | SANKET      |
+| Rahul   | RAHUL       |
+| Mehul   | MEHUL       |
+| Roshan  | ROSHAN      |
+| Mahesh  | MAHESH      |
+| Ankit   | ANKIT       |
++---------+-------------+
+
+76)Display all the values of the “First_Name” column using the alias “Employee Name”
+select name as EmployeesName from empDetail;
++---------------+
+| EmployeesName |
++---------------+
+| Jigar         |
+| Rahul         |
+| Mukesh        |
+| Ramesh        |
+| Mohit         |
+| Lokesh        |
+| Yogesh        |
+| Rohit         |
+| Bhavesh       |
+| Janak         |
+| Manoj         |
+| Ragu          |
+| Ramesh        |
+| Rakesh        |
+| Sanket        |
+| Rahul         |
+| Mehul         |
+| Roshan        |
+| Mahesh        |
+| Ankit         |
++---------------+
+
+77)
+Get the length of the text in the “First_name” column.
+select length(name),name from empDetail;
++--------------+---------+
+| length(name) | name    |
++--------------+---------+
+|            5 | Jigar   |
+|            5 | Rahul   |
+|            6 | Mukesh  |
+|            6 | Ramesh  |
+|            5 | Mohit   |
+|            6 | Lokesh  |
+|            6 | Yogesh  |
+|            5 | Rohit   |
+|            7 | Bhavesh |
+|            5 | Janak   |
+|            5 | Manoj   |
+|            4 | Ragu    |
+|            6 | Ramesh  |
+|            6 | Rakesh  |
+|            6 | Sanket  |
+|            5 | Rahul   |
+|            5 | Mehul   |
+|            6 | Roshan  |
+|            6 | Mahesh  |
+|            5 | Ankit   |
++--------------+---------+
+
+78)
+Get the employee’s first name after replacing ‘o’ with ‘#’.
+select replace(name,'o','#'), name from empDetail;
++-----------------------+---------+
+| replace(name,'o','#') | name    |
++-----------------------+---------+
+| Jigar                 | Jigar   |
+| Rahul                 | Rahul   |
+| Mukesh                | Mukesh  |
+| Ramesh                | Ramesh  |
+| M#hit                 | Mohit   |
+| L#kesh                | Lokesh  |
+| Y#gesh                | Yogesh  |
+| R#hit                 | Rohit   |
+| Bhavesh               | Bhavesh |
+| Janak                 | Janak   |
+| Man#j                 | Manoj   |
+| Ragu                  | Ragu    |
+| Ramesh                | Ramesh  |
+| Rakesh                | Rakesh  |
+| Sanket                | Sanket  |
+| Rahul                 | Rahul   |
+| Mehul                 | Mehul   |
+| R#shan                | Roshan  |
+| Mahesh                | Mahesh  |
+| Ankit                 | Ankit   |
++-----------------------+---------+
+
+79)
+Get the employee’s 	 name and manager name in a single column separated by a ‘_’.
+ select name,concat(name,'_',underManager),underManager from empDetail where underManager is not null;
++---------+-------------------------------+--------------+
+| name    | concat(name,'_',underManager) | underManager |
++---------+-------------------------------+--------------+
+| Rahul   | Rahul_Jigar                   | Jigar        |
+| Mukesh  | Mukesh_Jigar                  | Jigar        |
+| Ramesh  | Ramesh_Jigar                  | Jigar        |
+| Mohit   | Mohit_Jigar                   | Jigar        |
+| Lokesh  | Lokesh_Jigar                  | Jigar        |
+| Yogesh  | Yogesh_Jigar                  | Jigar        |
+| Bhavesh | Bhavesh_Rohit                 | Rohit        |
+| Janak   | Janak_Rohit                   | Rohit        |
+| Manoj   | Manoj_Rohit                   | Rohit        |
+| Ragu    | Ragu_Rohit                    | Rohit        |
+| Ramesh  | Ramesh_Rohit                  | Rohit        |
+| Rakesh  | Rakesh_Rohit                  | Rohit        |
+| Rahul   | Rahul_Sanket                  | Sanket       |
+| Mehul   | Mehul_Sanket                  | Sanket       |
+| Roshan  | Roshan_Sanket                 | Sanket       |
+| Mahesh  | Mahesh_Sanket                 | Sanket       |
+| Ankit   | Ankit_Sanket                  | Sanket       |
++---------+-------------------------------+--------------+
+
+80)
+Get the year, month, and day from the “Joining_date” column.
+select name,join_date,dayofmonth(join_date) as day, month(join_date) as month, year(join_date) from employees where join_date is not null;
++------------------+------------+------+-------+-----------------+
+| name             | join_date  | day  | month | year(join_date) |
++------------------+------------+------+-------+-----------------+
+| Ramesh           | 2016-08-09 |    9 |     8 |            2016 |
+| Raxit            | 2020-02-22 |   22 |     2 |            2020 |
+| Abhi             | 2017-03-01 |    1 |     3 |            2017 |
+| Rahul            | 2020-08-06 |    6 |     8 |            2020 |
+| Rohit            | 2018-08-03 |    3 |     8 |            2018 |
+| Vasu             | 2017-08-01 |    1 |     8 |            2017 |
+| Suhasini         | 2021-08-11 |   11 |     8 |            2021 |
+| Ravi             | 2014-06-02 |    2 |     6 |            2014 |
+| Mohit            | 2020-04-01 |    1 |     4 |            2020 |
+| Ramesh           | 2020-03-01 |    1 |     3 |            2020 |
+| Yogesh           | 2018-02-01 |    1 |     2 |            2018 |
+| Sweta            | 2020-08-13 |   13 |     8 |            2020 |
+| Arvind           | 2016-08-04 |    4 |     8 |            2016 |
+| Uvesh            | 2018-08-22 |   22 |     8 |            2018 |
+| Ronak            | 2020-08-05 |    5 |     8 |            2020 |
+| Sagar            | 2017-08-02 |    2 |     8 |            2017 |
+| Sanket           | 2020-08-13 |   13 |     8 |            2020 |
+| Anirudhdha       | 2018-03-01 |    1 |     3 |            2018 |
+| Rohit            | 2016-08-22 |   22 |     8 |            2016 |
+| Sanket           | 2017-08-22 |   22 |     8 |            2017 |
+| Mukesh           | 2016-02-22 |   22 |     2 |            2016 |
+| Rakesh           | 2017-04-01 |    1 |     4 |            2017 |
+| Roshan           | 2020-05-09 |    9 |     5 |            2020 |
+| Mohan            | 2016-06-09 |    9 |     6 |            2016 |
+| Mahi             | 2021-05-09 |    9 |     5 |            2021 |
+| Himanshu         | 2018-01-01 |    1 |     1 |            2018 |
+| Rushikesh        | 2021-01-09 |    9 |     1 |            2021 |
+| Setu             | 2018-04-01 |    1 |     4 |            2018 |
+| Shruti           | 2018-04-01 |    1 |     4 |            2018 |
+| Mahendra         | 2022-01-30 |   30 |     1 |            2022 |
+| Rajendra         | 2022-01-31 |   31 |     1 |            2022 |
+| Manoj            | 2022-08-12 |   12 |     8 |            2022 |
+| Rahul            | 2019-08-12 |   12 |     8 |            2019 |
+| Rahul            | 2019-08-29 |   29 |     8 |            2019 |
+| Raman            | 2021-08-30 |   30 |     8 |            2021 |
+| Hiten            | 2022-08-30 |   30 |     8 |            2022 |
+| Mohit            | 2022-07-09 |    9 |     7 |            2022 |
+| Mohit            | 2022-07-09 |    9 |     7 |            2022 |
+|     Parixit***** | 2022-01-22 |   22 |     1 |            2022 |
+|   Mohit          | 2022-07-22 |   22 |     7 |            2022 |
++------------------+------------+------+-------+-----------------+
+
+81)
+ Get all employees in ascending order by first name.
+select name from empDetail order by name asc;
++---------+
+| name    |
++---------+
+| Ankit   |
+| Bhavesh |
+| Janak   |
+| Jigar   |
+| Lokesh  |
+| Mahesh  |
+| Manoj   |
+| Mehul   |
+| Mohit   |
+| Mukesh  |
+| Ragu    |
+| Rahul   |
+| Rahul   |
+| Rakesh  |
+| Ramesh  |
+| Ramesh  |
+| Rohit   |
+| Roshan  |
+| Sanket  |
+| Yogesh  |
++---------+
+
+82)
+Get all employees in descending order by first name.
+select name from empDetail order by name desc;
++---------+
+| name    |
++---------+
+| Yogesh  |
+| Sanket  |
+| Roshan  |
+| Rohit   |
+| Ramesh  |
+| Ramesh  |
+| Rakesh  |
+| Rahul   |
+| Rahul   |
+| Ragu    |
+| Mukesh  |
+| Mohit   |
+| Mehul   |
+| Manoj   |
+| Mahesh  |
+| Lokesh  |
+| Jigar   |
+| Janak   |
+| Bhavesh |
+| Ankit   |
++---------+
+
+83)
+Get all employees in ascending order by first name and descending order by salary.
+select name, salary from empDetail order by name asc, salary desc;-- use can see where two name same higher salary with name is upper
++---------+--------+
+| name    | salary |
++---------+--------+
+| Ankit   |   1244 |
+| Bhavesh |  12000 |
+| Janak   |  15000 |
+| Jigar   |  14000 |
+| Lokesh  |  13000 |
+| Mahesh  |   1229 |
+| Manoj   |  14000 |
+| Mehul   |  16000 |
+| Mohit   |  16000 |
+| Mukesh  |  10000 |
+| Ragu    |  18000 |
+| Rahul   |  20000 |
+| Rahul   |  11000 |
+| Rakesh  |  14000 |
+| Ramesh  |  20000 |
+| Ramesh  |  12000 |
+| Rohit   |  16000 |
+| Roshan  |  14000 |
+| Sanket  |  20000 |
+| Yogesh  |  11000 |
++---------+--------+
+
+84)
+Get employees whose name is “manoj”.
+ select id,name,salary from empDetail where name like 'manoj';
++------+-------+--------+
+| id   | name  | salary |
++------+-------+--------+
+| 1407 | Manoj |  14000 |
++------+-------+--------+
+
+85)
+Get employees whose name is “Manoj” or “Ramesh”.
+select id, name, salary from empDetail where name in('Manoj','Ramesh');
++------+--------+--------+
+| id   | name   | salary |
++------+--------+--------+
+| 1213 | Ramesh |  12000 |
+| 1407 | Manoj  |  14000 |
+| 1504 | Ramesh |  20000 |
++------+--------+--------+
+
+86)
+Get employees whose first name is neither “Manoj” nor “Ramesh”.
+select id, name, salary from empDetail where name not in('Manoj','Ramesh');
++------+---------+--------+
+| id   | name    | salary |
++------+---------+--------+
+| 1201 | Jigar   |  14000 |
+| 1203 | Rahul   |  20000 |
+| 1212 | Mukesh  |  10000 |
+| 1311 | Mohit   |  16000 |
+| 1312 | Lokesh  |  13000 |
+| 1313 | Yogesh  |  11000 |
+| 1401 | Rohit   |  16000 |
+| 1403 | Bhavesh |  12000 |
+| 1405 | Janak   |  15000 |
+| 1503 | Ragu    |  18000 |
+| 1505 | Rakesh  |  14000 |
+| 1601 | Sanket  |  20000 |
+| 1603 | Rahul   |  11000 |
+| 1605 | Mehul   |  16000 |
+| 1610 | Roshan  |  14000 |
+| 1721 | Mahesh  |   1229 |
+| 1722 | Ankit   |   1244 |
++------+---------+--------+
+
+87)
+Get all the details about employees whose first name begins with ‘R’.
+ select * from employees where name like 'R%';
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name      | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh    | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 1290 | Raxit     | 26   | male   | Drawing           |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+| 2130 | Rahul     | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2190 | Rohit     | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2345 | Ravi      | 43   | male   | Drawing           |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 2394 | Ramesh    | 25   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 4534 | Ronak     | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 6190 | Rohit     | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 8230 | Rakesh    | 22   | male   | clerk             |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8537 | Roshan    | 35   | male   | Salesman          |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+| 8589 | Rushikesh | 32   | male   | Salesman          |          11000 |            1 |      1000 |           19 | 2021-01-09 |
+| 9111 | Rajendra  | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-01-31 |
+| 9213 | Rahul     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-12 |
+| 9214 | Rahul     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-29 |
+| 9215 | Raman     | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2021-08-30 |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+88)
+Get all the details about employees whose first name contains ‘o’.
+select * from employees where name like '%o%';
++-------+---------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id    | name    | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++-------+---------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+|  2190 | Rohit   | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+|  2389 | Mohit   | 28   | male   | clerk             |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+|  2489 | Yogesh  | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+|  4534 | Ronak   | 34   | male   | Manager           |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+|  6190 | Rohit   | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+|  8537 | Roshan  | 35   | male   | Salesman          |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+|  8547 | Mohan   | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+|  9212 | Manoj   | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-08-12 |
+| 98232 | Mohit   | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-07-09 |
+| 98233 | Mohit   | 0    | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-07-09 |
+| 98723 |   Mohit | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2022-07-22 |
++-------+---------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+89)
+Get all the details of the employees whose first name ends with ‘n’.
+select * from employees where name like '%n';
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 8537 | Roshan | 35   | male   | Salesman |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+| 8547 | Mohan  | 35   | male   | Salesman |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 9215 | Raman  | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2021-08-30 |
+| 9821 | Hiten  | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-08-30 |
++------+--------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+90)
+Get all the details about employees whose first name ends with ‘n’ and contains 5 letters.
+select * from employees where name like '%n' and length(name)=5;
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name  | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 8547 | Mohan | 35   | male   | Salesman |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 9215 | Raman | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2021-08-30 |
+| 9821 | Hiten | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-08-30 |
++------+-------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+91)
+Get all the details about employees whose first name begins with ‘m’ and contains 4 letters.
+select * from employees where name like 'M%' and length(name)=4;
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 8557 | Mahi | 30   | male   | Salesman |          12000 |            2 |      1000 |           18 | 2021-05-09 |
++------+------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+92)
+Get all the details of employees whose salary is over 14000.
+select * from employees where salaryPerMonth>14000;
++------+------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id   | name       | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| 2345 | Ravi       | 43   | male   | Drawing  |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 2389 | Mohit      | 28   | male   | clerk    |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+| 2394 | Ramesh     | 25   | male   | clerk    |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+| 4534 | Ronak      | 34   | male   | Manager  |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+| 4590 | Sagar      | 24   | male   | Manager  |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5673 | Anirudhdha | 28   | male   | manager  |          21000 |            4 |      2300 |           16 | 2018-03-01 |
+| 6190 | Rohit      | 25   | male   | Analyst  |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6290 | Mukesh     | 25   | male   | Drawing  |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8537 | Roshan     | 35   | male   | Salesman |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+| 8547 | Mohan      | 35   | male   | Salesman |          18000 |            4 |      2000 |           14 | 2016-06-09 |
++------+------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+93)
+Get all the details about employees whose salary is less than 14000.
+select * from employees where salaryPerMonth<14000;
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name      | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh    | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 2124 | Abhi      | 25   | male   | manager           |          11000 |            5 |      2300 |           17 | 2017-03-01 |
+| 2130 | Rahul     | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2190 | Rohit     | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2312 | Vasu      | 24   | male   | clerk             |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2489 | Yogesh    | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+| 2912 | Sweta     | 18   | female | Analyst           |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+| 4039 | Arvind    | 20   | male   | clerk             |          11000 |            6 |      1100 |           14 | 2016-08-04 |
+| 4333 | Uvesh     | 29   | male   | Analyst           |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 8557 | Mahi      | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+| 8580 | Himanshu  | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
+| 8589 | Rushikesh | 32   | male   | Salesman          |          11000 |            1 |      1000 |           19 | 2021-01-09 |
++------+-----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+94)
+Get all the details about employees with a salary between 11000 and 14000.
+select * from employees where salaryPerMonth<14000 and salaryPerMonth>11000;
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name     | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh   | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 2130 | Rahul    | 32   | male   | QA                |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+| 2312 | Vasu     | 24   | male   | clerk             |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2489 | Yogesh   | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+| 4333 | Uvesh    | 29   | male   | Analyst           |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 8557 | Mahi     | 30   | male   | Salesman          |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+| 8580 | Himanshu | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
++------+----------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+95)
+Get employees whose first name is neither “Manoj” nor “Ramesh”.
+select id, name, salary from empDetail where name not in('Manoj','Ramesh');
++------+---------+--------+
+| id   | name    | salary |
++------+---------+--------+
+| 1201 | Jigar   |  14000 |
+| 1203 | Rahul   |  20000 |
+| 1212 | Mukesh  |  10000 |
+| 1311 | Mohit   |  16000 |
+| 1312 | Lokesh  |  13000 |
+| 1313 | Yogesh  |  11000 |
+| 1401 | Rohit   |  16000 |
+| 1403 | Bhavesh |  12000 |
+| 1405 | Janak   |  15000 |
+| 1503 | Ragu    |  18000 |
+| 1505 | Rakesh  |  14000 |
+| 1601 | Sanket  |  20000 |
+| 1603 | Rahul   |  11000 |
+| 1605 | Mehul   |  16000 |
+| 1610 | Roshan  |  14000 |
+| 1721 | Mahesh  |   1229 |
+| 1722 | Ankit   |   1244 |
++------+---------+--------+
+
+96)
+Get all the details about employees whose joining year is “2016”.
+select * from employees where year(join_date)=2016;
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name   | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 4039 | Arvind | 20   | male   | clerk             |          11000 |            6 |      1100 |           14 | 2016-08-04 |
+| 6190 | Rohit  | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6290 | Mukesh | 25   | male   | Drawing           |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8547 | Mohan  | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
++------+--------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+97)
+Get all the details on employees whose participation month (Joining_date) is “January”
+select * from employees where month(join_date)=1;
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id    | name             | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+|  8580 | Himanshu         | 29   | male   | Salesman |          13000 |            4 |      1200 |           20 | 2018-01-01 |
+|  8589 | Rushikesh        | 32   | male   | Salesman |          11000 |            1 |      1000 |           19 | 2021-01-09 |
+|  9021 | Mahendra         | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-30 |
+|  9111 | Rajendra         | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-31 |
+| 98343 |     Parixit***** | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-22 |
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+98)
+Get all the details of the employees who joined before March 9, 2019
+select * from employees where join_date<('2019-09-01');
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| id   | name       | age  | gender | works             | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+| 1212 | Ramesh     | 20   | male   | Flutter Developer |          12000 |            6 |      NULL |           14 | 2016-08-09 |
+| 2124 | Abhi       | 25   | male   | manager           |          11000 |            5 |      2300 |           17 | 2017-03-01 |
+| 2190 | Rohit      | 30   | male   | Android Developer |          10000 |            4 |      2100 |           15 | 2018-08-03 |
+| 2312 | Vasu       | 24   | male   | clerk             |          13000 |            5 |      1400 |           12 | 2017-08-01 |
+| 2345 | Ravi       | 43   | male   | Drawing           |          28000 |            8 |      2000 |           12 | 2014-06-02 |
+| 2489 | Yogesh     | 27   | male   | Drawing           |          12000 |            4 |      2300 |           16 | 2018-02-01 |
+| 4039 | Arvind     | 20   | male   | clerk             |          11000 |            6 |      1100 |           14 | 2016-08-04 |
+| 4333 | Uvesh      | 29   | male   | Analyst           |          13000 |            4 |      1000 |           12 | 2018-08-22 |
+| 4590 | Sagar      | 24   | male   | Manager           |          28000 |            5 |      NULL |           15 | 2017-08-02 |
+| 5673 | Anirudhdha | 28   | male   | manager           |          21000 |            4 |      2300 |           16 | 2018-03-01 |
+| 6190 | Rohit      | 25   | male   | Analyst           |          18000 |            6 |      1000 |           12 | 2016-08-22 |
+| 6223 | Sanket     | 25   | male   | Analyst           |          14000 |            5 |      2000 |           12 | 2017-08-22 |
+| 6290 | Mukesh     | 25   | male   | Drawing           |          18000 |            6 |      1000 |           12 | 2016-02-22 |
+| 8230 | Rakesh     | 22   | male   | clerk             |          14000 |            5 |      1400 |           17 | 2017-04-01 |
+| 8547 | Mohan      | 35   | male   | Salesman          |          18000 |            4 |      2000 |           14 | 2016-06-09 |
+| 8580 | Himanshu   | 29   | male   | Salesman          |          13000 |            4 |      1200 |           20 | 2018-01-01 |
+| 8690 | Setu       | 29   | female | Salesman          |          14000 |            4 |      1000 |           19 | 2018-04-01 |
+| 8790 | Shruti     | 22   | female | clerk             |          14000 |            4 |      1000 |           19 | 2018-04-01 |
+| 9213 | Rahul      | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-12 |
+| 9214 | Rahul      | NULL | NULL   | NULL              |           NULL |         NULL |      NULL |         NULL | 2019-08-29 |
++------+------------+------+--------+-------------------+----------------+--------------+-----------+--------------+------------+
+
+99)
+Get all the details on employees who joined after March 31, 2019
+select * from employees where join_date>'2019-03-31';
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+| id    | name             | age  | gender | works    | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+|  1290 | Raxit            | 26   | male   | Drawing  |          14000 |            2 |      1000 |           18 | 2020-02-22 |
+|  2130 | Rahul            | 32   | male   | QA       |          12000 |            2 |      2200 |           18 | 2020-08-06 |
+|  2323 | Suhasini         | 24   | female | salesman |          14000 |            1 |      NULL |           12 | 2021-08-11 |
+|  2389 | Mohit            | 28   | male   | clerk    |          18000 |            3 |      2100 |           18 | 2020-04-01 |
+|  2394 | Ramesh           | 25   | male   | clerk    |          18000 |            3 |      2100 |           18 | 2020-03-01 |
+|  2912 | Sweta            | 18   | female | Analyst  |          11000 |            3 |      NULL |           18 | 2020-08-13 |
+|  4534 | Ronak            | 34   | male   | Manager  |          18000 |            2 |      NULL |           14 | 2020-08-05 |
+|  5610 | Sanket           | 22   | male   | Drawing  |          14000 |            3 |      NULL |           14 | 2020-08-13 |
+|  8537 | Roshan           | 35   | male   | Salesman |          18000 |            3 |      2000 |           15 | 2020-05-09 |
+|  8557 | Mahi             | 30   | male   | Salesman |          12000 |            2 |      1000 |           18 | 2021-05-09 |
+|  8589 | Rushikesh        | 32   | male   | Salesman |          11000 |            1 |      1000 |           19 | 2021-01-09 |
+|  9021 | Mahendra         | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-30 |
+|  9111 | Rajendra         | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-31 |
+|  9212 | Manoj            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-08-12 |
+|  9213 | Rahul            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2019-08-12 |
+|  9214 | Rahul            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2019-08-29 |
+|  9215 | Raman            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2021-08-30 |
+|  9821 | Hiten            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-08-30 |
+| 98232 | Mohit            | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-07-09 |
+| 98233 | Mohit            | 0    | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-07-09 |
+| 98343 |     Parixit***** | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-01-22 |
+| 98723 |   Mohit          | NULL | NULL   | NULL     |           NULL |         NULL |      NULL |         NULL | 2022-07-22 |
++-------+------------------+------+--------+----------+----------------+--------------+-----------+--------------+------------+
+
+100)Get time from current time
+select time(now());
++-------------+
+| time(now()) |
++-------------+
+| 18:25:58    |
++-------------+
+
+101) 
+Get the date and time, including milliseconds of the employee’s membership.
+SELECT MICROSECOND('2019-12-31 23:59:59.000010');
++-------------------------------------------+
+| MICROSECOND('2019-12-31 23:59:59.000010') |
++-------------------------------------------+
+|                                        10 |
++-------------------------------------------+
+
+102)
+Get the difference between the “Joining_date” and “date_reward” column
+select timestampdiff(year,'2018-02-11',curdate()) as yearDiff;
++----------+
+| yearDiff |
++----------+
+|        4 |
++----------+
+
+select timestampdiff(month,'2018-02-11',curdate()) as monthDiff;
++-----------+
+| monthDiff |
++-----------+
+|        54 |
++-----------+
+
+select timestampdiff(day,'2018-02-11',curdate()) as daysDiff;
++----------+
+| daysDiff |
++----------+
+|     1661 |
++----------+
+
+103)
+Get the current date and time.
+select now();
++---------------------+
+| now()               |
++---------------------+
+| 2022-08-30 18:28:30 |
++---------------------+
+
+
+
+
+
+
 
 
 

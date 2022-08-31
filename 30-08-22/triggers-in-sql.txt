@@ -1,0 +1,199 @@
+
+1)before insert 
+
+ delimiter //
+MariaDB [test_11]> create trigger agecheck before insert on employees for each row if new.age<0
+    -> then set new.age=0; 
+    -> end if;
+    -> //
+
+delimiter ;
+
+now insert data having age is minus
+insert into employees (id,name,age,join_date) values(98233,'Mohit',-20,'2022-07-09');
+
+check age coloumn
+ select * from employees where id=98233;
++-------+-------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| id    | name  | age  | gender | works | salaryPerMonth | timeDuration | commision | departmentNo | join_date  |
++-------+-------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+| 98233 | Mohit | 0    | NULL   | NULL  |           NULL |         NULL |      NULL |         NULL | 2022-07-09 |
++-------+-------+------+--------+-------+----------------+--------------+-----------+--------------+------------+
+
+2) --------------------------------------------------------------after insert-----------------------------------------------------------------------------------
+
+-> create table1 named members
+create table members ( id int(9) primary key auto_increment,  name varchar(49), birthdate date );
+
+-> create second table reminders
+MariaDB [test_11]> create table reminders(
+    -> id int auto_increment,
+    -> memberid int,
+    -> message varchar(49) not null,
+    -> primary key(id,memberid)
+    -> );
+
+MariaDB [test_11]> desc members;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(9)      | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(49) | YES  |     | NULL    |                |
+| birthdate | date        | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+MariaDB [test_11]> desc reminders;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| memberid | int(11)     | NO   | PRI | NULL    |                |
+| message  | varchar(49) | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+--->>>lets start trigger after insert 
+MariaDB [test_11]> delimiter $$
+
+MariaDB [test_11]> create trigger afterMemberInsert 
+    -> after insert
+    -> on members for each row
+    -> begin
+    -> if new.birthdate is null
+    -> then
+    -> insert into reminders (memberid,message)
+    -> values(new.id,concat('Hi',new.name,'Please update your birth'));
+    -> end if;
+    -> end $$
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [test_11]> delimiter ;
+MariaDB [test_11]> insert into members(name,birthdate) values('Sanket',null);
+
+MariaDB [test_11]> select * from members;
++----+--------+-----------+
+| id | name   | birthdate |
++----+--------+-----------+
+|  1 | Sanket | NULL      |
++----+--------+-----------+
+
+MariaDB [test_11]> select * from reminders;
++----+----------+----------------------------------+
+| id | memberid | message                          |
++----+----------+----------------------------------+
+|  1 |        1 | HiSanketPlease update your birth |
++----+----------+----------------------------------+
+
+insert into members(name,birthdate) values('Mohit',null);
+ 
+select * from reminders;
++----+----------+----------------------------------+
+| id | memberid | message                          |
++----+----------+----------------------------------+
+|  1 |        1 | HiSanketPlease update your birth |
+|  2 |        4 | HiMohitPlease update your birth  |
++----+----------+----------------------------------+
+
+-------------------------------------before update---------------------------------------------------------------------------
+ delimiter //
+    -> create trigger person_before_update before update
+    -> on person 
+    -> for each row 
+    -> if new.age<18 then
+    -> signal sqlstate '50002' set message_text='person must be older than 18';
+    -> end if;
+    -> //
+
+MariaDB [test_11]> delimiter ;
+
+MariaDB [test_11]> update person set age=14 where name='Sanket';
+ERROR 1644 (50002): person must be older than 18
+
+MariaDB [test_11]> select * from person;
++--------+-----+
+| name   | age |
++--------+-----+
+| Sanket |  19 |
+| Hiten  |  20 |
++--------+-----+
+
+
+--------------------------------------------after update----------------------------------------------------------------
+
+->delimiter //
+MariaDB [test_11]> create trigger person_after_update after update
+    -> on person 
+    -> for each row 
+    -> update averageAge set age=(select avg(age) from person);
+    -> //
+
+->delimiter ;
+
+->insert into averageAge values(20);
+
+-> update person set age=21 where name='Anil';
+
+
+MariaDB [test_11]> select * from averageAge;
++------+
+| age  |
++------+
+|   25 |
++------+
+
+
+MariaDB [test_11]> select * from person;
++-------+-----+
+| name  | age |
++-------+-----+
+| Hiten |  29 |
+| mehul |  24 |
+| Anil  |  21 |
++-------+-----+
+
+-----------------------------------------------------before delete------------------------------------------------------------
+delimiter //
+MariaDB [test_11]> create trigger person_bd before delete
+    -> on person
+    -> for each row
+    -> insert into person_archive(name,age) values(old.name,old.age); 
+    -> //
+delimiter ;
+MariaDB [test_11]> delete from person where name='Sanket';
+
+MariaDB [test_11]> select * from person_archive;
++--------+------+
+| name   | age  |
++--------+------+
+| Sanket |   18 |
++--------+------+
+
+
+-----------------------------------------------------------------------after delete------------------------------------------------
+
+delimiter //
+MariaDB [test_11]> create trigger person_ad after delete 
+    -> on person
+    -> for each row
+    -> update averageAge set age=(select avg(person.age) from person);
+    -> //
+delimiter ;
+
+select * from person;
++-------+-----+
+| name  | age |
++-------+-----+
+| Hiten |  29 |
+| Anil  |  21 |
+| Ronak |  50 |
+| Raxit |  45 |
++-------+-----+
+
+MariaDB [test_11]> delete from person where name="Ronak";
+
+MariaDB [test_11]> select * from averageAge;
++------+
+| age  |
++------+
+|   32 |
++------+
+
