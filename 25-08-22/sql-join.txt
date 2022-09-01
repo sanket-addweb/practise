@@ -396,6 +396,35 @@ select e.name,e.id, e.underManager from empDetail as e left join empDetail as e1
 | Rahul   | 1603 | Sanket       |
 +---------+------+--------------+
 
+
+new table
+select* from empSelf;
++----+--------+-----------+
+| id | name   | managerId |
++----+--------+-----------+
+| 12 | Sanket |        14 |
+| 13 | Abhi   |        12 |
+| 14 | Akash  |      NULL |
+| 15 | Nayan  |        13 |
+| 16 | Ani    |        12 |
++----+--------+-----------+
+
+ select e.id, m.managerId from empSelf as e left join empSelf as m on e.id=m.managerid;
++----+-----------+
+| id | managerId |
++----+-----------+
+| 14 |        14 |
+| 12 |        12 |
+| 13 |        13 |
+| 12 |        12 |
+| 15 |      NULL |
+| 16 |      NULL |
++----+-----------+
+
+
+
+
+
 ---------------------join with where clause, group by and oerder by--------------------
 1)
 select count(e.id), d.departId 
