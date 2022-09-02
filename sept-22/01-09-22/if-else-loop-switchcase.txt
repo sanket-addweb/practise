@@ -1,0 +1,22 @@
+
+--------------------------------------if else in selct statement-----------------------------
+    if(some_condition,if_satisfied,not_satisfied)
+
+    SELECT IF(IDParent < 1,ID,IDParent)  FROM yourTable ;
+    
+    -----------------------------------case statement-----------------------------------------
+    syntax
+    select (case when condition1 then result1
+             when condition2 then result2
+             else result3
+             end) as columnname from tablenmae:
+    
+    SELECT 
+    CASE WHEN A > 1 THEN
+            'Greater than 1'
+    END  as valueA
+    FROM TRIANGLES
+    
+    select 
+    CASE WHEN IDParent is < 1 then ID else IDParent END as colname 
+    from yourtable
