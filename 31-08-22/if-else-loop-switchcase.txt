@@ -1,0 +1,71 @@
+
+--------------------------------------if else in selct statement-----------------------------
+    if(some_condition,if_satisfied,not_satisfied)
+
+    SELECT IF(IDParent < 1,ID,IDParent)  FROM yourTable ;
+    
+    
+    select id, 
+    (SELECT 
+    IF(qty_1<='23',price,1)
+    ELSEIF(('23'>qty_1 && qty_2<='23'),price_2,1)
+    ELSEIF(('23'>qty_2 && qty_3<='23'),price_3,1)
+    ELSEIF('23'>qty_3,price_4,1)
+    END IF) as total 
+ from product;
+ 
+ select if(2>3,'yes','no');
++--------------------+
+| if(2>3,'yes','no') |
++--------------------+
+| no                 |
++--------------------+
+
+    
+    -----------------------------------case statement-----------------------------------------
+    syntax
+    select (case when condition1 then result1
+             when condition2 then result2
+             else result3
+             end) as columnname from tablenmae:
+    
+    SELECT 
+    CASE WHEN A > 1 THEN
+            'Greater than 1'
+    END  as valueA
+    FROM TRIANGLES
+    
+    select 
+    CASE WHEN IDParent is < 1 then ID else IDParent END as colname 
+    from yourtable
+    
+    
+    ---------------------------------loop i.e repeat function------------------------------
+    select repeat(name,2) from empDetail;
++----------------+
+| repeat(name,2) |
++----------------+
+| JigarJigar     |
+| RahulRahul     |
+| MukeshMukesh   |
+| RameshRamesh   |
+| MohitMohit     |
+| LokeshLokesh   |
+| YogeshYogesh   |
+| RohitRohit     |
+| BhaveshBhavesh |
+| JanakJanak     |
+| ManojManoj     |
+| RaguRagu       |
+| RameshRamesh   |
+| RakeshRakesh   |
+| SanketSanket   |
+| RahulRahul     |
+| MehulMehul     |
+| RoshanRoshan   |
+| MaheshMahesh   |
+| AnkitAnkit     |
++----------------+
+
+    
+    
