@@ -1,5 +1,5 @@
 
---------------------------------------if else in selct statement-----------------------------
+--------------------------------------if else in selct statement----------------------------------------------------------------------------------------------
     if(some_condition,if_satisfied,not_satisfied)
 
     SELECT IF(IDParent < 1,ID,IDParent)  FROM yourTable ;
@@ -12,8 +12,10 @@
     ELSEIF(('23'>qty_2 && qty_3<='23'),price_3,1)
     ELSEIF('23'>qty_3,price_4,1)
     END IF) as total 
- from product;
+    from product;
  
+ 
+ Example-1 -------------------------------------
  select if(2>3,'yes','no');
 +--------------------+
 | if(2>3,'yes','no') |
@@ -21,8 +23,54 @@
 | no                 |
 +--------------------+
 
-    
-    -----------------------------------case statement-----------------------------------------
+Example-2 ---------------------------------------
+select id,salary,(select If(salary<12000,'lowSalary','HighSalary')end) as salaryStatus from empDetail;
++------+--------+--------------+
+| id   | salary | salaryStatus |
++------+--------+--------------+
+| 1201 |  14000 | HighSalary   |
+| 1203 |  20000 | HighSalary   |
+| 1212 |  10000 | lowSalary    |
+| 1213 |  12000 | HighSalary   |
+| 1311 |  16000 | HighSalary   |
+| 1312 |  13000 | HighSalary   |
+| 1313 |  11000 | lowSalary    |
+| 1401 |  16000 | HighSalary   |
+| 1403 |  12000 | HighSalary   |
+| 1405 |  15000 | HighSalary   |
+| 1407 |  14000 | HighSalary   |
+| 1503 |  18000 | HighSalary   |
+| 1504 |  20000 | HighSalary   |
+| 1505 |  14000 | HighSalary   |
+| 1601 |  20000 | HighSalary   |
+| 1603 |  11000 | lowSalary    |
+| 1605 |  16000 | HighSalary   |
+| 1610 |  14000 | HighSalary   |
+| 1721 |   1229 | lowSalary    |
+| 1722 |   1244 | lowSalary    |
++------+--------+--------------+
+
+Example-3 with store procedure -------------------------
+ delimiter //
+MariaDB [test_11]> create procedure sp_GetSalaryStatus(in departNo1 bigint(10))
+    -> begin
+    ->  select id,salary,(select If(salary<12000,'lowSalary','HighSalary')end) as salaryStatus from empDetail where departNo=departNo1;
+    -> end //
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [test_11]> call sp_GetSalaryStatus(12);
+    -> //
++------+--------+--------------+
+| id   | salary | salaryStatus |
++------+--------+--------------+
+| 1201 |  14000 | HighSalary   |
+| 1203 |  20000 | HighSalary   |
+| 1212 |  10000 | lowSalary    |
+| 1213 |  12000 | HighSalary   |
++------+--------+--------------+
+
+
+---------------------------------------case statement-----------------------------------------
     syntax
     select (case when condition1 then result1
              when condition2 then result2
@@ -39,8 +87,80 @@
     CASE WHEN IDParent is < 1 then ID else IDParent END as colname 
     from yourtable
     
+Example---------------------------------------   
+Get 20% of Bob’s salary, 10% of Alex’s salary, and 15% of other employees’ salaries.
+select name, case name when "Sanket" then salary*0.20  when "Rohit" then salary*0.10 else salary*0.15 end "Deducted_amount" from empDetail;
++---------+-----------------+
+| name    | Deducted_amount |
++---------+-----------------+
+| Jigar   |         2100.00 |
+| Rahul   |         3000.00 |
+| Mukesh  |         1500.00 |
+| Ramesh  |         1800.00 |
+| Mohit   |         2400.00 |
+| Lokesh  |         1950.00 |
+| Yogesh  |         1650.00 |
+| Rohit   |         1600.00 |
+| Bhavesh |         1800.00 |
+| Janak   |         2250.00 |
+| Manoj   |         2100.00 |
+| Ragu    |         2700.00 |
+| Ramesh  |         3000.00 |
+| Rakesh  |         2100.00 |
+| Sanket  |         4000.00 |
+| Rahul   |         1650.00 |
+| Mehul   |         2400.00 |
+| Roshan  |         2100.00 |
+| Mahesh  |          184.35 |
+| Ankit   |          186.60 |
++---------+-----------------+
+
+
+Example-2------------------------------------------------------------------------
+select id, salary, case when salary<11000 then salary*1.05 when salary<16000 and salary>=11000 then salary*1.08  when salary>=16000 then salary*1.12 end as increment from empDetail;
++------+--------+-----------+
+| id   | salary | increment |
++------+--------+-----------+
+| 1201 |  14000 |  15120.00 |
+| 1203 |  20000 |  22400.00 |
+| 1212 |  10000 |  10500.00 |
+| 1213 |  12000 |  12960.00 |
+| 1311 |  16000 |  17920.00 |
+| 1312 |  13000 |  14040.00 |
+| 1313 |  11000 |  11880.00 |
+| 1401 |  16000 |  17920.00 |
+| 1403 |  12000 |  12960.00 |
+| 1405 |  15000 |  16200.00 |
+| 1407 |  14000 |  15120.00 |
+| 1503 |  18000 |  20160.00 |
+| 1504 |  20000 |  22400.00 |
+| 1505 |  14000 |  15120.00 |
+| 1601 |  20000 |  22400.00 |
+| 1603 |  11000 |  11880.00 |
+| 1605 |  16000 |  17920.00 |
+| 1610 |  14000 |  15120.00 |
+| 1721 |   1229 |   1290.45 |
+| 1722 |   1244 |   1306.20 |
++------+--------+-----------+
+
+Example of switch case with store procedure--------------
+  create procedure sp_GetIncrementSalary(in departNo1 int(11))
+  begin  
+  select id, name, salary,case when salary<11000 then salary*1.05 when salary<16000 and salary>=11000 then salary*1.08  when salary>=16000 then salary*1.12 end as increment from empDetail where departNo=departNo1;
+  end //
     
-    ---------------------------------loop i.e repeat function------------------------------
+ delimiter ;
+MariaDB [test_11]> call sp_GetIncrementSalary(12);
++------+--------+--------+-----------+
+| id   | name   | salary | increment |
++------+--------+--------+-----------+
+| 1201 | Jigar  |  14000 |  15120.00 |
+| 1203 | Rahul  |  20000 |  22400.00 |
+| 1212 | Mukesh |  10000 |  10500.00 |
+| 1213 | Ramesh |  12000 |  12960.00 |
++------+--------+--------+-----------+
+    
+-------------------------------------loop i.e repeat function----------------------------------------------------------------------------------------
     select repeat(name,2) from empDetail;
 +----------------+
 | repeat(name,2) |
