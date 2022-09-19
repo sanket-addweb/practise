@@ -2,7 +2,8 @@
 ob_start();
 include 'connection.php';
 session_start();
-// $uName=$_SESSION['uName'];
+// $uName=$_GET['uName'];
+// $profilePath=$_GET['profilePath'];
 if(!isset($_SESSION['email'])){
   header('Location:login.php');
 }
@@ -49,7 +50,7 @@ if(isset($_POST['add-catagory'])){
     <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <?php echo "<a href='add-cat.php'><button class='btn btn-primary me-2'>Add Category</button></a> "; ?>
+          <?php echo "<a href='add-cat.php?profilePath=$profilePath&uName=$uName'><button class='btn btn-primary me-2'>Add Category</button></a> "; ?>
                 <?php
                         $result=mysqli_query($conn,"select * from catlist") or die("Error in query of fetch record");
                         echo "<table>";
@@ -58,14 +59,14 @@ if(isset($_POST['add-catagory'])){
                         $catName1=$row['categoryName'];
                         // $_SESSION['catName1']=$catName1;
                         echo "<tr>";
-                        echo "<td><a href='product-list-with-add-button.php?catName1=$catName1'><img src=".$row['img_url']." height='200' width='400'></a></td>";
+                        echo "<td><a href='product-list-with-add-button.php?catName1=$catName1&profilePath=$profilePath&uName=$uName'><img src=".$row['img_url']." height='200' width='400'></a></td>";
                         echo '</tr>';
                         echo '</table>';
                         echo '<table>';
                         echo "<tr>";
-                        echo "<td><a href='product-list-with-add-button.php?catName1=$catName1'><strong style='font-size:25px;' >".$row['categoryName']."</strong></a></td>";
+                        echo "<td><a href='product-list-with-add-button.php?catName1=$catName1&profilePath=$profilePath&uName=$uName'><strong style='font-size:25px;' >".$row['categoryName']."</strong></a></td>";
                         //echo "<td><a href='update-category.php?catName1=$catName1'><strong style='font-size:25px;' style='margin-left: 30px;'>Modify</strong></a></td>";
-                        echo "<td><a href='delete-category.php?catName1=$catName1'><strong style='font-size:25px;'>&nbsp;Delete</strong></a></td>";
+                        echo "<td><a href='delete-category.php?catName1=$catName1&profilePath=$profilePath&uName=$uName'><strong style='font-size:25px;'>&nbsp;Delete</strong></a></td>";
                         echo "</tr>";
                         echo "</table>";
                         

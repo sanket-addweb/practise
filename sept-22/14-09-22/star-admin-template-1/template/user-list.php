@@ -1,6 +1,8 @@
 <?php
 ob_start();
 include 'connection.php';
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +43,7 @@ include 'connection.php';
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <?php echo "<a href='signup.php?'><button class='btn btn-primary me-2'>Add User</button></a> "; ?>
+                  <?php echo "<a href='signup.php?profilePath=$profilePath&uName=$uName'><button class='btn btn-primary me-2'>Add User</button></a> "; ?>
                 </div>
               </div>
              </div>
@@ -62,6 +64,9 @@ include 'connection.php';
                           </th> -->
                           <th>
                             srNo
+                          </th>
+                          <th>
+                            Profile Image
                           </th>
                           <th>
                             Username
@@ -96,12 +101,13 @@ include 'connection.php';
                           // <img src="../../images/faces/face1.jpg" alt="image"/>
                           //</td> -->
                           echo "<td>".$srNo."</td>";
+                          echo "<td><img src=".$rows['img_url']."></td>";
                           echo "<td>".$rows['username']."</td>";
                           echo "<td>".$rows['email']."</td>";
                           echo "<td>".$rows['password']."</td>";
                           echo "<td>".$rows['mobile']."</td>";
-                          echo "<td><a href='update-user.php?email1=$email'>.Edit</a></td>";
-                          echo "<td><a href='delete-user.php?email1=$email'>Delete</a></td>";
+                          echo "<td><a href='update-user.php?email1=$email&profilePath=$profilePath&uName=$uName'>.Edit</a></td>";
+                          echo "<td><a href='delete-user.php?email1=$email&profilePath=$profilePath&uName=$uName'>Delete</a></td>";
                         echo "</tr>";
                       echo "</tbody>";
                       }

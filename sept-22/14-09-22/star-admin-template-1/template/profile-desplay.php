@@ -2,6 +2,8 @@
 include 'connection.php';
 
 $email=$_GET['email1'];
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath']
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +46,7 @@ $email=$_GET['email1'];
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <?php echo "<a href='update-user.php?email1=$email'><button class='btn btn-primary me-2'>Edit Profile</button></a> "; ?>
+                  <?php echo "<a href='update-user.php?email1=$email&profilePath=$profilePath&uName=$uName'><button class='btn btn-primary me-2'>Edit Profile</button></a> "; ?>
                 </div>
               </div>
              </div>

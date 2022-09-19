@@ -4,6 +4,8 @@ ob_start();
 include 'connection.php';
 $catName2=$_GET['catName1'];
 $pId=$_GET['pId1'];
+$profilePath=$_GET['profilePath'];
+$uName=$_GET['uName'];
 
 $result1=mysqli_query($conn,"select * from $catName2 where productId=$pId");
 
@@ -95,7 +97,7 @@ while($rows=mysqli_fetch_array($result1)){
                     </div>
                     <button type="submit" class="btn btn-primary me-2" name='update-product'>Submit</button>
                   </form>
-                  <?php echo "<a href='product-list-with-add-button.php?catName1=$catName2'><button class='btn btn-light'>Cancel</button></a>" ?>
+                  <?php echo "<a href='product-list-with-add-button.php?catName1=$catName2&profilePath=$profilePath&uName=$uName'><button class='btn btn-light'>Cancel</button></a>" ?>
                 </div>
               </div>
              </div>
@@ -154,7 +156,7 @@ if(isset($_POST['update-product'])){
 
     if($result2){
         echo "success in updating record";
-        header("Location:product-list-with-add-button.php?catName1=$catName2");
+        header("Location:product-list-with-add-button.php?catName1=$catName2&profilePath=$profilePath&uName=$uName");
     }
 }
 

@@ -5,6 +5,8 @@ ob_start();
 include 'connection.php';
 $catName2=$_GET['catName1'];
 $pId=$_GET['pId1'];
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
 
 
 ?>
@@ -50,7 +52,7 @@ $pId=$_GET['pId1'];
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <?php echo "<a href='add-product.php?catName1=$catName2'><button class='btn btn-primary me-2'>Add Product</button></a> "; ?>
+                  <?php echo "<a href='add-product.php?catName1=$catName2&profilePath=$profilePath&uName=$uName'><button class='btn btn-primary me-2'>Add Product</button></a> "; ?>
                 </div>
               </div>
              </div>
@@ -93,15 +95,18 @@ $pId=$_GET['pId1'];
                           echo "<td>Color</td> <td>".$rows['color']."</td>";
                           echo "</tr>";
                           echo "<tr>";
+                          echo "</tr>";
+                          echo "<tr>";
                           echo "<td>Product Detail</td> <td>".$rows['productDetail']."</td>";
                           echo "</tr>";
                           
-                        
-                      echo "</tbody>";
+                          echo "</tbody>";
+                          //echo "<td>Image</td> <td><img src='".$rows['imagePath']."' height='100px' width='100px'></td>";
+                          echo "<span></span><img src='".$rows['imagePath']."' height='300px' width='300px'>";
                       }
                       ?>
                     </table>
-                    <a href='product-list-with-add-button.php?<?php echo"catName1=".$catName2?>'><button>Back to Product List</button></a>
+                    <a href='product-list-with-add-button.php?<?php echo"catName1=".$catName2.'&profilePath='.$profilePath.'&uName='.$uName?>'><button>Back to Product List</button></a>
                   </div>
                 </div>
               </div>

@@ -3,6 +3,8 @@ ob_start();
 //connect to databse
 include 'connection.php';
 $catName2=$_GET['catName1'];
+$profilePath=$_GET['profilePath'];
+$uName=$_GET['uName'];
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +47,7 @@ $catName2=$_GET['catName1'];
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <?php echo "<a href='add-product.php?catName1=$catName2'><button class='btn btn-primary me-2'>Add Product</button></a> "; ?>
+                  <?php echo "<a href='add-product.php?catName1=$catName2&profilePath=$profilePath&uName=$uName'><button class='btn btn-primary me-2'>Add Product</button></a> "; ?>
                 </div>
               </div>
              </div>
@@ -77,6 +79,9 @@ $catName2=$_GET['catName1'];
                             Price
                           </th>
                           <th>
+                            Image
+                          </th>
+                          <th>
                             Edit
                           </th>
                           <th>
@@ -88,13 +93,14 @@ $catName2=$_GET['catName1'];
                         </tr>
                       </thead>
                       <?php
-                      $result3=mysqli_query($conn,"select productId, productName, price from $catName2") or die("Error in show record");
+                      $result3=mysqli_query($conn,"select productId, productName, price,imagePath from $catName2") or die("Error in show record");
 
                       $srNo=0;
                       while($rows=mysqli_fetch_array($result3)){
                         $srNo=$srNo+1;
                         $pId=$rows['productId'];
-                      echo " <tbody>";
+                      // echo " <tbody>";
+                        echo " <tbody>";
                         echo "<tr>";
                           //<!-- <td class="py-1">
                           // <img src="../../images/faces/face1.jpg" alt="image"/>
@@ -103,9 +109,10 @@ $catName2=$_GET['catName1'];
                           echo "<td>".$pId."</td>";
                           echo "<td>".$rows['productName']."</td>";
                           echo "<td>".$rows['price']."</td>";
-                          echo "<td><a href='update-product.php?pId1=$pId&catName1=$catName2'>.Edit</a></td>";
-                          echo "<td><a href='delete-product.php?pId1=$pId&catName1=$catName2'>Delete</a></td>";
-                          echo "<td><a href='view-product.php?pId1=$pId&catName1=$catName2'>View</a></td>";
+                          echo "<td><img src='".$rows['imagePath']."'></td>";
+                          echo "<td><a href='update-product.php?pId1=$pId&catName1=$catName2&profilePath=$profilePath&uName=$uName'>.Edit</a></td>";
+                          echo "<td><a href='delete-product.php?pId1=$pId&catName1=$catName2&profilePath=$profilePath&uName=$uName'>Delete</a></td>";
+                          echo "<td><a href='view-product.php?pId1=$pId&catName1=$catName2&profilePath=$profilePath&uName=$uName'>View</a></td>";
                         echo "</tr>";
                       echo "</tbody>";
                       }

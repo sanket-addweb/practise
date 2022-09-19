@@ -31,9 +31,10 @@ if(isset($_POST['login'])){
   while($rows){
       session_start();
       $_SESSION['email']=$email;
-      $_SESSION['uName']=$rows['username'];
-      $_SESSION['profilePath']=$rows['img_url'];
-      header('Location:index.php');
+      $uName1=$rows['username'];
+      // $_SESSION['profilePath']=$rows['img_url'];
+      $profilePath=$rows['img_url'];
+      header("Location:index.php?profilePath=$profilePath&uName=$uName1");
       $loginSuccess=true;
       echo "<script>alert('Login successully')</script>";
 

@@ -5,12 +5,14 @@ ob_start();
 //connect to databse
 include 'connection.php';
 $catName2=$_GET['catName1'];
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
 
 if(isset($_POST['add-product'])){
 
     // create table
     $sql1="create table `$catName2` (
-        productId bigint(10) primary key, productName varchar(49), Price bigint(10), dimension varchar(80), color varchar(20), productDetail text(300)
+        productId bigint(10) primary key, productName varchar(49), Price bigint(10), dimension varchar(80), color varchar(20), productDetail text(300), imagePath varchar(30)
         )";
 
     $result1=mysqli_query($conn,$sql1);
@@ -28,12 +30,16 @@ if(isset($_POST['add-product'])){
     $pColor=$_POST['pColor'];
     $pDimension=$_POST['pDimension'];
     $pDetail=$_POST['pDetail'];
+    // $filePath='img/'.$_FILES['filePath']['name'];
+    $filePath='img/' .basename($_FILES["filePath"]["name"]);
+    // $filePath='img/'.$_FILES['filePath']['name'];
 
     // insert record
-    $result2=mysqli_query($conn,"insert into $catName2 values($pId,'$pName',$pPrice,'$pDimension','$pColor','$pDetail')");
-    
+    $result2=mysqli_query($conn,"insert into $catName2 values($pId,'$pName',$pPrice,'$pDimension','$pColor','$pDetail','$filePath')");
+    move_uploaded_file($_FILES['filePath']['tmp_name'],$filePath);
+    // move_uploaded_file($_FILES["imagePath"]["tmp_name"],$filePath);
     if($result2){
-        header("Location:product-list-with-add-button.php?catName1=$catName2");
+        header("Location:product-list-with-add-button.php?catName1=$catName2&profilePath=$profilePath&uName=$uName");
         // header("Location:index.php");
         echo "<script>successfully inserted category $catName2</script>";
     }
@@ -84,7 +90,7 @@ if(isset($_POST['add-product'])){
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <form class="forms-sample" method='post'>
+                  <form class="forms-sample" method='post' enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="pId" class="form-label">Product Id</label>
                         <input type="number" class="form-control" id="pId" aria-describedby="" name='pId' required>
@@ -113,14 +119,18 @@ if(isset($_POST['add-product'])){
                         <label for="pColor" class="form-label">Product Color</label>
                         <input type="text" class="form-control" id="pColor" name='pColor' required>
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="filePath" class="form-label">Product Image</label>
+                        <input type="file" class="form-control" id="filePath" name='filePath'>
+                    </div>
                     <div class="form-group">
                         <label for="pName" class="form-label">Product Detail</label>
                         <textarea name="pDetail" calss='form-control' id="" cols="70" rows="4" required></textarea>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary me-2" name='add-product'>Submit</button>
                   </form>
-                  <?php echo "<a href='product-list-with-add-button.php?catName1=$catName2'><button class='btn btn-light'>Cancel</button></a>" ?>
+                  <?php echo "<a href='product-list-with-add-button.php?catName1=$catName2&profilePath=$profilePath&uName=$uName'><button class='btn btn-light'>Cancel</button></a>" ?>
                 </div>
               </div>
              </div>

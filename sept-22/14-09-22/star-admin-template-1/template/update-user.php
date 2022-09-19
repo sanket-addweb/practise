@@ -1,13 +1,18 @@
 <?php
 ob_start();
 include 'connection.php';
-$email=$_GET['email1'];
-$result1=mysqli_query($conn,"select * from product_admin where email='$email'") or die("Error in fetching record");
+
+$email1=$_GET['email1'];
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
+
+$result1=mysqli_query($conn,"select * from product_admin where email='$email1'") or die("Error in fetching record");
 
 while($rows=mysqli_fetch_array($result1)){
-    $uName=$rows['username'];
+    $uName1=$rows['username'];
     $password=$rows['password'];
     $mobile=$rows['mobile'];
+    $filePath=$rows['img_url'];
     // $uName=$rows['username'];
 }
 
@@ -52,15 +57,15 @@ while($rows=mysqli_fetch_array($result1)){
                   <p class="card-description">
                     <!-- Basic form elements -->
                   </p>
-                  <form class="forms-sample" method='post'>
+                  <form class="forms-sample" method='post' enctype="multipart/form-data">
                     
                     <div class="form-group">
                         <label for="pPrice" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name='email'   value='<?php echo $email; ?>' readonly>
+                        <input type="email" class="form-control" id="email" name='email'   value='<?php echo $email1; ?>' readonly>
                     </div>
                     <div class="form-group">
                         <label for="pName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="uName" name='uName' value='<?php echo $uName; ?>' required>
+                        <input type="text" class="form-control" id="uName" name='uName' value='<?php echo $uName1; ?>' required>
                     </div>
                     <div class="form-group">
                         <label for="pDimension" class="form-label">Password</label>
@@ -70,9 +75,15 @@ while($rows=mysqli_fetch_array($result1)){
                         <label for="pColor" class="form-label">Mobile</label>
                         <input type="text" class="form-control" id="mobile" name='mobile' value='<?php echo $mobile; ?>'required>
                     </div>
+                    <div class="form-group">
+                        <label for="pColor" class="form-label">Upload Profile Image</label>
+                        <input type="file" class="form-control" id="filePath" name='filePath' value='<?php echo $filePath; ?>'>
+                        <?php // echo "<img width=30px height=30px src=".$filePath; ?>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary me-2" name='update-user'>Submit</button>
                   </form>
-                  <?php echo "<a href='user-list.php?'><button class='btn btn-light'>Cancel</button></a>" ?>
+                  <?php // echo "<a href='user-list.php?&uName=$uName&profilePath=$profilePath'><button class='btn btn-light'>Cancel</button></a>" ?>
                 </div>
               </div>
              </div>
@@ -125,13 +136,33 @@ if(isset($_POST['update-user'])){
   $uName2=$_POST['uName'];
   $password2=$_POST['password'];
   $mobile2=$_POST['mobile'];
-  $result2=mysqli_query($conn,"update product_admin set username='$uName2', password='$password2', mobile=$mobile2 where email='$email'") or die("Error in updating of user record");
+  $filePath1='img/'.$_FILES['filePath']['name'];
+  if($_FILES['filePath']['name']==null){
+    $filePath1=$filePath;
+  }
+  
+  $sql1="update product_admin set username='$uName2', password='$password2', mobile=$mobile2, img_url='$filePath1' where email='$email1'";
+  
+  move_uploaded_file($_FILES['filePath']['tmp_name'],$filePath1);
+
+  $result2=mysqli_query($conn,$sql1);
+  // move_uploaded_file($_FILES["imagePath"]["tmp_name"],$filePath);
   if($result2){
     echo "success in updating user record";
-    header("Location:user-list.php");
+    header("Location:user-list.php?profilePath=$profilePath&uName=$uName");
   }
-
+  else{
+    echo "Error in updating of user record";
+  }
 }
 
+// $folder = "images/mobile/";
+// move_uploaded_file($_FILES["imagepath"]["tmp_name"] , "$folder".$_FILES["imagepath"]["name"]);
+
+// $imagepath= $folder.$_FILES["imagepath"]["name"];
+// if($_FILES["imagepath"]["name"]=='')
+// {
+// $imagepath=$mimagepath;
+// }
 
 ?>

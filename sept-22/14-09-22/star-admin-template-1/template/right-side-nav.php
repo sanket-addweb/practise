@@ -1,6 +1,8 @@
 <?php
 
 include 'connection.php';
+$profilePath=$_GET['profilePath'];
+$uName=$_GET['uName'];
 
 ?>
 
@@ -188,7 +190,7 @@ include 'connection.php';
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href='index.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -203,9 +205,26 @@ include 'connection.php';
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 
-                <li class="nav-item"> <a class="nav-link" href="dropdowns.php">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="add-cat.php">Add Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="user-list.php">See All Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href='dropdowns.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href='add-cat.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Add Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href='user-list.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>See All Users</a></li>
+                
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">View Product</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Make Changes</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                
+                <li class="nav-item"> <a class="nav-link" href='dropdowns.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href='add-cat.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Add Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href='user-list.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>See All Users</a></li>
                 
               </ul>
             </div>

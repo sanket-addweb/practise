@@ -2,9 +2,15 @@
 
 include 'connection.php';
 session_start();
-$userName=$_SESSION['uName'];
+$userName=$_GET['uName'];
 $email=$_SESSION['email'];
-$profilePath=$_SESSION['profilePath'];
+$profilePath=$_GET['profilePath'];
+
+// $result1=mysqli_query($conn,"select * from product_admin where email=$email");
+// while($rows=mysqli_fetch_array($result1)){
+//   $userName=$rows['username'];
+//   $profilePath=$rows['img_url'];
+// }
 
 ?>
 
@@ -26,10 +32,10 @@ $profilePath=$_SESSION['profilePath'];
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.php">
+          <a class="navbar-brand brand-logo" href='index.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>
             <img src="images/logo.svg" alt="logo" />
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.php">
+          <a class="navbar-brand brand-logo-mini" href='index.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>
             <img src="images/logo-mini.svg" alt="logo" />
           </a>
         </div>
@@ -168,19 +174,24 @@ $profilePath=$_SESSION['profilePath'];
             </div>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-             <?php echo " <img class='round-img' src='$profilePath' alt='Profile image' height=30 width=30> </a> ";?>
+            <a class="nav-link" id="UserDropdown" href='profile-desplay.php?<?php echo "email1=".$email."&profilePath=".$profilePath."&uName=".$userName?>' data-bs-toggle="dropdown" aria-expanded="false">
+             <?php echo " <img class='img-sm rounded-10' src='$profilePath' alt='Profile image' > </a> ";?>
+
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+
               <div class="dropdown-header text-center">
-                <?php echo " <img class='round-img' src='$profilePath' alt='Profile image' height=30 width=30> </a> ";?>
+                <?php echo " <img class='round-img img-sm rounded-10' src='$profilePath' alt='Profile image' height=30 width=30 style='border-radius=40px;'> </a> ";?>
                 <p class="mb-1 mt-3 font-weight-semibold"><?php echo $userName; ?></p>
                 <p class="fw-light text-muted mb-0"><?php echo $email;?></p>
               </div>
+
               <?php
               echo "
-              <a class='dropdown-item' href='profile-desplay.php?email1=$email'><i class='dropdown-item-icon mdi mdi-account-outline text-primary me-2'></i> My Profile <span class='badge badge-pill badge-danger'>1</span></a>";
+              <a class='dropdown-item' href='profile-desplay.php?email1=$email&profilePath=$profilePath&uName=$userName'><i class='dropdown-item-icon mdi mdi-account-outline text-primary me-2'></i> My Profile <span class='badge badge-pill badge-danger'>1</span></a>";
               ?>
+
               <a class="dropdown-item" href='signup.php'><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Signup</a>
+
               <!-- <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a> -->
               <a class='dropdown-item' href='logout.php'><i class='dropdown-item-icon mdi mdi-power text-primary me-2'></i>Sign Out</a>

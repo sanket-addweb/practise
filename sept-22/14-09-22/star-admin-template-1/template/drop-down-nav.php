@@ -1,6 +1,8 @@
 <?php
 ob_start();
 include 'connection.php';
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
 
 ?>
 <!DOCTYPE html>
@@ -186,7 +188,7 @@ include 'connection.php';
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href='index.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>''>
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -201,9 +203,9 @@ include 'connection.php';
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 
-                <li class="nav-item"> <a class="nav-link" href="dropdowns.php">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="add-cat.php">Add Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="user-list.php">See All Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href='dropdowns.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href='add-cat.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>Add Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href='user-list.php?<?php echo "profilePath=".$profilePath."&uName=".$uName?>'>See All Users</a></li>
                 
               </ul>
             </div>

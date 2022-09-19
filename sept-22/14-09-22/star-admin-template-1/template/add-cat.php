@@ -3,6 +3,8 @@ $errorFetch=false;
 ob_start();
 //connect to databse
 include 'connection.php';
+$uName=$_GET['uName'];
+$profilePath=$_GET['profilePath'];
 
 if(isset($_POST['add-cat'])){
 
@@ -22,7 +24,7 @@ if(isset($_POST['add-cat'])){
     
     if($result1){
         // header("Location:index.php?catName1=$catName");
-        header("Location:index.php");
+        header("Location:index.php?profilePath=$profilePath&uName=$uName");
         echo "<script>successfully inserted category $catName</script>";
     }
     else{
@@ -91,7 +93,7 @@ if(isset($_POST['add-cat'])){
                     </div>
                     <button type="submit" class="btn btn-primary me-2" name='add-cat'>Submit</button>
                   </form>
-                  <a href='index.php'><button class="btn btn-light">Cancel</button></a>
+                  <?php echo "<a href='index.php?&profilePath=$profilePath&uName=$uName'><button class='btn btn-light'>Cancel</button></a>"?>
                 </div>
               </div>
              </div>
