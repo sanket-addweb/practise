@@ -12,10 +12,11 @@
     <form action="">
         <button onclick="show()">press to see json</button>
     </form>
-    <p id="demo"></p>
+    <p id="demo">This is</p>
     <script>
         function show() {
-            document.write("Welcome now");
+            // document.write("Welcome now");
+            document.getElementById("demo").innerText='Demo text';
             console.log('welcome now');
             var req = new XMLHttpRequest();
 
@@ -32,14 +33,47 @@
             req.onload = function () {
                 if (this.status === 200) {
                     // console.log(this.responseText);
-                    var jsonObj = JSON.parse(this.responseText);
-                    console.log(jsonObj);
-                    let text="";
-                    for(let x in jsonObj){
-                        text=text+jsonObj[x];
+                    var jsonObjArray = JSON.parse(this.responseText);
+                    console.log(jsonObjArray);
+                    console.log(jsonObjArray[0]);
+                    console.log(jsonObjArray[0]['name']);
+                    alert(jsonObjArray[0]['name']);
+                    document.getElementById("demo").innerText=jsonObjArray[0]['name'];
+                    // jsonObjArray.forEach(element => {
+                         
+                      
+                    // });
+
+                    data = [];
+                    i=0;
+                    const fruits=jsonObjArray;
+                    fruits.forEach(myFunction);
+                    function myFunction(item, index, arr) {
+                        arr[index] = item[index];
                     }
-                    console.log(text.name);
-                    document.getElementById("demo").innerHTML=jsonObj;
+
+                    var text = [];
+                    for (let x in jsonObjArray) {
+                        text[x]= jsonObjArray[x];
+                    }
+                    console.log(text);
+                   
+                    // function myFunction(item, index) {
+                    //     data[i] =item;
+                    // }
+                    // fruits.forEach(function (item, index) {
+                    //     data[i] =item;
+                    // });
+                    // console.log(data);
+
+                    // const myJSONString = JSON.stringify(jsonObj);
+                    // console.log(myJSONString);
+                    // let text="";
+                    // for(let x in jsonObj){
+                    //     text=text+jsonObj[x];
+                    // }
+                    // console.log(text.name);
+                    // document.getElementById("demo").innerHTML=jsonObj;
 
                 }
 
